@@ -1,0 +1,100 @@
+.scroll-reveal {
+  margin: 20px 0;
+}
+
+.scroll-reveal-text {
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  line-height: 1.5;
+  font-weight: 600;
+  margin: 0;
+  color: inherit; /* Allow parent color to be inherited */
+}
+
+.word {
+  display: inline-block;
+  color: inherit; /* Allow parent color to be inherited */
+}
+
+/* Override for service titles - maintain gold text color */
+.scroll-reveal .h5.text-white.gold-text {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  
+  /* Apply the exact gold-text styling to the container */
+  background: linear-gradient(
+    180deg,
+    #FFFDF5  0% ,
+    #f3c6c8  8% ,
+    #ec9799 20% ,
+    #f3878b 36% ,
+    #ee595e 52% ,
+    #ec3339 66% ,
+    #e2171e 82% ,
+    #e2171e 100%
+  ) no-repeat center/100% 100% !important;
+  
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  text-shadow: 1px 1px 0 #e2171e !important;
+  filter: drop-shadow(0 0 4px rgba(212,175,55,.35)) !important;
+  position: relative !important;
+  display: inline-block !important;
+}
+
+/* Custom service title styling */
+.scroll-reveal-text.service-title-custom {
+  margin: 1.5rem 0 !important;
+  font-size: 1.2rem !important;
+  font-weight: 900px !important;
+  line-height: 1.2 !important;
+  color: var(--primary-t-color) !important;
+  -ms-word-wrap: break-word !important;
+  word-wrap: break-word !important;
+}
+
+.scroll-reveal-text.service-title-custom .word {
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+}
+
+/* Ensure individual words inherit the transparent color from parent */
+.scroll-reveal .h5.text-white.gold-text .word {
+  font-size: inherit;
+  line-height: inherit;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: inherit !important;
+  color: inherit !important;
+  text-shadow: inherit !important;
+  filter: none !important;
+  display: inline;
+}
+
+/* Gold styling for icons - simplified and reliable */
+.gold-icon {
+  color: #e2171e !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
+  filter: drop-shadow(0 4px 8px rgba(226, 23, 30, 0.3)) !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+}
+
+.gold-icon:hover {
+  color: #df0c1e !important;
+  transform: scale(1.1) translateY(-3px) !important;
+  filter: drop-shadow(0 8px 16px rgba(226, 23, 30, 0.5)) !important;
+}
+
+/* Override for service descriptions - maintain secondary text color */
+.scroll-reveal .text-secondary,
+.scroll-reveal .text-secondary .word {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #6c757d !important; /* Bootstrap text-secondary color */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
+}
