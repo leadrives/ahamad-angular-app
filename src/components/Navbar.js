@@ -31,7 +31,11 @@ const Navbar = () => {
             padding: '8px',
             borderRadius: '8px',
             backgroundColor: isMenuOpen ? '#df0c1e' : 'transparent',
-            transition: 'all 0.3s ease'
+            transition: 'all 0.3s ease',
+            pointerEvents: 'auto',
+            cursor: 'pointer',
+            zIndex: '1061',
+            position: 'relative'
           }}
         >
           {isMenuOpen ? (
@@ -48,7 +52,7 @@ const Navbar = () => {
           left: isMenuOpen ? '0' : 'auto',
           right: isMenuOpen ? '0' : 'auto',
           bottom: isMenuOpen ? '0' : 'auto',
-          zIndex: isMenuOpen ? '9999' : 'auto',
+          zIndex: isMenuOpen ? '1059' : 'auto',
           padding: isMenuOpen ? '20px' : '0',
           overflowY: isMenuOpen ? 'auto' : 'visible'
         }}>
@@ -199,23 +203,51 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="https://www.instagram.com/mroneproperties/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" style={{
-                fontSize: isMenuOpen ? '1.1rem' : '1rem',
-                padding: isMenuOpen ? '12px 0' : '8px 16px',
-                display: 'flex',
-                alignItems: 'center'
-              }}>
+              <a 
+                className="nav-link" 
+                href="https://www.instagram.com/mroneproperties/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Follow us on Instagram"
+                onClick={(e) => {
+                  // Allow the link to work
+                  e.stopPropagation();
+                  window.open('https://www.instagram.com/mroneproperties/', '_blank', 'noopener,noreferrer');
+                }}
+                style={{
+                  fontSize: isMenuOpen ? '1.1rem' : '1rem',
+                  padding: isMenuOpen ? '12px 0' : '8px 16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  pointerEvents: 'auto',
+                  cursor: 'pointer'
+                }}
+              >
                 <i className="fa-brands fa-instagram" aria-hidden="true" style={{ color: '#fff', width: '20px' }}></i>
                 <span className="d-lg-none ms-2">Instagram</span>
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="https://wa.me/971562279111" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp" style={{
-                fontSize: isMenuOpen ? '1.1rem' : '1rem',
-                padding: isMenuOpen ? '12px 0' : '8px 16px',
-                display: 'flex',
-                alignItems: 'center'
-              }}>
+              <a 
+                className="nav-link" 
+                href="https://wa.me/971562279111" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Contact us on WhatsApp"
+                onClick={(e) => {
+                  // Allow the link to work
+                  e.stopPropagation();
+                  window.open('https://wa.me/971562279111', '_blank', 'noopener,noreferrer');
+                }}
+                style={{
+                  fontSize: isMenuOpen ? '1.1rem' : '1rem',
+                  padding: isMenuOpen ? '12px 0' : '8px 16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  pointerEvents: 'auto',
+                  cursor: 'pointer'
+                }}
+              >
                 <i className="fa-brands fa-whatsapp" aria-hidden="true" style={{ color: '#fff', width: '20px' }}></i>
                 <span className="d-lg-none ms-2">WhatsApp</span>
               </a>

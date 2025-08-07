@@ -1,0 +1,166 @@
+/* Mobile Fix CSS - Critical Mobile Responsive Fixes */
+
+/* Ensure all main content sections have proper z-index stacking */
+.App > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Override any conflicting z-index values */
+.pc-user-info,
+.pc-content,
+.pc-glare,
+.pc-shine {
+  z-index: 1 !important;
+}
+
+/* Ensure navbar is always on top */
+.navbar {
+  z-index: 1060 !important;
+}
+
+.navbar-toggler {
+  z-index: 1061 !important;
+}
+
+.navbar-brand {
+  z-index: 1061 !important;
+}
+
+.navbar-collapse {
+  z-index: 1059 !important;
+}
+
+/* Mobile viewport fixes */
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Ensure hero section is visible */
+  .hero {
+    padding-top: 100px !important;
+    min-height: 100vh !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+  
+  .hero .container {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+  
+  /* Fix all main sections */
+  .services-section,
+  .testimonials-section,
+  .about-section,
+  .portfolio-gallery,
+  .partners-section,
+  .investment-calculator,
+  .golden-visa,
+  .cta-section,
+  .latest-news,
+  .footer {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+  
+  /* Ensure mobile navigation works */
+  .navbar-collapse.show {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Mobile navigation items - ensure they're clickable */
+  .navbar-nav .nav-link {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+  }
+  
+  /* Social media icons - make them visible and clickable */
+  .navbar-nav.align-items-center .nav-item {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+  
+  .navbar-nav.align-items-center .nav-link {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+  }
+  
+  /* Hamburger menu - ensure it's always visible and clickable */
+  .navbar-toggler {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    touch-action: manipulation !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+  }
+  
+  /* Fix button interactions */
+  .btn,
+  .nav-link,
+  .dropdown-toggle {
+    touch-action: manipulation !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Ensure text is readable */
+  .hero h1,
+  .hero .lead,
+  .services-section h3,
+  .services-section p {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+  }
+  
+  /* Make sure icons are visible */
+  .services-section .icon-lg {
+    color: #df0c1e !important;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5)) !important;
+  }
+}
+
+/* Additional mobile touch improvements */
+@media (max-width: 480px) {
+  /* Larger touch targets */
+  .navbar-toggler {
+    min-width: 48px !important;
+    min-height: 48px !important;
+  }
+  
+  .nav-link {
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  /* Improve readability */
+  .hero h1 {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .hero .lead {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* Force hardware acceleration for smooth animations */
+.navbar-collapse,
+.navbar-toggler,
+.nav-link,
+.btn {
+  will-change: transform !important;
+  transform: translateZ(0) !important;
+}

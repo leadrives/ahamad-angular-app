@@ -263,11 +263,11 @@ img {
   transform: translateZ(0);
 }
 
-/* 4) Navbar Overrides - Match Reference Styling */
+/* ── NAVBAR OVERRIDES ── */
 .navbar {
   position: fixed;
   top: 0;
-  z-index: 1050;
+  z-index: 1060;
   width: 100%;
   background-color: var(--header-bg-color);
   padding: 20px 25px;
@@ -464,6 +464,7 @@ img {
   align-items: center;
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 /* Galaxy Background Animation */
@@ -603,11 +604,11 @@ img {
   }
 }
 
-/* Enhanced Mobile Navigation */
+/* Mobile Navigation - Fixed z-index */
 @media (max-width: 767.98px) {
   /* Main Navbar Container */
   .navbar {
-    z-index: 1050;
+    z-index: 1060;
     position: fixed;
     background: rgba(17, 17, 17, 0.95);
     backdrop-filter: blur(15px);
@@ -617,7 +618,13 @@ img {
   .navbar-brand {
     font-size: 1.2rem;
     padding: 0.5rem 0;
-    z-index: 1051;
+    z-index: 1061;
+    position: relative;
+  }
+  
+  /* Navbar Toggler */
+  .navbar-toggler {
+    z-index: 1061;
     position: relative;
   }
   
@@ -710,7 +717,7 @@ img {
     height: 50px;
     border-radius: 12px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1051;
+    z-index: 1061;
   }
   
   .navbar-toggler:hover {
@@ -794,7 +801,7 @@ img {
     height: 100vh;
     background: linear-gradient(135deg, rgba(17, 17, 17, 0.98) 0%, rgba(25, 25, 25, 0.95) 100%);
     backdrop-filter: blur(20px);
-    z-index: 1049;
+    z-index: 1059;
     transform: translateX(-100%);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
@@ -1296,12 +1303,12 @@ img {
   .hero-img {
     display: none;
   }
-}/* ─────────────────────────────────
-   1) SERVICES SECTION
-   ───────────────────────────────── */
+}/* Services Section - Ensure proper stacking */
 .services-section {
   background-color: var(--bg-dark);
   padding: 0;
+  position: relative;
+  z-index: 1;
 }
 
 /* Separator wrapper */
