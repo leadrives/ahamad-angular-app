@@ -456,14 +456,16 @@ img {
 
 /* 5) Hero Section */
 .hero {
-  /* offset for fixed navbar - adjusted for reference navbar height */
-  padding-top: 15px;
+  /* offset for fixed navbar - adjusted for proper navbar height */
+  padding-top: 120px;
+  padding-bottom: 60px;
   min-height: 100vh;
   background-color: var(--hero-bg-color);
   display: flex;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   z-index: 1;
 }
 
@@ -1299,11 +1301,63 @@ img {
     margin: 0.5rem auto;
   }
   
-  /* Hide the image element on mobile since we're using background */
+  /* Show the hero image on mobile with proper styling */
   .hero-img {
-    display: none;
+    display: block;
+    max-height: 400px;
+    width: 100%;
+    object-fit: contain;
+    margin: 20px auto;
   }
-}/* Services Section - Ensure proper stacking */
+  
+  .hero-image-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 15px;
+    overflow: visible;
+  }
+}
+
+/* Desktop Hero Section Enhancement */
+@media (min-width: 768px) {
+  .hero-img {
+    display: block;
+    max-height: 700px;
+    width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
+    border-radius: 12px;
+  }
+  
+  .hero-image-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    overflow: visible;
+  }
+}
+
+/* Large Desktop Hero Enhancement */
+@media (min-width: 992px) {
+  .hero-img {
+    max-height: 800px;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .hero-image-container {
+    padding: 60px 30px;
+  }
+}
+
+/* Services Section - Ensure proper stacking */
 .services-section {
   background-color: var(--bg-dark);
   padding: 0;

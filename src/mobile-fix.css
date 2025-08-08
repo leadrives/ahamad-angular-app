@@ -57,25 +57,30 @@ body {
   box-sizing: border-box;
 }
 
-/* 5. Mobile Typography */
+/* 5. Mobile Typography - Less Aggressive */
 @media (max-width: 767.98px) {
-  h1, .h1, .display-1, .display-2 { 
-    font-size: var(--mobile-h1) !important;
-    line-height: 1.3;
+  h1, .h1 { 
+    font-size: clamp(28px, 7vw, 42px);
+    line-height: 1.2;
+  }
+  
+  .display-1, .display-2 { 
+    font-size: clamp(32px, 8vw, 48px);
+    line-height: 1.1;
   }
   
   h2, .h2, .display-3, .display-4 { 
-    font-size: var(--mobile-h2) !important;
-    line-height: 1.4;
+    font-size: clamp(24px, 6vw, 32px);
+    line-height: 1.3;
   }
   
   h3, .h3, .display-5 { 
-    font-size: var(--mobile-h3) !important;
+    font-size: clamp(20px, 5vw, 28px);
     line-height: 1.4;
   }
   
   p, .lead {
-    font-size: var(--mobile-base-font) !important;
+    font-size: clamp(16px, 4vw, 18px);
     line-height: 1.6;
   }
 }
@@ -129,23 +134,33 @@ body {
   }
 }
 
-/* 8. Mobile Hero Section Fix */
+/* 8. Mobile Hero Section Fix - Less Aggressive */
 @media (max-width: 767.98px) {
   .hero {
-    padding-top: clamp(80px, 20vw, 120px) !important;
-    padding-bottom: clamp(40px, 10vw, 60px) !important;
+    padding-top: clamp(100px, 15vh, 130px);
+    padding-bottom: clamp(60px, 8vh, 80px);
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
   
   .hero .container,
   .hero .container-fluid {
-    padding-top: var(--mobile-padding);
+    padding-top: 20px;
+    max-width: 100%;
   }
   
   .hero-img {
-    max-height: clamp(300px, 60vw, 500px) !important;
-    margin: var(--mobile-margin) auto !important;
+    max-height: clamp(400px, 50vh, 600px);
+    width: 100%;
+    object-fit: contain;
+    margin: 20px auto;
+  }
+  
+  .hero-image-container {
+    padding: 20px 15px;
+    max-height: 70vh;
+    overflow: visible;
   }
 }
 
