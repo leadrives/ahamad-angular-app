@@ -3810,3 +3810,8 @@ img {
   background-color: #e74147 !important;
   border-color: #e2151b !important;
 }
+
+/* ============================================================================
+   MOBILE FIX IMPORT - Load at end to override conflicts
+   ============================================================================ */
+@import url('./mobile-fix.css');
