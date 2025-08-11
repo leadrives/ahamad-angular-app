@@ -88,8 +88,9 @@ const TestimonialsSection = () => {
                 className="d-inline-block"
               />
             </h2>
-            <p className="lead mx-auto" style={{maxWidth: '600px', color: '#6d6d6dff'}}>
+            <div className="lead mx-auto" style={{maxWidth: '600px', color: '#6d6d6dff'}}>
               <TextType 
+                as="span"
                 text={["From luxury to lucrative—Mr. Ahmad steers your Dubai property wins.", "Exceptional service, extraordinary outcomes.", "Your success story starts here."]}
                 typingSpeed={50}
                 pauseDuration={2000}
@@ -98,7 +99,7 @@ const TestimonialsSection = () => {
                 initialDelay={2000}
                 className="d-inline-block"
               />
-            </p>
+            </div>
           </div>
         </div>
 

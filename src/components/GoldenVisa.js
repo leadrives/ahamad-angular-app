@@ -8,9 +8,20 @@ const GoldenVisa = () => {
         <div className="row">
           <div className="col-lg-12 text-center">
             <div className="section-header mb-4">
-              <h2 className="section-heading mb-2 text-white display-4 fw-bold">
-                <i className="fa-solid fa-crown me-2"></i>
-                Unlock the Elite Golden Visa
+              <h2 className="section-heading mb-2 text-white display-4 fw-bold d-flex align-items-center justify-content-center flex-wrap">
+               
+                <img 
+                  src="/assets/Golden-Visa_Logo_-ICon.webp" 
+                  alt="Golden Visa Logo" 
+                  className="mx-2"
+                  style={{
+                    height: '1.2em',
+                    width: 'auto',
+                    verticalAlign: 'middle',
+                    objectFit: 'contain'
+                  }}
+                />
+                {' '}Golden Visa
               </h2>
               <p className="section-subheading mb-2 lead text-secondary">
                 Your Complete One-Stop Solution for Dubai Real Estate & UAE Residency

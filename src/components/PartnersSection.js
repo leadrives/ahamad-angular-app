@@ -22,7 +22,7 @@ const PartnersSection = () => {
         <div className="row justify-content-center mb-5">
           <div className="col-lg-6 text-center">
             <h2 className="display-5 fw-bold text-white mb-0">
-              Partners With
+              Partners
             </h2>
           </div>
         </div>

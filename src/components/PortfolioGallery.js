@@ -179,7 +179,7 @@ const PortfolioGallery = () => {
         <div className="row align-items-center mb-4">
           <div className="col-md-8 text-center text-md-start">
             <h2 className="display-5 fw-bold text-white mb-2">
-              Premium Property Listings
+              Premium Listings
             </h2>
             <p className="text-secondary mb-0">
               Discover our handpicked selection of luxury Dubai properties.

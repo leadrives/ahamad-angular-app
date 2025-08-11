@@ -4,7 +4,7 @@ import DotGrid from './DotGrid';
 const Hero = () => {
   return (
     <main>
-      <section className="hero full-bleed d-flex align-items-center position-relative" id="home" style={{ overflow: 'hidden' }}>
+      <section className="hero full-bleed d-flex align-items-center position-relative" id="home">
         {/* DotGrid Interactive Background - Hidden for now
         <div style={{ width: '100%', height: '100vh', position: 'absolute', top: 0, left: 0, zIndex: 1 }}>
           <DotGrid
@@ -27,15 +27,20 @@ const Hero = () => {
             <div className="col-md-8 text-center text-md-start">
               <header>
                 <h1 className="display-1 fw-bold gold-text" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                  Invest Smart.<br />
-                  Live Grand.
+                  Dubai’s Record<br />
+                  Breaking Agent
                 </h1>
               </header>
+              <p className="text-secondary fw-bold mt-2" style={{ 
+                textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+              }}>
+                Advisor behind the largest single purchase in Emaar history.
+              </p>
               <p className="lead mt-3 text-secondary" style={{ 
                 textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
               }}>
-                I help investors and families secure high‑yield Dubai properties—from launch-day off‑plan deals to iconic villas—backed by data, discretion, and end‑to‑end support (yes, including Golden Visas). Let's turn addresses into assets.
-              </p>
+                Record-breaking pedigree, investor-grade discipline. I help families and investors lock in Dubai’s best opportunities with data-driven strategy, first-pick allocations, and seamless execution (including Golden Visas). </p>
+              
               <div className="mt-4 d-flex flex-column flex-sm-row justify-content-center justify-content-md-start">
                 <button 
                   type="button" 
@@ -77,9 +82,8 @@ const Hero = () => {
                     filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.5))',
                     zIndex: 2,
                     position: 'relative',
-                    maxWidth: '120%',
                     height: 'auto',
-                    transform: 'scale(1.2)'
+                    objectFit: 'contain'
                   }}
                 />
                 {/* Glow effect behind the image */}
