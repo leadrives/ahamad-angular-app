@@ -3,7 +3,7 @@
 /* Ensure all main content sections have proper z-index stacking */
 .App > * {
   position: relative;
-  z-index: 1;
+  z-index: 2; /* Above hero section */
 }
 
 /* Override any conflicting z-index values */
@@ -16,7 +16,7 @@
 
 /* Ensure navbar is always on top */
 .navbar {
-  z-index: 1060 !important;
+  z-index: 1070 !important; /* Bootstrap's highest z-index + 10 */
 }
 
 .navbar-toggler {
@@ -40,17 +40,39 @@
     max-width: 100% !important;
   }
   
-  /* Ensure hero section is visible */
-  .hero {
-    padding-top: 0px !important;
+  /* Ensure hero section is visible - updated for new structure */
+  .hero-section.full-bleed {
     min-height: 100vh !important;
     position: relative !important;
-    z-index: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
-  .hero .container {
+  .hero-content {
     position: relative !important;
     z-index: 2 !important;
+    padding-top: 60px !important; /* Account for mobile navbar */
+  }
+  
+  /* Fix video background on mobile - updated for new structure */
+  .hero-bg {
+    position: absolute !important;
+    inset: 0 !important;
+    overflow: hidden !important;
+    z-index: 0 !important;
+  }
+  
+  .hero-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  
+  .hero-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
   }
   
   /* Fix all main sections */
@@ -144,15 +166,70 @@
     align-items: center !important;
   }
   
-  /* Improve readability */
-  .hero h1 {
-    font-size: 2.5rem !important;
-    line-height: 1.2 !important;
+  /* Improve readability with highest specificity */
+  section#home .hero-title,
+  .hero-section .hero-title,
+  h1.hero-title {
+    font-size: 4.5rem !important; /* Maintain requested size */
+    line-height: 1.1 !important;
+    text-shadow: 0 8px 20px rgba(0, 0, 0, 1) !important;
+    color: #ffffff !important;
+    margin-top: 0.5rem !important;
+    font-family: 'Italiana', serif !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
   }
   
-  .hero .lead {
-    font-size: 1rem !important;
+  section#home .hero-title .line-2,
+  .hero-section .hero-title .line-2,
+  h1.hero-title .line-2 {
+    color: #FCA311 !important;
+    font-weight: 600 !important;
+    font-family: 'Italiana', serif !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem !important;
     line-height: 1.5 !important;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8) !important;
+    color: #ffffff !important;
+    margin: 0.5rem auto 0.8rem !important;
+  }
+  
+  /* Adjust content positioning */
+  .hero-content {
+    padding-top: 30px !important;
+  }
+  
+  /* Fix iOS video display - updated for new structure */
+  .hero-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .hero-bg,
+  .hero-overlay {
+    position: absolute !important;
+    inset: 0 !important;
+    height: 100vh !important;
+    height: -webkit-fill-available !important; /* iOS Safari fix */
+  }
+  
+  .hero-video {
+    width: 100% !important;
+    height: 100% !important;
+    height: -webkit-fill-available !important; /* iOS Safari fix */
+    object-fit: cover !important;
+  }
+  
+  /* Prevent iOS Safari address bar interference */
+  .hero-section.full-bleed {
+    height: 100vh !important;
+    height: -webkit-fill-available !important;
   }
 }
 

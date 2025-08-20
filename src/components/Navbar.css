@@ -1,0 +1,506 @@
+/* Navbar.css - Modern styling for the navigation bar */
+
+/* Import Great Vibes font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.navbar {
+  padding: .85rem 0;
+  transition: background .4s cubic-bezier(.25,.4,.25,1), box-shadow .4s cubic-bezier(.25,.4,.25,1), padding .3s cubic-bezier(.25,.4,.25,1), backdrop-filter .4s cubic-bezier(.25,.4,.25,1);
+  background: rgba(15, 15, 15, 0.75);
+  -webkit-backdrop-filter: blur(12px) saturate(140%) brightness(1.05);
+  backdrop-filter: blur(12px) saturate(140%) brightness(1.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.navbar[data-transparent="true"] { 
+  background: rgba(0,0,0,0.02);
+  border-bottom-color: rgba(255,255,255,0.02);
+  -webkit-backdrop-filter: blur(1px) saturate(110%) brightness(1.2);
+  backdrop-filter: blur(1px) saturate(110%) brightness(1.2);
+  box-shadow: none;
+}
+
+.navbar[data-transparent="true"] .nav-link {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.navbar[data-transparent="true"] .brand-text,
+.navbar[data-transparent="true"] .brand-highlight {
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.7);
+}
+
+.navbar-scrolled {
+  background: rgba(20, 20, 20, 0.98);
+  -webkit-backdrop-filter: blur(25px) saturate(180%) brightness(1.15);
+  backdrop-filter: blur(25px) saturate(180%) brightness(1.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 
+              0 0 0 1px rgba(252, 163, 17, 0.15) inset,
+              0 6px 20px rgba(0, 0, 0, 0.25),
+              0 2px 8px rgba(252, 163, 17, 0.1);
+  padding: .5rem 0;
+  border-bottom: 1px solid rgba(252, 163, 17, 0.25);
+}
+
+/* Enhanced visibility when navbar is scrolled */
+.navbar-scrolled .nav-link {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: none;
+}
+
+/* Enhanced visibility for regular navbar (not transparent, not scrolled) */
+.navbar:not([data-transparent="true"]):not(.navbar-scrolled) .nav-link {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar:not([data-transparent="true"]):not(.navbar-scrolled) .nav-link:hover,
+.navbar:not([data-transparent="true"]):not(.navbar-scrolled) .nav-link:focus {
+  color: #FCA311;
+  background: rgba(252, 163, 17, 0.08);
+}
+
+.navbar:not([data-transparent="true"]):not(.navbar-scrolled) .nav-link.active {
+  color: #FCA311;
+  background: rgba(252, 163, 17, 0.12);
+}
+
+.navbar-scrolled .nav-link:hover,
+.navbar-scrolled .nav-link:focus {
+  color: #FCA311;
+  background: rgba(252, 163, 17, 0.1);
+}
+
+.navbar-scrolled .nav-link.active {
+  color: #FCA311;
+  background: rgba(252, 163, 17, 0.15);
+}
+
+.navbar-scrolled .brand-text,
+.navbar-scrolled .brand-highlight {
+  text-shadow: none;
+}
+
+/* Enhanced dropdown styling when navbar is scrolled */
+.navbar-scrolled .dropdown-menu {
+  background-color: rgba(26, 26, 26, 0.98);
+  border: 1px solid rgba(252, 163, 17, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-scrolled .dropdown-item {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar-scrolled .dropdown-item:hover,
+.navbar-scrolled .dropdown-item:focus {
+  color: #FCA311;
+  background-color: rgba(252, 163, 17, 0.15);
+}
+
+/* Navbar brand with enhanced visibility */
+.navbar-brand {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 400;
+  font-size: 2rem;
+  position: relative;
+  padding: 0;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(.25,.4,.25,1);
+}
+
+.brand-text {
+  color: #ffffff;
+  font-family: 'Great Vibes', cursive;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  transition: all 0.3s cubic-bezier(.25,.4,.25,1);
+}
+
+.brand-highlight {
+  color: #FCA311;
+  margin-left: 0.25rem;
+  font-family: 'Great Vibes', cursive;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  transition: all 0.3s cubic-bezier(.25,.4,.25,1);
+}
+
+.navbar-nav {
+  margin-left: auto;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+  margin: 0 0.25rem;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(.25,.4,.25,1);
+  position: relative;
+  font-size: 0.95rem;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.nav-link:hover, .nav-link:focus {
+  color: #FCA311;
+  transform: translateY(-2px);
+  text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+}
+
+.nav-link.active {
+  color: #FCA311;
+  background: linear-gradient(90deg, rgba(252,163,17,0.18), rgba(223,12,30,0.15));
+  font-weight: 600;
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+  background-color: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  min-width: 200px;
+}
+
+.dropdown-item {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.7rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(.25,.4,.25,1);
+  font-size: 0.9rem;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #FCA311;
+  background-color: rgba(252, 163, 17, 0.1);
+}
+
+/* Call to action button */
+.nav-cta {
+  margin-left: 1.5rem;
+}
+
+.nav-cta .btn-primary {
+  background: linear-gradient(45deg, #FCA311, #FF8500);
+  border: none;
+  color: #000;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(.25,.4,.25,1);
+}
+
+.nav-cta .btn-primary:hover, .nav-cta .btn-primary:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(252, 163, 17, 0.4);
+  background: linear-gradient(45deg, #FF8500, #FCA311);
+}
+
+/* Social media icons */
+.nav-social {
+  margin-left: 1rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.nav-social a {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(.25,.4,.25,1);
+  background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  box-shadow: 0 2px 6px -2px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.04) inset;
+}
+
+.nav-social a:hover {
+  color: #FCA311;
+  transform: translateY(-3px);
+  background: linear-gradient(145deg, rgba(252,163,17,0.15), rgba(223,12,30,0.15));
+  box-shadow: 0 8px 18px -6px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06) inset;
+}
+
+/* Mobile menu toggle button */
+.navbar-toggler {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border: none;
+  padding: 0;
+  background: transparent;
+  transition: all 0.3s cubic-bezier(.25,.4,.25,1);
+}
+
+.toggler-icon {
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(.25,.4,.25,1);
+  left: 8px;
+}
+
+.toggler-icon::before, .toggler-icon::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(.25,.4,.25,1);
+}
+
+.toggler-icon::before {
+  transform: translateY(-8px);
+}
+
+.toggler-icon::after {
+  transform: translateY(8px);
+}
+
+.navbar-toggler.active .toggler-icon {
+  background-color: transparent;
+}
+
+.navbar-toggler.active .toggler-icon::before {
+  transform: rotate(45deg);
+  background-color: #FCA311;
+}
+
+.navbar-toggler.active .toggler-icon::after {
+  transform: rotate(-45deg);
+  background-color: #FCA311;
+}
+
+/* Mobile menu styles */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: clamp(300px, 85vw, 380px);
+    height: 100vh;
+    background: linear-gradient(160deg, rgba(8,8,8,0.98) 0%, rgba(18,18,18,0.99) 40%, rgba(22,22,22,1) 100%);
+    -webkit-backdrop-filter: blur(30px) saturate(160%);
+    backdrop-filter: blur(30px) saturate(160%);
+    z-index: 1071;
+    padding: 4rem 1.5rem 2rem;
+    transform: translateX(-105%);
+    transition: transform .6s cubic-bezier(.7,.1,.25,1);
+    overflow-y: auto;
+    box-shadow: 0 0 60px -10px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.05) inset;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .navbar-collapse.show {
+    transform: translateX(0);
+  }
+  
+  body.menu-open { 
+    overflow: hidden; 
+  }
+
+  .nav-overlay { 
+    position: fixed; 
+    inset: 0; 
+    background: rgba(0,0,0,0.7); 
+    -webkit-backdrop-filter: blur(8px); 
+    backdrop-filter: blur(8px); 
+    z-index: 1069; 
+    animation: fadeOverlay 0.3s cubic-bezier(.25,.4,.25,1); 
+  }
+  
+  /* Mobile Menu Header */
+  .navbar-collapse::before {
+    content: 'Menu';
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    color: #FCA311;
+  }
+  
+  /* Enhanced Mobile Navigation Layout */
+  .navbar-nav {
+    width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem;
+  }
+  
+  .nav-item {
+    margin: 0 !important;
+    width: 100%;
+  }
+  
+  /* Modern Card-Style Menu Items */
+  .nav-link { 
+    font-size: 1.1rem !important; 
+    padding: 1rem 1.2rem !important; 
+    display: flex !important; 
+    align-items: center !important; 
+    font-weight: 500 !important; 
+    letter-spacing: 0.3px !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    margin-bottom: 0.5rem !important;
+    transition: all 0.3s cubic-bezier(.25,.4,.25,1) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-decoration: none !important;
+  }
+  
+  .nav-link:hover, .nav-link:focus { 
+    color: #FCA311 !important; 
+    background: linear-gradient(135deg, rgba(252,163,17,0.15) 0%, rgba(252,163,17,0.08) 100%) !important; 
+    border-color: rgba(252,163,17,0.3) !important;
+    transform: translateX(8px) !important;
+    box-shadow: 0 6px 20px rgba(252,163,17,0.15) !important;
+  }
+
+  .nav-link.active {
+    color: #FCA311 !important;
+    background: linear-gradient(135deg, rgba(252,163,17,0.2) 0%, rgba(252,163,17,0.1) 100%) !important;
+    border-color: rgba(252,163,17,0.4) !important;
+    box-shadow: 0 4px 15px rgba(252,163,17,0.2) !important;
+  }
+  
+  /* Dropdown Improvements */
+  .dropdown-menu { 
+    background: rgba(25,25,25,0.95) !important; 
+    border: 1px solid rgba(255,255,255,0.1) !important; 
+    margin: 0.5rem 0 1rem 0 !important; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important; 
+    padding: 0.5rem !important; 
+    border-radius: 10px !important; 
+    backdrop-filter: blur(15px) !important;
+  }
+  
+  .dropdown-item { 
+    padding: 0.8rem 1rem !important; 
+    border-radius: 8px !important; 
+    font-size: 0.95rem !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.2s ease !important;
+    margin-bottom: 0.2rem !important;
+  }
+  
+  .dropdown-item:hover, .dropdown-item:focus { 
+    background: rgba(252,163,17,0.12) !important; 
+    color: #FCA311 !important;
+    transform: translateX(4px) !important;
+  }
+  
+  /* Mobile CTA and Social Section */
+  .mobile-cta {
+    margin-top: 2rem !important;
+    padding-top: 2rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  .mobile-cta .btn {
+    width: 100% !important;
+    padding: 1rem 1.5rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    background: linear-gradient(135deg, #FCA311 0%, #E09212 100%) !important;
+    border: none !important;
+    box-shadow: 0 6px 20px rgba(252,163,17,0.3) !important;
+    transition: all 0.3s cubic-bezier(.25,.4,.25,1) !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .mobile-cta .btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(252,163,17,0.4) !important;
+  }
+  
+  .mobile-social {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    margin-top: 1rem !important;
+  }
+  
+  .mobile-social a { 
+    width: 52px !important; 
+    height: 52px !important; 
+    display: flex !important; 
+    align-items: center !important; 
+    justify-content: center !important; 
+    border-radius: 16px !important; 
+    color: rgba(255,255,255,0.85) !important; 
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05)) !important; 
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important; 
+    transition: all 0.3s cubic-bezier(.25,.4,.25,1) !important; 
+    font-size: 1.2rem !important;
+  }
+  
+  .mobile-social a:hover { 
+    color: #FCA311 !important; 
+    background: linear-gradient(135deg, rgba(252,163,17,0.2), rgba(252,163,17,0.1)) !important; 
+    transform: translateY(-3px) !important;
+    border-color: rgba(252,163,17,0.3) !important;
+    box-shadow: 0 6px 20px rgba(252,163,17,0.15) !important;
+  }
+}
+
+/* High specificity overrides to prevent global style conflicts */
+@media (max-width: 991.98px) {
+  /* Ensure our navbar styles take precedence */
+  .navbar-expand-lg .navbar-collapse .navbar-nav .nav-item .nav-link {
+    font-size: 1.1rem !important;
+    padding: 1rem 1.2rem !important;
+    margin: 0 0 0.5rem 0 !important;
+    width: 100% !important;
+  }
+  
+  .navbar-expand-lg .navbar-collapse .navbar-nav {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+  
+  /* Override global navbar background styles */
+  .navbar-expand-lg.fixed-top {
+    background: rgba(15, 15, 15, 0.75) !important;
+    backdrop-filter: blur(12px) saturate(140%) brightness(1.05) !important;
+  }
+  
+  .navbar-expand-lg.fixed-top[data-transparent="true"] {
+    background: rgba(0,0,0,0.02) !important;
+    backdrop-filter: blur(1px) saturate(110%) brightness(1.2) !important;
+  }
+  
+  .navbar-expand-lg.fixed-top.navbar-scrolled {
+    background: rgba(20, 20, 20, 0.98) !important;
+    backdrop-filter: blur(25px) saturate(180%) brightness(1.15) !important;
+  }
+}
+
+@keyframes fadeOverlay { 
+  from { opacity: 0; } 
+  to { opacity: 1; } 
+}

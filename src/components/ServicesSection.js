@@ -1,121 +1,87 @@
 import React from 'react';
-import ScrollReveal from './ScrollReveal';
-// import CountUp from './CountUp'; // Commented out - moved to TestimonialsSection
+import './ServicesSection.css';
 
 const ServicesSection = () => {
   const services = [
     {
       icon: "fa-solid fa-house-user",
       title: "Bespoke Family Home Sourcing",
-      description: "I specialize in finding the perfect family home for you, tailored to your unique needs and preferences."
+      description: "Curating exceptional family homes that perfectly align with your lifestyle and investment goals.",
+      features: ["Premium Locations", "Exclusive Access", "Family-Focused"]
     },
     {
-      icon: "fa-solid fa-chart-line",
+      icon: "fa-solid fa-chart-line", 
       title: "Strategic Investment Advisory",
-      description: "I provide expert guidance on investment opportunities, helping you make informed decisions."
+      description: "Navigate Dubai's dynamic property market with insights from record-breaking transactions.",
+      features: ["Market Intelligence", "ROI Optimization", "Risk Assessment"]
     },
     {
       icon: "fa-solid fa-passport",
-      title: "Golden Visa Made Effortless",
-      description: "I assist you with every step of the Golden Visa process, ensuring a smooth and efficient experience."
+      title: "Golden Visa Facilitation",
+      description: "Streamlined pathway to UAE residency through strategic property investment guidance.",
+      features: ["Documentation Support", "Process Management", "Legal Guidance"]
     }
   ];
-
-  // trustStats commented out - moved to TestimonialsSection
-  /*
-  const trustStats = [
-    {
-      number: 150,
-      suffix: "+",
-      label: "Properties Sold"
-    },
-    {
-      number: 900,
-      suffix: "M",
-      label: "Transaction Value"
-    },
-    {
-      number: 98,
-      suffix: "%",
-      label: "Client Satisfaction"
-    },
-    {
-      number: 80,
-      suffix: "+",
-      label: "Golden Visas"
-    }
-  ];
-  */
 
   return (
-    <section className="services-section full-bleed" id="services">
-      <div className="container">
+    <section className="services-section" id="services">
+      <div className="services-container">
         
-        {/* Top separator (desktop only) */}
-        <div className="separator-group d-none d-md-block">
-          <div className="separator-line"></div>
-          <div className="separator-bar"></div>
+        {/* Section Header */}
+        <div className="services-header">
+          <h2 className="services-main-title">
+            Exceptional Service
+          </h2>
+          <h3 className="services-subtitle">
+            Unparalleled Expertise in Dubai Real Estate
+          </h3>
+          <p className="services-intro">
+            From luxury family homes to strategic investments, I deliver personalized solutions 
+            that have shaped Dubai's property landscape.
+          </p>
         </div>
 
-        {/* Services row */}
-        <div className="row text-center gy-5">
+        {/* Services Grid */}
+        <div className="services-grid">
           {services.map((service, index) => (
-            <div key={index} className="col-md-4">
-              <div className="service-icon-container d-flex justify-content-center mb-4">
-                <i className={`${service.icon} icon-lg gold-icon`}></i>
+            <div key={index} className="service-card">
+              <div className="service-icon-wrapper">
+                <i className={`${service.icon} service-icon`}></i>
               </div>
-              <ScrollReveal
-                baseOpacity={0}
-                enableBlur={true}
-                baseRotation={2}
-                blurStrength={8}
-                containerClassName="mb-2"
-                textClassName="service-title-custom"
-              >
-                {service.title}
-              </ScrollReveal>
-              <ScrollReveal
-                baseOpacity={0.2}
-                enableBlur={true}
-                baseRotation={1}
-                blurStrength={5}
-                containerClassName="mb-0"
-                textClassName="text-secondary mb-0"
-              >
-                {service.description}
-              </ScrollReveal>
+              
+              <div className="service-content">
+                <h4 className="service-title">{service.title}</h4>
+                <p className="service-description">{service.description}</p>
+                
+                <div className="service-features">
+                  {service.features.map((feature, idx) => (
+                    <span key={idx} className="service-feature">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="service-hover-overlay">
+                <div className="service-number">0{index + 1}</div>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Trust Indicators Section - HIDDEN (moved to TestimonialsSection) */}
-        {/*
-        <div className="row mb-4 mt-5">
-          <div className="col-12">
-            <div className="trust-indicators text-center">
-              <div className="row g-4 align-items-center justify-content-center">
-                {trustStats.map((stat, index) => (
-                  <div key={index} className="col-md-3 col-6">
-                    <div className="trust-stat">
-                      <h3 className="fw-bold mb-1">
-                        <CountUp
-                          from={0}
-                          to={stat.number}
-                          duration={2}
-                          delay={index * 0.2}
-                          className="gold-text"
-                        />
-                        <span className="gold-text">{stat.suffix}</span>
-                      </h3>
-                      <p className="text-secondary small mb-0">{stat.label}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+        {/* Bottom CTA */}
+        <div className="services-cta">
+          <p className="services-cta-text">
+            Ready to explore Dubai's finest properties?
+          </p>
+          <button 
+            className="services-btn"
+            data-bs-toggle="modal" 
+            data-bs-target="#contactModal"
+          >
+            Start Your Journey
+          </button>
         </div>
-        */}
 
       </div>
     </section>

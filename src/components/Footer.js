@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
+
+  const toggleDisclaimer = () => {
+    setIsDisclaimerOpen(!isDisclaimerOpen);
+  };
 
   const socialLinks = [
     {
@@ -30,31 +36,6 @@ const Footer = () => {
     }
   ];
 
-  const contactInfo = [
-    {
-      icon: "fa-solid fa-phone",
-      href: "tel:+971562279111",
-      text: "+971 56 227 9111"
-    },
-    {
-      icon: "fa-brands fa-whatsapp",
-      href: "https://wa.me/971562279111",
-      target: "_blank",
-      rel: "noopener noreferrer",
-      text: "WhatsApp"
-    },
-    {
-      icon: "fa-solid fa-envelope",
-      href: "mailto:info@mrahmadrealty.com",
-      text: "info@mrahmadrealty.com"
-    },
-    {
-      icon: "fa-solid fa-location-dot",
-      text: "Dubai, UAE",
-      isStatic: true
-    }
-  ];
-
   const services = [
     { href: "#services", text: "Luxury Property Sales" },
     { href: "#calculator", text: "Investment Advisory" },
@@ -63,41 +44,66 @@ const Footer = () => {
     { href: "#partners", text: "Developer Relations" }
   ];
 
-  const popularAreas = [
-    "Downtown Dubai",
-    "Dubai Marina",
-    "Emirates Hills",
-    "Palm Jumeirah",
-    "Business Bay"
-  ];
-
-  const footerLinks = [
-    { href: "#", text: "Privacy Policy" },
-    { href: "#", text: "Terms of Service" },
-    { href: "#home", text: "Back to Top" }
-  ];
-
   return (
-    <footer className="footer-section full-bleed pt-5 pb-3">
-      <div className="container">
-        <div className="row gy-4">
+    <footer className="footer-section" id="footer">
+      <div className="footer-container">
+        
+        {/* Main Footer Content */}
+        <div className="footer-main">
           
-          {/* Branding */}
-          <div className="col-md-3">
-            <h5 className="fw-bold text-white mb-3">
-              Mr Ahmad <span className="text-danger">Realtor</span>
-            </h5>
-            <p className="text-secondary">
-              Dubai's premier real estate expert specializing in luxury properties, off-plan investments, and Golden Visa assistance. Your trusted partner in Dubai property success.
-            </p>
-            <div className="social-icons mt-3">
+          {/* Brand & Contact Combined Section */}
+          <div className="footer-brand-section">
+            <div className="brand-info">
+              <h3 className="footer-brand-title">
+                <span className="footer-brand-text">Mohamad</span>
+                <span className="footer-brand-highlight">Ahmad</span>
+              </h3>
+              <p className="brand-description">
+                Dubai's premier real estate expert specializing in luxury properties and Golden Visa assistance.
+              </p>
+            </div>
+            
+            {/* Contact info only */}
+            <div className="contact-info">
+              <div className="contact-item">
+                <i className="fa-solid fa-phone"></i>
+                <a href="tel:+971562279111">+971 56 227 9111</a>
+              </div>
+              <div className="contact-item">
+                <i className="fa-solid fa-envelope"></i>
+                <a href="mailto:info@mrahmadrealty.com">info@mrahmadrealty.com</a>
+              </div>
+              <div className="contact-item">
+                <i className="fa-solid fa-location-dot"></i>
+                <span>Dubai, UAE</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Compact Services Section */}
+          <div className="footer-services-section">
+            <h4 className="section-title">Services</h4>
+            <div className="footer-services-grid">
+              {services.map((service, index) => (
+                <a key={index} href={service.href} className="service-link">
+                  <i className="fa-solid fa-chevron-right"></i>
+                  <span>{service.text}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Connect Us Section - Same level as Services */}
+          <div className="footer-connect-section">
+            <h4 className="section-title">Connect Us</h4>
+            <div className="social-links">
               {socialLinks.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
                   {...(link.target && { target: link.target })}
                   {...(link.rel && { rel: link.rel })}
-                  className={`social-link me-3 ${index === socialLinks.length - 1 ? 'me-0' : ''}`}
+                  className="social-link"
                   aria-label={link.ariaLabel}
                 >
                   <i className={link.icon}></i>
@@ -106,94 +112,65 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact */}
-          <div className="col-md-3">
-            <h6 className="text-white fw-semibold mb-3">Get in Touch</h6>
-            <ul className="list-unstyled text-secondary mb-3">
-              {contactInfo.map((contact, index) => (
-                <li key={index} className="mb-2">
-                  <i className={`${contact.icon} text-danger me-2`}></i>
-                  {contact.isStatic ? (
-                    <span>{contact.text}</span>
-                  ) : (
-                    <a
-                      href={contact.href}
-                      {...(contact.target && { target: contact.target })}
-                      {...(contact.rel && { rel: contact.rel })}
-                      className="text-secondary text-decoration-none hover-red"
-                    >
-                      {contact.text}
-                    </a>
-                  )}
-                </li>
-              ))}
-            </ul>
+          {/* Compact RERA Section */}
+          <div className="footer-rera-section">
+            <div className="rera-badge">
+              <div className="rera-icon">
+                <i className="fa-solid fa-certificate"></i>
+              </div>
+              <div className="rera-info">
+                <span className="rera-label">RERA Licensed</span>
+                <span className="rera-number">#68444</span>
+              </div>
+            </div>
+            <div className="qr-container">
+              <img 
+                src="/assets/reraqrcode.png" 
+                alt="RERA Verification QR Code" 
+                className="qr-image"
+              />
+              <div className="qr-overlay">
+                <i className="fa-solid fa-qrcode"></i>
+              </div>
+            </div>
+            <p className="rera-description">Scan for verification</p>
           </div>
-
-          {/* Services */}
-          <div className="col-md-3">
-            <h6 className="text-white fw-semibold mb-3">Our Services</h6>
-            <ul className="list-unstyled">
-              {services.map((service, index) => (
-                <li key={index} className="mb-2">
-                  <a 
-                    href={service.href} 
-                    className="text-secondary text-decoration-none hover-red"
-                  >
-                    <i 
-                      className="fa-solid fa-chevron-right text-danger me-2" 
-                      style={{ fontSize: '0.75rem' }}
-                    ></i>
-                    {service.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Popular Areas */}
-          <div className="col-md-3">
-            <h6 className="text-white fw-semibold mb-3">Popular Areas</h6>
-            <ul className="list-unstyled">
-              {popularAreas.map((area, index) => (
-                <li key={index} className="mb-2">
-                  <a 
-                    href="#properties" 
-                    className="text-secondary text-decoration-none hover-red"
-                  >
-                    <i 
-                      className="fa-solid fa-chevron-right text-danger me-2" 
-                      style={{ fontSize: '0.75rem' }}
-                    ></i>
-                    {area}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+          
         </div>
 
-        {/* Bottom Bar */}
-        <div className="row mt-4 pt-4 border-top border-secondary">
-          <div className="col-md-6 text-secondary small">
-            <p className="mb-1">© {currentYear} Mr Ahmad Realtor. All rights reserved.</p>
-            <p className="mb-0">Licensed Real Estate Professional - Dubai, UAE</p>
+        {/* Footer Bottom */}
+        <div className="footer-bottom">
+          <div className="footer-bottom-content">
+            <div className="copyright-info">
+              <p>© {currentYear} M R One Properties LLC. All rights reserved.</p>
+              <p>Licensed Real Estate Professional - Dubai, UAE</p>
+            </div>
+            <div className="footer-links">
+              <a href="/privacy" className="footer-link">Privacy Policy</a>
+              <a href="/terms" className="footer-link">Terms of Service</a>
+              <a href="#home" className="footer-link">Back to Top</a>
+            </div>
           </div>
-          <div className="col-md-6 text-md-end text-center small">
-            {footerLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                className={`text-secondary text-decoration-none hover-red ${
-                  index < footerLinks.length - 1 ? 'me-3' : ''
-                }`}
-              >
-                {link.text}
-              </a>
-            ))}
+          
+          {/* Disclaimer Toggle */}
+          <div className="disclaimer-section">
+            <button 
+              className="disclaimer-toggle"
+              onClick={toggleDisclaimer}
+              aria-expanded={isDisclaimerOpen}
+            >
+              <span>Website Disclaimer</span>
+              <i className={`fa-solid ${isDisclaimerOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
+            </button>
+            
+            <div className={`disclaimer-content ${isDisclaimerOpen ? 'open' : ''}`}>
+              <p>
+                This website is the official property of M R One Properties LLC. All content, including text, images, branding, and any other material, is owned or licensed by M R One Properties LLC. Unauthorized use, reproduction, or distribution of any part of this website is strictly prohibited. While we strive to ensure the accuracy of all information provided, M R One Properties LLC makes no warranties or guarantees regarding completeness, accuracy, or timeliness. Visitors are advised to verify details independently before making any decisions based on the content of this site.
+              </p>
+            </div>
           </div>
         </div>
+
       </div>
     </footer>
   );

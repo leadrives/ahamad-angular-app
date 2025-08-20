@@ -1,0 +1,25 @@
+/* HeroStyleFix.css - Clean title styling for the new structure */
+
+/* Hero title - Italiana font, 600 weight, 4.5rem, white color */
+.hero-title {
+  font-family: 'Italiana', serif !important;
+  font-weight: 600 !important; 
+  font-size: 4.5rem !important; 
+  line-height: 1.1 !important;
+  color: #ffffff !important;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8) !important;
+  letter-spacing: 2px !important;
+  margin: 0 0 1.5rem !important;
+}
+
+/* First line - white */
+.hero-title .line-1 {
+  color: #ffffff !important;
+  display: block;
+}
+
+/* Second line - golden */
+.hero-title .line-2 {
+  color: #FCA311 !important;
+  display: block;
+}

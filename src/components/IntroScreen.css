@@ -1,0 +1,63 @@
+/* IntroScreen.css */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+.intro-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.8s ease-out;
+}
+
+.intro-screen.fade-out {
+  opacity: 0;
+}
+
+.intro-content {
+  text-align: center;
+}
+
+.intro-text {
+  font-family: 'Italiana', serif !important;
+  color: #ffffff !important;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding: 0;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.typing-cursor {
+  font-weight: 300;
+  color: #ffffff;
+  animation: blink 1.06s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .intro-text {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-text {
+    font-size: clamp(2rem, 12vw, 3rem);
+    letter-spacing: 0.02em;
+  }
+}

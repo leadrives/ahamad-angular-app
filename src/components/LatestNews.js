@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import './LatestNews.css';
 
 const LatestNews = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -192,7 +193,7 @@ Focus on developments with comprehensive sustainability features and recognized 
   ];
 
   // Carousel functionality
-  const totalSlides = Math.ceil(newsData.length / 3);
+  const totalSlides = Math.ceil(newsData.length / 2);
   
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
@@ -212,10 +213,10 @@ Focus on developments with comprehensive sustainability features and recognized 
     return () => clearInterval(interval);
   }, [nextSlide]);
 
-  // Get current articles to display
+  // Get current articles to display (2 articles per slide)
   const getCurrentArticles = () => {
-    const startIndex = currentSlide * 3;
-    return newsData.slice(startIndex, startIndex + 3);
+    const startIndex = currentSlide * 2;
+    return newsData.slice(startIndex, startIndex + 2);
   };
 
   // Modal functionality
@@ -230,51 +231,40 @@ Focus on developments with comprehensive sustainability features and recognized 
   };
 
   return (
-    <section className="latest-news full-bleed py-5" id="news">
-      <div className="container">
-        {/* Header row */}
-        <div className="row align-items-center mb-4">
-          <div className="col-md-8 text-center text-md-start">
-            <div className="section-accent mb-2"></div>
-            <h2 className="display-5 fw-bold text-white mb-1">
-              Dubai Real Estate Insights
-            </h2>
-            <p className="text-secondary mb-0">
-              Stay updated with the latest market trends and investment opportunities in Dubai's dynamic real estate sector.
-            </p>
-          </div>
-          <div className="col-md-4 text-center text-md-end mt-3 mt-md-0">
-            <button type="button" className="btn btn-outline-light">View All</button>
-          </div>
+    <section className="latestnews-section" id="news">
+      <div className="latestnews-container">
+        
+        {/* Section Header */}
+        <div className="latestnews-header">
+          <h2 className="latestnews-main-title">Dubai Real Estate Insights</h2>
+          <p className="latestnews-subtitle">Stay updated with the latest market trends and investment opportunities</p>
         </div>
 
-        {/* Cards row */}
-        <div className="row g-4">
+        {/* News Cards */}
+        <div className="latestnews-content">
           {getCurrentArticles().map((article) => (
-            <div key={article.id} className="col-md-4">
-              <div 
-                className="news-card position-relative overflow-hidden h-100"
-                style={{ cursor: 'pointer' }}
-                onClick={() => handleCardClick(article)}
-              >
-                <img
-                  src={article.image}
-                  alt={article.alt}
-                  className="img-fluid w-100"
-                />
-                <div className="news-overlay d-flex flex-column justify-content-end p-4">
-                  <h5 className="text-white mb-3">
-                    {article.title}
-                  </h5>
-                  <div className="d-flex justify-content-between text-secondary">
-                    <small>
-                      <i className="fa-solid fa-hashtag me-1"></i>
+            <div key={article.id} className="news-card">
+              <div className="news-card-inner" onClick={() => handleCardClick(article)}>
+                <div className="news-image">
+                  <img src={article.image} alt={article.alt} />
+                  <div className="news-overlay"></div>
+                </div>
+                <div className="news-content">
+                  <div className="news-meta">
+                    <span className="news-category">
+                      <i className="fa-solid fa-hashtag"></i>
                       {article.category}
-                    </small>
-                    <small>
-                      <i className="fa-solid fa-clock me-1"></i>
+                    </span>
+                    <span className="news-time">
+                      <i className="fa-solid fa-clock"></i>
                       {article.timeAgo}
-                    </small>
+                    </span>
+                  </div>
+                  <h3 className="news-title">{article.title}</h3>
+                  <p className="news-excerpt">{article.excerpt}</p>
+                  <div className="news-read-more">
+                    <span>Read More</span>
+                    <i className="fa-solid fa-arrow-right"></i>
                   </div>
                 </div>
               </div>
@@ -283,230 +273,99 @@ Focus on developments with comprehensive sustainability features and recognized 
         </div>
 
         {/* Carousel Controls */}
-        <div className="d-flex justify-content-between align-items-center mt-4">
-          <button 
-            className="btn btn-outline-light btn-sm"
-            onClick={prevSlide}
-            disabled={totalSlides <= 1}
-          >
+        <div className="latestnews-controls">
+          <button className="control-btn prev-btn" onClick={prevSlide} disabled={totalSlides <= 1}>
             <i className="fa-solid fa-chevron-left"></i>
           </button>
           
-          {/* Slider-style dots */}
-          <div className="d-flex justify-content-center">
+          <div className="carousel-dots">
             {Array.from({ length: totalSlides }, (_, index) => (
               <span
                 key={index}
-                className={`slider-dot ${index === currentSlide ? 'active' : ''}`}
-                style={{ 
-                  cursor: 'pointer',
-                  margin: '0 8px',
-                  opacity: index === currentSlide ? 1 : 0.5
-                }}
+                className={`dot ${index === currentSlide ? 'active' : ''}`}
                 onClick={() => goToSlide(index)}
               ></span>
             ))}
           </div>
           
-          <button 
-            className="btn btn-outline-light btn-sm"
-            onClick={nextSlide}
-            disabled={totalSlides <= 1}
-          >
+          <button className="control-btn next-btn" onClick={nextSlide} disabled={totalSlides <= 1}>
             <i className="fa-solid fa-chevron-right"></i>
           </button>
         </div>
 
         {/* Article Modal */}
         {showModal && selectedArticle && (
-          <div 
-            className="modal fade show d-block" 
-            style={{ backgroundColor: 'rgba(0,0,0,0.8)' }}
-            onClick={closeModal}
-          >
-            <div 
-              className="modal-dialog modal-lg modal-dialog-scrollable"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div 
-                className="modal-content"
-                style={{
-                  backgroundColor: '#1a1a1a',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  borderRadius: '12px'
-                }}
-              >
-                <div className="modal-header border-bottom border-secondary">
-                  <div className="d-flex align-items-center">
-                    <span 
-                      className="badge me-3"
-                      style={{
-                        background: 'linear-gradient(135deg, #df0c1e 0%, #b91c42 100%)',
-                        fontSize: '0.75rem'
-                      }}
-                    >
-                      {selectedArticle.category}
-                    </span>
-                    <h4 className="modal-title text-white mb-0">
-                      {selectedArticle.title}
-                    </h4>
-                  </div>
-                  <button 
-                    type="button" 
-                    className="btn-close btn-close-white" 
-                    onClick={closeModal}
-                  ></button>
+          <div className="latestnews-modal" onClick={closeModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-header">
+                <div className="modal-meta">
+                  <span className="modal-category">{selectedArticle.category}</span>
+                  <h4 className="modal-title">{selectedArticle.title}</h4>
+                </div>
+                <button className="modal-close" onClick={closeModal}>
+                  <i className="fa-solid fa-times"></i>
+                </button>
+              </div>
+              
+              <div className="modal-body">
+                <div className="modal-image">
+                  <img src={selectedArticle.image} alt={selectedArticle.alt} />
                 </div>
                 
-                <div className="modal-body">
-                  <div className="row mb-4">
-                    <div className="col-12">
-                      <img
-                        src={selectedArticle.image}
-                        alt={selectedArticle.alt}
-                        className="img-fluid w-100 rounded"
-                        style={{ height: '300px', objectFit: 'cover' }}
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="row mb-3">
-                    <div className="col-12">
-                      <div className="d-flex justify-content-between align-items-center text-secondary mb-4">
-                        <small>
-                          <i className="fa-solid fa-clock me-1"></i>
-                          {selectedArticle.timeAgo}
-                        </small>
-                        <small>
-                          <i className="fa-solid fa-hashtag me-1"></i>
-                          {selectedArticle.category}
-                        </small>
-                      </div>
-                      
-                      {/* Excerpt with enhanced styling */}
-                      <div 
-                        className="mb-4 p-3 rounded"
-                        style={{
-                          background: 'linear-gradient(135deg, rgba(223, 12, 30, 0.1) 0%, rgba(185, 28, 66, 0.1) 100%)',
-                          border: '1px solid rgba(223, 12, 30, 0.2)',
-                          borderLeft: '4px solid #df0c1e'
-                        }}
-                      >
-                        <p 
-                          className="text-light mb-0" 
-                          style={{ 
-                            fontSize: '1.1rem',
-                            lineHeight: '1.6',
-                            fontStyle: 'italic',
-                            textAlign: 'left'
-                          }}
-                        >
-                          <i className="fa-solid fa-quote-left me-2" style={{ color: '#df0c1e', opacity: 0.7 }}></i>
-                          {selectedArticle.excerpt}
-                          <i className="fa-solid fa-quote-right ms-2" style={{ color: '#df0c1e', opacity: 0.7 }}></i>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="row">
-                    <div className="col-12">
-                      {/* Article content with improved typography */}
-                      <div 
-                        className="article-content text-light" 
-                        style={{ 
-                          fontSize: '1rem', 
-                          lineHeight: '1.8',
-                          whiteSpace: 'pre-line',
-                          textAlign: 'justify'
-                        }}
-                      >
-                        {selectedArticle.fullContent.split('\n\n').map((paragraph, index) => {
-                          // Check if paragraph is a heading (starts with **)
-                          if (paragraph.trim().startsWith('**') && paragraph.trim().endsWith('**')) {
-                            const headingText = paragraph.replace(/\*\*/g, '');
-                            return (
-                              <h5 
-                                key={index} 
-                                className="text-white mt-4 mb-3 fw-bold"
-                                style={{
-                                  color: '#df0c1e',
-                                  borderBottom: '2px solid rgba(223, 12, 30, 0.3)',
-                                  paddingBottom: '8px',
-                                  fontSize: '1.2rem'
-                                }}
-                              >
-                                <i className="fa-solid fa-chevron-right me-2" style={{ color: '#df0c1e', fontSize: '0.8rem' }}></i>
-                                {headingText}
-                              </h5>
-                            );
-                          }
-                          
-                          // Check if paragraph contains bullet points
-                          if (paragraph.includes('- ')) {
-                            const items = paragraph.split('- ').filter(item => item.trim());
-                            return (
-                              <div key={index} className="mb-3">
-                                {items.map((item, itemIndex) => (
-                                  <div 
-                                    key={itemIndex} 
-                                    className="d-flex align-items-start mb-2"
-                                    style={{ paddingLeft: '1rem' }}
-                                  >
-                                    <i 
-                                      className="fa-solid fa-circle me-3 mt-2" 
-                                      style={{ 
-                                        color: '#df0c1e', 
-                                        fontSize: '0.5rem',
-                                        opacity: 0.8
-                                      }}
-                                    ></i>
-                                    <span style={{ flex: 1 }}>{item.trim()}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            );
-                          }
-                          
-                          // Regular paragraphs
-                          return (
-                            <p 
-                              key={index} 
-                              className="mb-3"
-                              style={{ 
-                                textIndent: '1.5rem',
-                                color: 'rgba(255, 255, 255, 0.9)'
-                              }}
-                            >
-                              {paragraph}
-                            </p>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
+                <div className="modal-info">
+                  <span className="modal-time">
+                    <i className="fa-solid fa-clock"></i>
+                    {selectedArticle.timeAgo}
+                  </span>
+                  <span className="modal-cat">
+                    <i className="fa-solid fa-hashtag"></i>
+                    {selectedArticle.category}
+                  </span>
                 </div>
                 
-                <div className="modal-footer border-top border-secondary">
-                  <button 
-                    type="button" 
-                    className="btn btn-secondary me-2"
-                    onClick={closeModal}
-                  >
-                    Close
-                  </button>
-                  <button 
-                    type="button" 
-                    className="btn btn-primary"
-                    style={{
-                      background: 'linear-gradient(135deg, #df0c1e 0%, #b91c42 100%)',
-                      border: 'none'
-                    }}
-                  >
-                    <i className="fa-solid fa-share me-2"></i>
-                    Share Article
-                  </button>
+                <div className="modal-excerpt">
+                  <i className="fa-solid fa-quote-left"></i>
+                  <p>{selectedArticle.excerpt}</p>
+                  <i className="fa-solid fa-quote-right"></i>
                 </div>
+                
+                <div className="modal-article">
+                  {selectedArticle.fullContent.split('\n\n').map((paragraph, index) => {
+                    if (paragraph.trim().startsWith('**') && paragraph.trim().endsWith('**')) {
+                      const headingText = paragraph.replace(/\*\*/g, '');
+                      return (
+                        <h5 key={index} className="article-heading">
+                          <i className="fa-solid fa-chevron-right"></i>
+                          {headingText}
+                        </h5>
+                      );
+                    }
+                    
+                    if (paragraph.includes('- ')) {
+                      const items = paragraph.split('- ').filter(item => item.trim());
+                      return (
+                        <div key={index} className="article-list">
+                          {items.map((item, itemIndex) => (
+                            <div key={itemIndex} className="list-item">
+                              <i className="fa-solid fa-circle"></i>
+                              <span>{item.trim()}</span>
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    }
+                    
+                    return <p key={index} className="article-paragraph">{paragraph}</p>;
+                  })}
+                </div>
+              </div>
+              
+              <div className="modal-footer">
+                <button className="btn-secondary" onClick={closeModal}>Close</button>
+                <button className="btn-primary">
+                  <i className="fa-solid fa-share"></i>
+                  Share Article
+                </button>
               </div>
             </div>
           </div>

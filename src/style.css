@@ -57,7 +57,7 @@
   /* derived */
   --bg-dark        :var(--secondary-dark);
   --header-bg-color:var(--secondary-dark);
-  --hero-bg-color  :var(--secondary-dark);
+  /* --hero-bg-color  :var(--secondary-dark); TEMPORARILY COMMENTED OUT */
   --card-bg-color  :var(--secondary-dark-alt);
 
   --accent-red     :var(--primary-brand);      /* you used this name elsewhere */
@@ -67,6 +67,15 @@
   --text-light:#f5f5f5;
   --text-desc :#6f6f6f;
   --text-muted:#888;
+  
+  /* gradient text */
+  --text-gradient: linear-gradient(45deg, #F5F5F5 15%, #FCA311 65%);
+  
+  /* button gradients */
+  --button-gradient: linear-gradient(45deg, #E8940F 15%, #FCA311 65%);
+  --button-gradient-hover: linear-gradient(45deg, #ee8018 15%, #ef9b13 65%);
+  --button-border-gradient: linear-gradient(45deg, #E8940F 15%, #FCA311 65%);
+  --button-border-gradient-hover: linear-gradient(45deg, #E8940F 15%, #E8940F 65%);
   
   /* navbar specific */
   --nav-item-color:#f5f5f5;
@@ -120,7 +129,10 @@ input[type="submit"],
   top: 0;
   width: 100%;
   z-index: 1060;
-  background: var(--header-bg-color);
+  /* Transparent glassy look so hero video shows through */
+  background: rgba(0,0,0,0.12);
+  -webkit-backdrop-filter: blur(12px) brightness(1.05);
+  backdrop-filter: blur(12px) brightness(1.05);
   padding: 8px 25px;
   display: flex;
   align-items: center;
@@ -128,7 +140,22 @@ input[type="submit"],
   min-height: 56px;
   pointer-events: initial;
   flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: background .35s ease, backdrop-filter .35s ease, box-shadow .35s ease;
 }
+
+/* Optional stronger background helper (not applied unless you add the class via JS) */
+.navbar.solid, .navbar.is-scrolled{
+  background: rgba(0,0,0,0.72);
+  box-shadow: 0 4px 18px -4px rgba(0,0,0,0.5);
+  border-bottom-color: rgba(255,255,255,0.12);
+}
+
+/* Improve legibility over bright video frames */
+.navbar .nav-link, .navbar-brand, .buy-btn{ text-shadow:0 2px 6px rgba(0,0,0,0.65); }
+
+/* Slight hover emphasis still visible on transparent bg */
+.navbar .nav-link:hover, .navbar .nav-link:focus, .navbar .nav-link.active{ text-shadow:0 2px 10px rgba(0,0,0,0.85); }
 
 /* Navbar Brand - Single Definition */
 .navbar-brand {
@@ -180,6 +207,73 @@ input[type="submit"],
   background-image:var(--gold-noise);
   background-size:100px;mix-blend-mode:overlay;
   filter:drop-shadow(0 0 3px rgba(212,175,55,.4));
+}
+
+/*───────────────────────────────────────────────────────────────
+  7 ▸  GRADIENT TEXT UTILITIES
+───────────────────────────────────────────────────────────────*/
+.text-gradient{
+  background:var(--text-gradient) no-repeat center/100% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  display:inline-block;
+  position:relative;
+  z-index:2;
+}
+
+/* Apply gradient to primary text elements */
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  background:var(--text-gradient) no-repeat center/100% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  display:inline-block;
+  position:relative;
+  z-index:2;
+}
+
+/*───────────────────────────────────────────────────────────────
+  8 ▸  GRADIENT BORDER UTILITIES
+───────────────────────────────────────────────────────────────*/
+.gradient-border {
+  border: 2px solid transparent;
+  background-image: var(--button-border-gradient);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.gradient-border-thin {
+  border: 1px solid transparent;
+  background-image: var(--button-border-gradient);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.gradient-border-thick {
+  border: 3px solid transparent;
+  background-image: var(--button-border-gradient);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+/*───────────────────────────────────────────────────────────────
+  9 ▸  GRADIENT BACKGROUND UTILITIES
+───────────────────────────────────────────────────────────────*/
+.bg-gradient-primary {
+  background: var(--button-gradient);
+}
+
+.bg-gradient-primary-hover:hover {
+  background: var(--button-gradient-hover);
+}
+
+.bg-gradient-text {
+  background: var(--text-gradient);
 }
 
 
@@ -394,104 +488,97 @@ img {
   margin-right: 0.5rem;
 }
 
-/* 5) Hero Section */
-.hero {
-  /* offset for fixed navbar - adjusted for proper navbar height */
-  padding-top: 80px; /* Adjusted for 56px navbar */
-  padding-bottom: 60px;
-  min-height: 100vh;
-  background-color: var(--hero-bg-color);
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow-x: visible;
-  overflow-y: visible;
-  z-index: 1;
-}
+/* 5) Hero Section - TEMPORARILY DISABLED
+  Original code preserved below with each line commented out to avoid nested comment syntax errors. */
+/* .hero { */
+/*   padding-top: 80px;  */
+/*   padding-bottom: 60px; */
+/*   min-height: 100vh; */
+/*   background-color: var(--hero-bg-color); */
+/*   display: flex; */
+/*   align-items: center; */
+/*   position: relative; */
+/*   overflow-x: visible; */
+/*   overflow-y: visible; */
+/*   z-index: 1; */
+/* } */
+/* @keyframes galaxyMove { */
+/*   0% { background-position: 0% 50%, 0% 50%; } */
+/*   25% { background-position: 100% 50%, 25% 75%; } */
+/*   50% { background-position: 50% 100%, 50% 25%; } */
+/*   75% { background-position: 0% 50%, 75% 75%; } */
+/*   100% { background-position: 0% 50%, 0% 50%; } */
+/* } */
+/* @keyframes twinkle { */
+/*   0%, 100% { opacity: 0.3; } */
+/*   50% { opacity: 1; } */
+/* } */
+/* @keyframes pulse { */
+/*   0% { opacity: 0.6; transform: scale(1); } */
+/*   100% { opacity: 0.8; transform: scale(1.1); } */
+/* } */
 
-/* Galaxy Background Animation */
-@keyframes galaxyMove {
-  0% { background-position: 0% 50%, 0% 50%; }
-  25% { background-position: 100% 50%, 25% 75%; }
-  50% { background-position: 50% 100%, 50% 25%; }
-  75% { background-position: 0% 50%, 75% 75%; }
-  100% { background-position: 0% 50%, 0% 50%; }
-}
+/* Enhanced hero styling for galaxy background - ALREADY DISABLED
+  Converted to single-line comments */
+/* .hero::before { */
+/*   content: ''; */
+/*   position: absolute; */
+/*   top: 0; */
+/*   left: 0; */
+/*   right: 0; */
+/*   bottom: 0; */
+/*   background: radial-gradient(2px 2px at 20px 30px, #eee, transparent), */
+/*               radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent), */
+/*               radial-gradient(1px 1px at 90px 40px, #fff, transparent), */
+/*               radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent), */
+/*               radial-gradient(2px 2px at 160px 30px, #ddd, transparent); */
+/*   background-repeat: repeat; */
+/*   background-size: 200px 100px; */
+/*   animation: twinkle 3s ease-in-out infinite; */
+/*   z-index: 1; */
+/*   pointer-events: none; */
+/* } */
 
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-
-@keyframes pulse {
-  0% { 
-    opacity: 0.6; 
-    transform: scale(1);
-  }
-  100% { 
-    opacity: 0.8; 
-    transform: scale(1.1);
-  }
-}
-
-/* Enhanced hero styling for galaxy background - DISABLED */
-/*
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
-    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
-    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
-    radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
-  background-repeat: repeat;
-  background-size: 200px 100px;
-  animation: twinkle 3s ease-in-out infinite;
-  z-index: 1;
-  pointer-events: none;
-}
-*/
-
-.hero .container {
-  width: 100%;
-  z-index: 2;
-  position: relative;
-}
-
-.hero h1 {
-  line-height: 1;
-  margin-bottom: 1.5rem;
-  /* max-width: ; Constrain width to encourage 2-line layout */
-  /* Color removed to allow gold gradient to show through */
-}
-
-.hero p.lead {
-  color: var(--primary-p-color);
-  max-width: 600px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.hero-img {
-  max-height: 650px;
-  width: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-}
+/* .hero .container { */
+/*   width: 100%; */
+/*   z-index: 2; */
+/*   position: relative; */
+/* } */
+/* .silk-background { */
+/*   position: absolute; */
+/*   top: 0; */
+/*   left: 0; */
+/*   width: 100%; */
+/*   height: 100%; */
+/*   z-index: 1; */
+/*   pointer-events: none; */
+/* } */
+/* .hero h1 { */
+/*   line-height: 1; */
+/*   margin-bottom: 1.5rem; */
+/* } */
+/* .hero p.lead { */
+/*   color: var(--primary-p-color); */
+/*   max-width: 600px; */
+/*   font-size: 1.1rem; */
+/*   line-height: 1.6; */
+/* } */
+/* .hero-img { */
+/*   max-height: calc(100vh - 60px); */
+/*   width: 100%; */
+/*   object-fit: contain; */
+/*   border-radius: 12px; */
+/* } */
 
 /* 6) Buttons in Hero */
 .btn-primary {
-  background: var(--primary-brand);
-  border: 1px solid var(--primary-brand);
+  background: var(--button-gradient);
+  border: 2px solid transparent;
+  background-clip: padding-box;
   font-weight: 600;
   color: #ffffff;
-  text-shadow: none;
-  box-shadow: 0 4px 15px rgba(221, 30, 75, 0.3);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(232, 148, 15, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -513,22 +600,88 @@ img {
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background: var(--primary-brand-dark);
+  background: var(--button-gradient-hover);
   transform: translateY(-2px) scale(1.05);
   box-shadow: 
-    0 4px 15px rgba(221, 30, 75, 0.3),
-    0 8px 25px rgba(221, 30, 75, 0.4);
+    0 4px 15px rgba(232, 148, 15, 0.5),
+    0 8px 25px rgba(26, 26, 26, 0.4);
   color: #ffffff;
+  border: 2px solid transparent;
 }
 .btn-outline-light {
-  border-color: var(--nav-item-color);
-  color: var(--nav-item-color);
+  background: transparent;
+  border: 2px solid;
+  border-image: var(--button-border-gradient) 1;
+  color: #FCA311;
   font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
 }
 .btn-outline-light:hover,
 .btn-outline-light:focus {
-  background-color: var(--nav-item-color);
-  color: var(--hero-bg-color);
+  background: var(--button-gradient-hover);
+  border: 2px solid transparent;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(232, 148, 15, 0.4);
+}
+
+/* Secondary Button Styles */
+.btn-secondary {
+  background: var(--button-gradient);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(232, 148, 15, 0.3);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: var(--button-gradient-hover);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(232, 148, 15, 0.5);
+}
+
+/* Outline Primary Button */
+.btn-outline-primary {
+  background: transparent;
+  border: 2px solid #FCA311;
+  color: #FCA311;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background: var(--button-gradient-hover);
+  border: 2px solid transparent;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(232, 148, 15, 0.4);
+}
+
+/* Outline Secondary Button */
+.btn-outline-secondary {
+  background: transparent;
+  border: 2px solid #FCA311;
+  color: #FCA311;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+  background: var(--button-gradient-hover);
+  border: 2px solid transparent;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(232, 148, 15, 0.4);
 }
 
 /* 7) Responsive Fine-Tuning */
@@ -718,121 +871,51 @@ img {
    ═══════════════════════════════════════════════════════════════════════════════════ */
 
 @media (max-width: 767.98px) {
-  /* Hero Section Mobile Improvements */
-  .hero {
-    text-align: center;
-    padding-top: 80px; /* Reduced from 130px to match navbar height */
-    min-height: 100vh;
-    /* Background image removed - using React component image instead */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-  }
-  
-  /* Dark overlay for better text readability - DISABLED */
-  /*
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(17, 17, 17, 0.75);
-    z-index: 1;
-  }
-  */
-  
-  .hero .container {
-    position: relative;
-    z-index: 2;
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Reduced shadow intensity */
-    max-width: 320px; /* Constrain width for mobile 2-line layout */
-    margin-left: auto;
-    margin-right: auto;
-    /* Don't override the .gold-text class - let it work naturally */
-  }
-  
-  .hero .lead {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  }
-  
-  .hero .btn-lg {
-    width: 100%;
-    max-width: 280px;
-    margin: 0.5rem auto;
-  }
-  
-  /* Show the hero image on mobile with proper styling */
-  .hero-img {
-    display: block;
-    max-height: 400px;
-    width: 100%;
-    object-fit: contain;
-    margin: 20px auto;
-  }
-  
-  .hero-image-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 15px;
-    overflow: visible;
-  }
+  /* Hero Section Mobile Improvements - disabled */
+  /* .hero { */
+  /*   text-align: center; */
+  /*   padding-top: 80px; */
+  /*   min-height: 100vh; */
+  /*   background-size: cover; */
+  /*   background-position: center; */
+  /*   background-repeat: no-repeat; */
+  /*   position: relative; */
+  /* } */
+  /* .hero::before { */
+  /*   content: ''; */
+  /*   position: absolute; */
+  /*   inset: 0; */
+  /*   background: rgba(17, 17, 17, 0.75); */
+  /*   z-index: 1; */
+  /* } */
+  /* .hero .container { position: relative; z-index: 2; } */
+  /* .hero h1 { font-size: 3rem; margin-bottom: 1rem; max-width: 320px; margin-left:auto; margin-right:auto; } */
+  /* .hero .lead { font-size: 1rem; margin-bottom: 2rem; } */
+  /* .hero .btn-lg { width: 100%; max-width: 280px; margin: .5rem auto; } */
+  /* .hero-img { display:block; max-height:calc(100vh - 120px); width:100%; object-fit:contain; margin:20px auto; } */
+  /* .hero-image-container { position:relative; width:100%; display:flex; justify-content:center; align-items:center; padding:20px 15px; overflow:visible; } */
 }
 
-/* Desktop Hero Section Enhancement */
-@media (min-width: 768px) {
-  .hero-img {
-    display: block;
-    max-height: 700px;
-    width: 100%;
-    object-fit: contain;
-    margin: 0 auto;
-    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));
-    border-radius: 12px;
-  }
-  
-  .hero-image-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-    overflow: visible;
-  }
-}
-
-/* Large Desktop Hero Enhancement */
-@media (min-width: 992px) {
-  .hero-img {
-    max-height: 800px;
-    transition: transform 0.3s ease;
-  }
-  
-  .hero-image-container {
-    padding: 60px 30px;
-  }
-}
+/* Desktop Hero Section Enhancement - disabled */
+/* @media (min-width: 768px) { */
+/*   .hero-img { display:block; max-height:calc(100vh - 80px); width:100%; object-fit:contain; margin:0 auto; filter:drop-shadow(0 10px 30px rgba(0,0,0,0.5)); border-radius:12px; } */
+/*   .hero-image-container { position:relative; width:100%; display:flex; justify-content:center; align-items:center; padding:40px 20px; overflow:visible; } */
+/* } */
+/* @media (min-width: 992px) { */
+/*   .hero-img { max-height:calc(100vh - 60px); transition:transform .3s ease; } */
+/*   .hero-image-container { padding:60px 30px; } */
+/* } */
 
 /* Services Section - Ensure proper stacking */
+/* COMMENTED OUT - ServicesSection component has its own styles */
+/*
 .services-section {
   background-color: var(--bg-dark);
   padding: 0;
   position: relative;
   z-index: 1;
 }
+*/
 
 /* Separator wrapper */
 .separator-group {
@@ -896,6 +979,8 @@ img {
   .separator-group { display: none; }
   
   /* Services Section Mobile */
+  /* COMMENTED OUT - ServicesSection component has its own responsive styles */
+  /*
   .services-section {
     padding: 3rem 0;
   }
@@ -937,6 +1022,7 @@ img {
     font-size: 0.95rem;
     line-height: 1.6;
   }
+  */
 }
 
 /* ─────────────────────────────────────────────
@@ -1340,6 +1426,20 @@ img {
 .cta-button {
   font-weight: 600;
   padding: 0.75rem 2rem;
+  background: var(--button-gradient);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 15px rgba(232, 148, 15, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--button-gradient-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 148, 15, 0.5);
+  color: #ffffff;
 }
 
 /* ─────────────────────────────────────────────
@@ -1715,9 +1815,20 @@ img {
    CONTACT MODAL STYLES
    ───────────────────────────────────────────── */
 
+/* Ensure modal has proper z-index to appear above all other content */
+.modal {
+  z-index: 1080 !important;
+}
+
+/* Modal backdrop should be behind modal but above other content */
+.modal-backdrop {
+  z-index: 1075 !important;
+}
+
 /* Darken modal backdrop to match site mood */
 .modal-backdrop.show {
   opacity: 0.85;
+  z-index: 1075 !important;
 }
 
 /* Modal Content */
@@ -1727,6 +1838,14 @@ img {
   border-radius: 0.75rem;
   color: var(--text-light);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 1081 !important;
+}
+
+/* Modal Dialog */
+.modal-dialog {
+  position: relative;
+  z-index: 1081 !important;
 }
 
 /* Modal Header */
@@ -1921,6 +2040,8 @@ img {
   .modal-dialog {
     max-width: 95vw;
     margin: 1rem;
+    z-index: 1081 !important;
+    position: relative;
   }
   
   .modal-content {
@@ -2217,10 +2338,16 @@ img {
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  line-height: 1.3;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .input-title i {
   color: var(--accent-red);
+  font-size: 1.1rem;
+  margin-right: 0.5rem !important;
+  line-height: 1 !important;
 }
 
 /* Amount Input Group - Compact */
@@ -2307,28 +2434,53 @@ img {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.8rem;
+  line-height: 1.3;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .benefits-title i {
   color: var(--accent-red);
+  font-size: 0.95rem;
+  margin-right: 0.5rem !important;
+  line-height: 1 !important;
 }
 
 .benefits-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .benefit-item {
   display: flex;
   align-items: center;
-  font-size: 0.85rem;
+  gap: .5rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem !important;
+  text-align: left !important;
+  padding: 0.5rem 0 !important;
 }
 
-.benefit-item i {
-  margin-right: 0.6rem;
-  font-size: 0.9rem;
-  flex-shrink: 0;
+.benefit-icon {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefit-icon i,
+.benefit-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+}
+
+.benefit-text {
+  font-size: .95rem;
 }
 
 /* Results Section - Compact */
@@ -2358,10 +2510,16 @@ img {
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  line-height: 1.3;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .results-title i {
   color: var(--accent-red);
+  font-size: 1.1rem;
+  margin-right: 0.5rem !important;
+  line-height: 1 !important;
 }
 
 /* Metric Cards - Compact */
@@ -2373,8 +2531,8 @@ img {
 }
 
 .metric-card {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
   background: linear-gradient(135deg, rgba(35, 35, 35, 0.8) 0%, rgba(20, 20, 20, 0.8) 100%);
   border: 1px solid rgba(221, 30, 75, 0.1);
   border-radius: 0.75rem;
@@ -2382,6 +2540,7 @@ img {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 .metric-card::before {
@@ -2413,13 +2572,29 @@ img {
 }
 
 .metric-icon {
-  margin-right: 0.8rem;
-  font-size: 1.3rem;
-  flex-shrink: 0;
+  margin-right: 1rem !important;
+  font-size: 1.4rem !important;
+  flex-shrink: 0 !important;
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(221, 30, 75, 0.1) !important;
+  border-radius: 50% !important;
+  border: 2px solid rgba(221, 30, 75, 0.2) !important;
+}
+
+.metric-icon i {
+  line-height: 1 !important;
 }
 
 .metric-content {
-  flex: 1;
+  flex: 1 !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
 }
 
 .metric-content h4 {
@@ -2453,11 +2628,12 @@ img {
   padding: 1rem;
   font-size: 0.8rem;
   line-height: 1.4;
+  margin-top: 1rem;
 }
 
 .disclaimer-note i {
   color: #ffc107;
-  margin-right: 0.5rem;
+  font-size: 0.9rem;
 }
 
 /* Responsive Design - More Compact */
@@ -2535,10 +2711,10 @@ img {
   }
   
   .benefits-list {
-    gap: 0.4rem;
+    gap: 0.5rem;
   }
   
-  .benefit-item {
+  .benefit-text span {
     font-size: 0.8rem;
   }
 }
@@ -2989,9 +3165,8 @@ img {
     margin-top: 1.5rem;
   }
   
-  .benefit-item {
+  .benefit-text span {
     font-size: 0.85rem;
-    padding: 0.5rem 0;
   }
   
   .metrics-grid {
@@ -3333,3 +3508,166 @@ img {
   background-color: #e74147 !important;
   border-color: #e2151b !important;
 }
+
+/* === Leverage-like Hero Overrides (append at end of style.css) === */
+
+:root {
+  --leverage-accent: #ff2b51;   /* hot red like screenshot */
+  --leverage-black: #0b0b0b;    /* deep black background */
+  --leverage-grey:  #9a9a9a;    /* body copy under headline */
+}
+
+/* section baseline */
+.leverage-hero {
+  background: var(--leverage-black);
+  padding-top: 96px;               /* space under fixed navbar */
+  padding-bottom: 0;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* contain the left block width similar to the reference */
+.leverage-hero .hero-wrap {
+  max-width: 1240px;
+}
+
+/* HEADLINE — big, heavy, uppercased, tight leading, solid red */
+.hero-title{
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--leverage-accent);
+  letter-spacing: -0.02em;
+  line-height: .92;
+  margin: 0 0 1.25rem 0;
+  /* sizes tuned for the reference */
+  font-size: clamp(2.6rem, 7.2vw, 7.2rem);
+}
+
+/* sub-lines */
+.hero-kicker{
+  color: #bdbdbd;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 720px;
+  text-shadow: none;
+}
+.hero-desc{
+  color: var(--leverage-grey);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 720px;
+  text-shadow: none;
+}
+
+/* CTAs — square edges, all caps, exact spacings and colors */
+.hero-btn{
+  padding: 15px 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  border-radius: 0 !important;
+}
+.leverage-hero .btn-primary{
+  background: var(--button-gradient);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 4px 15px rgba(232, 148, 15, 0.3);
+}
+.leverage-hero .btn-primary:hover{
+  background: var(--button-gradient-hover);
+  border: 2px solid transparent;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(232, 148, 15, 0.5);
+}
+.leverage-hero .hero-btn-outline{
+  border-width: 2px;
+  border: 2px solid #FCA311;
+  background: transparent;
+  color: #FCA311 !important;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.leverage-hero .hero-btn-outline:hover{
+  background: var(--button-gradient-hover) !important;
+  border: 2px solid transparent !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(232, 148, 15, 0.4);
+}
+
+/* Right portrait — anchored to the right like the screenshot */
+.hero-portrait{
+  position: relative;
+  height: 100%;
+}
+.hero-portrait img{
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: none;                    /* no glowing shadow in the reference */
+}
+@media (min-width: 992px){
+  .hero-portrait{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 46vw;                   /* makes the image sit like the mock */
+    max-width: 640px;
+    z-index: 1;
+  }
+  .leverage-hero .row{
+    min-height: calc(100vh - 96px);
+  }
+}
+
+/* Tighten left column so big title breaks into two strong lines */
+@media (min-width: 992px){
+  .leverage-hero .col-lg-6.col-md-7{
+    padding-right: 2rem;
+  }
+}
+
+/* Mobile/tablet rhythm */
+@media (max-width: 991.98px){
+  .hero-title{ font-size: clamp(2.2rem, 9vw, 3.4rem); }
+  .hero-portrait{ position: static; width: 100%; max-width: none; }
+  .hero-portrait img{ max-height: 60vh; object-fit: contain; margin-top: 1.5rem; }
+  .hero-ctas .hero-btn{ width: 100%; max-width: 280px; }
+}
+
+.leverage-hero .hero-btn-outline:hover{
+  background: transparent !important;
+  color: #ffffff !important;
+  border-color: #E8940F !important; /* tiny shift for feedback */
+}
+/* Force the hero title to exactly two lines */
+.hero-title{
+  /* your big size + styling stays as you already have */
+  line-height: .92;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: #E8940F;              /* same hot red you’re using */
+  word-break: keep-all;
+  overflow-wrap: normal;
+  white-space: normal;
+  max-width: none;             /* ensure the column width, not a tiny inline width, controls it */
+}
+
+.hero-title .line-1,
+.hero-title .line-2{
+  display:block;
+}
+
+/* never wrap the second line (“Breaking Agent”) */
+.hero-title .line-2{
+  white-space: nowrap;
+}
+
+/* give the left column enough width so line-2 fits on one line */
+@media (min-width: 992px){
+  .leverage-hero .col-lg-6.col-md-7{
+    max-width: 48rem;          /* ~768px; ample room for “Breaking Agent” */
+  }
+}
+

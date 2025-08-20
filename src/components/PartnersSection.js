@@ -1,51 +1,129 @@
 import React from 'react';
+import './PartnersSection.css';
 
 const PartnersSection = () => {
   const partners = [
-    { name: "EMAAR", subtitle: "Properties", className: "text-danger" },
-    { name: "DUBAI", subtitle: "Properties", className: "text-danger" },
-    { name: "NAKHEEL", subtitle: "Developer", className: "text-secondary" },
-    { name: "MERAAS", subtitle: "Holdings", className: "text-secondary" },
-    { name: "DAMAC", subtitle: "Properties", className: "text-danger" },
-    { name: "ALDAR", subtitle: "Properties", className: "text-secondary" },
-    { name: "SOBHA", subtitle: "Realty", className: "text-danger" },
-    { name: "OMNIYAT", subtitle: "Developer", className: "text-secondary" },
-    { name: "SELECT", subtitle: "Group", className: "text-danger" },
-    { name: "ELLINGTON", subtitle: "Properties", className: "text-secondary" }
+    { 
+      name: "EMAAR", 
+      subtitle: "Properties", 
+      type: "developer",
+      description: "Leading luxury developer"
+    },
+    { 
+      name: "DUBAI PROPERTIES", 
+      subtitle: "Group", 
+      type: "developer",
+      description: "Government-backed developer"
+    },
+    { 
+      name: "NAKHEEL", 
+      subtitle: "Developer", 
+      type: "developer",
+      description: "Iconic Dubai projects"
+    },
+    { 
+      name: "MERAAS", 
+      subtitle: "Holdings", 
+      type: "developer",
+      description: "Premium lifestyle destinations"
+    },
+    { 
+      name: "DAMAC", 
+      subtitle: "Properties", 
+      type: "developer",
+      description: "Luxury living experiences"
+    },
+    { 
+      name: "ALDAR", 
+      subtitle: "Properties", 
+      type: "developer",
+      description: "Abu Dhabi's leading developer"
+    },
+    { 
+      name: "SOBHA", 
+      subtitle: "Realty", 
+      type: "developer",
+      description: "Crafting premium spaces"
+    },
+    { 
+      name: "OMNIYAT", 
+      subtitle: "Developer", 
+      type: "developer",
+      description: "Visionary luxury developments"
+    },
+    { 
+      name: "SELECT GROUP", 
+      subtitle: "Properties", 
+      type: "developer",
+      description: "Boutique luxury developments"
+    },
+    { 
+      name: "ELLINGTON", 
+      subtitle: "Properties", 
+      type: "developer",
+      description: "Contemporary design focus"
+    }
   ];
 
   return (
-    <section className="partners-section full-bleed py-5" id="partners">
-      <div className="container">
+    <section className="partners-section" id="partners">
+      <div className="partners-container">
         
-        {/* Title */}
-        <div className="row justify-content-center mb-5">
-          <div className="col-lg-6 text-center">
-            <h2 className="display-5 fw-bold text-white mb-0">
-              Partners
-            </h2>
-          </div>
+        {/* Section Header */}
+        <div className="partners-header">
+          <h2 className="partners-main-title">
+            Trusted Partners
+          </h2>
+          <h3 className="partners-subtitle">
+            Collaborating with Dubai's Premier Developers
+          </h3>
         </div>
 
-        {/* Scrolling Partners */}
-        <div className="partners-slider-container">
-          <div className="partners-track">
-            {/* First set of brands */}
-            {partners.map((partner, index) => (
-              <div key={`first-${index}`} className="partner-card">
-                <h4 className="fw-bold text-white mb-0">{partner.name}</h4>
-                <small className={partner.className}>{partner.subtitle}</small>
-              </div>
-            ))}
-            
-            {/* Duplicate set for seamless loop */}
-            {partners.map((partner, index) => (
-              <div key={`second-${index}`} className="partner-card">
-                <h4 className="fw-bold text-white mb-0">{partner.name}</h4>
-                <small className={partner.className}>{partner.subtitle}</small>
-              </div>
-            ))}
+        {/* Partners Showcase with Scrolling Animation */}
+        <div className="partners-showcase">
+          
+          {/* Scrolling Partners Strip */}
+          <div className="partners-scroll-container">
+            <div className="partners-scroll-track">
+              {/* First set of partners */}
+              {partners.map((partner, index) => (
+                <div key={`first-${index}`} className="partners-scroll-card">
+                  <div className="partners-card-content">
+                    <h4 className="partners-brand-name">{partner.name}</h4>
+                    <span className="partners-brand-type">{partner.subtitle}</span>
+                  </div>
+                  <div className="partners-card-accent"></div>
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {partners.map((partner, index) => (
+                <div key={`second-${index}`} className="partners-scroll-card">
+                  <div className="partners-card-content">
+                    <h4 className="partners-brand-name">{partner.name}</h4>
+                    <span className="partners-brand-type">{partner.subtitle}</span>
+                  </div>
+                  <div className="partners-card-accent"></div>
+                </div>
+              ))}
+            </div>
           </div>
+
+          {/* Partnership Stats */}
+          <div className="partners-stats">
+            <div className="partners-stat-item">
+              <h4 className="partners-stat-number">10+</h4>
+              <p className="partners-stat-label">Premier Developers</p>
+            </div>
+            <div className="partners-stat-item">
+              <h4 className="partners-stat-number">500+</h4>
+              <p className="partners-stat-label">Exclusive Projects</p>
+            </div>
+            <div className="partners-stat-item">
+              <h4 className="partners-stat-number">15+</h4>
+              <p className="partners-stat-label">Years Partnership</p>
+            </div>
+          </div>
+
         </div>
 
       </div>

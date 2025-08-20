@@ -1,0 +1,518 @@
+/* ===== GOLDEN VISA SECTION STYLES ===== */
+.goldenvisa-section {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.goldenvisa-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(252, 163, 17, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(252, 163, 17, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.goldenvisa-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== SECTION HEADER ===== */
+.goldenvisa-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.goldenvisa-main-title {
+  font-family: 'Italiana', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.goldenvisa-logo {
+  height: 1.2em;
+  width: auto;
+  object-fit: contain;
+}
+
+.goldenvisa-subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: #FCA311;
+  font-weight: 300;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ===== MAIN CONTENT LAYOUT ===== */
+.goldenvisa-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+/* ===== INVESTOR SECTION ===== */
+.goldenvisa-investor-section {
+  position: relative;
+}
+
+.investor-card {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.investor-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #FCA311, transparent);
+}
+
+.investor-header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.investor-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin: 0 auto 0.75rem auto;
+  box-shadow: 0 6px 15px rgba(252, 163, 17, 0.3);
+}
+
+.investor-title {
+  font-family: 'Italiana', serif;
+  font-size: 1.6rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.investor-description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.95rem;
+  color: #b8b8b8;
+  line-height: 1.3;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+/* ===== INVESTOR FEATURES ===== */
+.investor-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  background: rgba(252, 163, 17, 0.05);
+  border-color: rgba(252, 163, 17, 0.15);
+  transform: translateX(3px);
+}
+
+.feature-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.feature-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* ===== BENEFITS SECTION ===== */
+.goldenvisa-benefits-section {
+  position: relative;
+}
+
+.benefits-card {
+  background: rgba(45, 45, 45, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(252, 163, 17, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.benefits-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #FCA311, transparent);
+}
+
+.benefits-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefits-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin: 0 auto 1rem auto;
+  box-shadow: 0 8px 20px rgba(252, 163, 17, 0.3);
+}
+
+.benefits-title {
+  font-family: 'Italiana', serif;
+  font-size: 1.8rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+  text-align: center !important;
+  display: block;
+  width: 100%;
+}
+
+.benefits-description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #b8b8b8;
+  line-height: 1.4;
+  margin-bottom: 0;
+  text-align: center !important;
+  display: block;
+  width: 100%;
+  font-weight: 500;
+}
+
+/* ===== BENEFITS GRID ===== */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.benefit-card {
+  background: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(252, 163, 17, 0.15);
+  border-radius: 12px;
+  padding: 1.25rem;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.benefit-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(252, 163, 17, 0.4);
+  box-shadow: 0 8px 20px rgba(252, 163, 17, 0.15);
+}
+
+.benefit-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.benefit-content {
+  flex: 1;
+}
+
+.benefit-title {
+  font-family: 'Italiana', serif;
+  font-size: 1.1rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.5px;
+}
+
+.benefit-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85rem;
+  color: #b8b8b8;
+  line-height: 1.3;
+  margin: 0;
+  font-weight: 500;
+}
+
+.benefit-glow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #FCA311, transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.benefit-card:hover .benefit-glow {
+  transform: scaleX(1);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Large screens (1200px+) */
+@media (min-width: 1200px) {
+  .goldenvisa-container {
+    padding: 0 3rem;
+  }
+  
+  .goldenvisa-content {
+    gap: 2.5rem;
+  }
+  
+  .investor-card,
+  .benefits-card {
+    padding: 2.25rem;
+  }
+}
+
+/* Medium screens (768px - 1199px) */
+@media (max-width: 1199px) {
+  .goldenvisa-content {
+    gap: 1.75rem;
+  }
+  
+  .investor-card,
+  .benefits-card {
+    padding: 1.75rem;
+  }
+  
+  .investor-title,
+  .benefits-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Tablet screens (768px - 991px) */
+@media (max-width: 991px) {
+  .goldenvisa-section {
+    padding: 3rem 0;
+    min-height: auto;
+  }
+  
+  .goldenvisa-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .goldenvisa-header {
+    margin-bottom: 2rem;
+  }
+  
+  .goldenvisa-main-title {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .benefits-grid {
+    gap: 0.75rem;
+  }
+}
+
+/* Small tablet screens (576px - 767px) */
+@media (max-width: 767px) {
+  .goldenvisa-container {
+    padding: 0 1.5rem;
+  }
+  
+  .investor-card,
+  .benefits-card {
+    padding: 1.5rem;
+  }
+  
+  .investor-icon,
+  .benefits-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .investor-title,
+  .benefits-title {
+    font-size: 1.6rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Mobile screens (320px - 575px) */
+@media (max-width: 575px) {
+  .goldenvisa-section {
+    padding: 2rem 0;
+    min-height: auto;
+  }
+  
+  .goldenvisa-container {
+    padding: 0 1rem;
+  }
+  
+  .goldenvisa-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .investor-card,
+  .benefits-card {
+    padding: 1.25rem;
+  }
+  
+  .investor-header,
+  .benefits-header {
+    margin-bottom: 1.25rem;
+  }
+  
+  .investor-icon,
+  .benefits-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .feature-item {
+    padding: 0.5rem 0;
+  }
+  
+  .feature-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  
+  .feature-text {
+    font-size: 0.85rem;
+  }
+  
+  .benefit-card {
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .benefit-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  
+  .benefit-title {
+    font-size: 0.9rem;
+  }
+  
+  .benefit-text {
+    font-size: 0.75rem;
+  }
+}
+
+/* Extra small screens (320px and below) */
+@media (max-width: 320px) {
+  .goldenvisa-container {
+    padding: 0 0.75rem;
+  }
+  
+  .investor-card,
+  .benefits-card {
+    padding: 1rem;
+  }
+  
+  .goldenvisa-main-title {
+    gap: 0.25rem;
+  }
+  
+  .goldenvisa-logo {
+    height: 1em;
+  }
+}

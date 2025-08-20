@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './InvestmentCalculator.css';
 
 const InvestmentCalculator = () => {
   const [investmentAmount, setInvestmentAmount] = useState(1000000);
@@ -82,175 +83,171 @@ const InvestmentCalculator = () => {
   };
 
   return (
-    <section className="calculator-section full-bleed py-5" id="calculator">
-      {/* Top separator */}
-      <div className="separator-group d-none d-md-block">
-        <div className="separator-line"></div>
-        <div className="separator-bar"></div>
-      </div>
-
-      <div className="container-fluid px-0">
-        {/* Header */}
-        <div className="row">
-          <div className="col-12 text-center mb-3">
-            <h2 className="display-5 fw-bold text-white mb-1">
-              Investment Calculator
-            </h2>
-            <p className="text-secondary mb-0">
-              Discover your potential returns in Dubai's thriving real estate market
-            </p>
-          </div>
+    <div className="investment-calculator">
+      <section className="calculator-section" id="calculator">
+        <div className="calculator-container">
+        
+        {/* Section Header */}
+        <div className="calculator-header">
+          <h2 className="calculator-main-title">Investment Calculator</h2>
+          <p className="calculator-subtitle">Discover Your Potential Returns</p>
         </div>
 
-        <div className="row justify-content-center">
-          <div className="col-12">
-            <div className="calculator-container">
-              
+        {/* Main Calculator Content */}
+        <div className="calculator-content">
+          
+          {/* Investment Input Section */}
+          <div className="calculator-input-section">
+            <div className="input-card">
+              <div className="input-header">
+                <div className="input-icon">
+                  <i className="fa-solid fa-calculator"></i>
+                </div>
+                <h3 className="input-title">Your Investment Amount</h3>
+              </div>
+
               {/* Currency Info */}
-              <div className="currency-info text-center">
+              <div className="currency-info">
                 <div className="currency-badge">
-                  <i className="fa-solid fa-globe me-2"></i>
-                  Showing amounts in <strong>AED - UAE Dirham</strong>
+                  <i className="fa-solid fa-globe"></i>
+                  <span>Amounts in <strong>AED - UAE Dirham</strong></span>
                 </div>
               </div>
 
-              {/* Two Column Layout */}
-              <div className="row gx-4">
-                {/* LEFT: Input Section */}
-                <div className="col-lg-6">
-                  <div className="input-section">
-                    <h3 className="input-title text-white">
-                      <i className="fa-solid fa-calculator me-2"></i>
-                      Your Investment Amount
-                    </h3>
+              {/* Amount Input */}
+              <div className="amount-input-group">
+                <span className="currency-symbol">AED</span>
+                <input 
+                  type="number" 
+                  className="amount-input" 
+                  value={investmentAmount} 
+                  min="0" 
+                  placeholder="Enter amount"
+                  onChange={handleAmountChange}
+                />
+              </div>
 
-                    {/* Amount Input */}
-                    <div className="amount-input-group">
-                      <span className="currency-symbol">AED</span>
-                      <input 
-                        type="number" 
-                        className="form-control amount-input" 
-                        value={investmentAmount} 
-                        min="0" 
-                        placeholder="Enter amount"
-                        onChange={handleAmountChange}
-                      />
-                    </div>
-
-                    {/* Quick Amounts */}
-                    <div className="quick-amounts">
-                      <p className="quick-label text-white">Quick amounts:</p>
-                      <div className="quick-buttons">
-                        {quickAmounts.map((amount, index) => (
-                          <button 
-                            key={index}
-                            className="btn btn-outline-light quick-btn" 
-                            onClick={() => handleQuickAmount(amount.value)}
-                          >
-                            {amount.label}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Investment Benefits */}
-                    <div className="investment-benefits">
-                      <h4 className="benefits-title text-white">
-                        <i className="fa-solid fa-star me-2"></i>
-                        Why Invest in Dubai?
-                      </h4>
-                      <div className="benefits-list">
-                        {benefits.map((benefit, index) => (
-                          <div key={index} className="benefit-item">
-                            <i className="fa-solid fa-check-circle text-danger"></i>
-                            <span className="text-secondary">{benefit}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* RIGHT: Results Section */}
-                <div className="col-lg-6">
-                  <div className="results-section">
-                    <h3 className="results-title text-white">
-                      <i className="fa-solid fa-chart-line me-2"></i>
-                      Your Potential Returns
-                    </h3>
-
-                    {/* Metric Cards */}
-                    <div className="metrics-grid">
-                      {/* Monthly Income */}
-                      <div className="metric-card highlight">
-                        <div className="metric-icon">
-                          <i className="fa-solid fa-coins text-danger"></i>
-                        </div>
-                        <div className="metric-content">
-                          <h4 className="text-white">Monthly Rental Income</h4>
-                          <p className="metric-value text-danger">
-                            {formatCurrency(monthlyIncome)}
-                          </p>
-                          <small className="text-secondary">Based on 6% annual yield</small>
-                        </div>
-                      </div>
-
-                      {/* 5-Year Value */}
-                      <div className="metric-card">
-                        <div className="metric-icon">
-                          <i className="fa-solid fa-coins text-danger"></i>
-                        </div>
-                        <div className="metric-content">
-                          <h4 className="text-white">5-Year Value</h4>
-                          <p className="metric-value text-danger">
-                            {formatCurrency(fiveYearValue)}
-                          </p>
-                          <small className="profit text-success">
-                            +{formatCurrency(fiveYearProfit)} profit
-                          </small>
-                        </div>
-                      </div>
-
-                      {/* 10-Year Value */}
-                      <div className="metric-card">
-                        <div className="metric-icon">
-                          <i className="fa-solid fa-rocket text-danger"></i>
-                        </div>
-                        <div className="metric-content">
-                          <h4 className="text-white">10-Year Value</h4>
-                          <p className="metric-value text-danger">
-                            {formatCurrency(tenYearValue)}
-                          </p>
-                          <small className="profit text-success">
-                            +{formatCurrency(tenYearProfit)} profit
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Disclaimer */}
-                    <div className="disclaimer-note">
-                      <i className="fa-solid fa-info-circle text-warning"></i>
-                      <strong className="text-white">Important:</strong>
-                      <span className="text-secondary">
-                        {' '}Estimates based on historical Dubai real‑estate performance (10% appreciation, 6% yield). Actual returns may vary.
-                      </span>
-                    </div>
-                  </div>
+              {/* Quick Amounts */}
+              <div className="quick-amounts">
+                <p className="quick-label">Quick amounts:</p>
+                <div className="quick-buttons">
+                  {quickAmounts.map((amount, index) => (
+                    <button 
+                      key={index}
+                      className={`quick-btn ${investmentAmount === amount.value ? 'active' : ''}`}
+                      onClick={() => handleQuickAmount(amount.value)}
+                    >
+                      {amount.label}
+                    </button>
+                  ))}
                 </div>
               </div>
 
+              {/* Investment Benefits */}
+              <div className="investment-benefits">
+                <h4 className="benefits-title">
+                  <div className="benefits-icon">
+                    <i className="fa-solid fa-gem"></i>
+                  </div>
+                  Why Invest in Dubai?
+                </h4>
+                <div className="benefits-grid">
+                  {benefits.map((benefit, index) => (
+                    <div key={index} className="benefit-card">
+                      <div className="benefit-card-icon">
+                        <i className="fa-solid fa-trophy"></i>
+                      </div>
+                      <span className="benefit-card-text">{benefit}</span>
+                      <div className="benefit-card-glow"></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
+
+          {/* Results Section */}
+          <div className="calculator-results-section">
+            <div className="results-card">
+              <div className="results-header">
+                <div className="results-icon">
+                  <i className="fa-solid fa-chart-line"></i>
+                </div>
+                <h3 className="results-title">Your Potential Returns</h3>
+              </div>
+
+              {/* Metrics Grid */}
+              <div className="metrics-grid">
+                {/* Monthly Income */}
+                <div className="metric-card featured">
+                  <div className="metric-icon">
+                    <i className="fa-solid fa-coins"></i>
+                  </div>
+                  <div className="metric-content">
+                    <h4 className="metric-label">Monthly Rental Income</h4>
+                    <p className="metric-value">
+                      {formatCurrency(monthlyIncome)}
+                    </p>
+                    <small className="metric-note">Based on 6% annual yield</small>
+                  </div>
+                  <div className="metric-accent"></div>
+                </div>
+
+                {/* 5-Year Value */}
+                <div className="metric-card">
+                  <div className="metric-icon">
+                    <i className="fa-solid fa-trending-up"></i>
+                  </div>
+                  <div className="metric-content">
+                    <h4 className="metric-label">5-Year Total Value</h4>
+                    <p className="metric-value">
+                      {formatCurrency(fiveYearValue)}
+                    </p>
+                    <small className="metric-profit">
+                      +{formatCurrency(fiveYearProfit)} profit
+                    </small>
+                  </div>
+                  <div className="metric-accent"></div>
+                </div>
+
+                {/* 10-Year Value */}
+                <div className="metric-card">
+                  <div className="metric-icon">
+                    <i className="fa-solid fa-rocket"></i>
+                  </div>
+                  <div className="metric-content">
+                    <h4 className="metric-label">10-Year Total Value</h4>
+                    <p className="metric-value">
+                      {formatCurrency(tenYearValue)}
+                    </p>
+                    <small className="metric-profit">
+                      +{formatCurrency(tenYearProfit)} profit
+                    </small>
+                  </div>
+                  <div className="metric-accent"></div>
+                </div>
+              </div>
+
+              {/* Disclaimer */}
+              <div className="disclaimer-note">
+                <div className="disclaimer-icon">
+                  <i className="fa-solid fa-info-circle"></i>
+                </div>
+                <div className="disclaimer-content">
+                  <strong>Important:</strong>
+                  <span>
+                    Estimates based on historical Dubai real estate performance (10% appreciation, 6% yield). 
+                    Actual returns may vary based on market conditions.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      {/* Bottom separator */}
-      <div className="separator-group d-none d-md-block">
-        <div className="separator-line"></div>
-        <div className="separator-bar"></div>
-      </div>
     </section>
+    </div>
   );
 };
 

@@ -1,6 +1,8 @@
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import './style.css';
 import './components/MobileFix.css';
+import IntroScreen from './components/IntroScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
@@ -17,28 +19,73 @@ import Footer from './components/Footer';
 // import ReactBitsDemo from './components/ReactBitsDemo';
 
 function App() {
+  const [showIntro, setShowIntro] = useState(true);
+  const [showMainSite, setShowMainSite] = useState(false);
+
+  const handleIntroComplete = () => {
+    setShowIntro(false);
+    // Small delay to ensure smooth transition
+    setTimeout(() => {
+      setShowMainSite(true);
+    }, 100);
+  };
+
+  // Skip intro on subsequent visits (optional) - TEMPORARILY DISABLED FOR TESTING
+  useEffect(() => {
+    // TEMP: Always show intro for testing
+    // const hasVisited = sessionStorage.getItem('hasVisited');
+    // if (hasVisited) {
+    //   setShowIntro(false);
+    //   setShowMainSite(true);
+    // } else {
+    //   sessionStorage.setItem('hasVisited', 'true');
+    // }
+    
+    // Clear any existing session storage to ensure intro shows
+    sessionStorage.removeItem('hasVisited');
+  }, []);
+
   return (
     <div className="App">
-      <Navbar />
-      <Hero />
+      {showIntro && <IntroScreen onComplete={handleIntroComplete} />}
       
-      <ServicesSection />
+      {/* Preload Hero component (with video) while intro is showing */}
+      {showIntro && (
+        <div style={{ 
+          position: 'absolute', 
+          top: '-9999px', 
+          left: '-9999px', 
+          visibility: 'hidden',
+          pointerEvents: 'none'
+        }}>
+          <Hero />
+        </div>
+      )}
       
-      <TestimonialsSection />
-      <AboutSection />
-      <PortfolioGallery />
-      <PartnersSection />
-      <InvestmentCalculator />
-      <GoldenVisa />
-      <CTASection />
-      <LatestNews />
-      
-      {/* Contact Modal */}
-      <ContactModal />
-      
-      {/* Footer */}
-      <Footer />
-      {/* <ReactBitsDemo /> */}
+      {showMainSite && (
+        <>
+          <Navbar />
+          <Hero />
+          <AboutSection />
+          <ServicesSection />
+          
+          <TestimonialsSection />
+          
+          <PortfolioGallery />
+          <PartnersSection />
+          <InvestmentCalculator />
+          <GoldenVisa />
+          <CTASection />
+          <LatestNews />
+          
+          {/* Contact Modal */}
+          <ContactModal />
+          
+          {/* Footer */}
+          <Footer />
+          {/* <ReactBitsDemo /> */}
+        </>
+      )}
     </div>
   );
 }
