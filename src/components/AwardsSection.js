@@ -53,11 +53,6 @@ const AwardsSection = () => {
                       className="awards-image"
                     />
                   </div>
-                  <div className="awards-card-content">
-                    <h4 className="awards-title">{award.name}</h4>
-                    <span className="awards-subtitle-text">{award.subtitle}</span>
-                    <p className="awards-description">{award.description}</p>
-                  </div>
                   <div className="awards-card-accent"></div>
                 </div>
               ))}
@@ -70,11 +65,6 @@ const AwardsSection = () => {
                       alt={award.name}
                       className="awards-image"
                     />
-                  </div>
-                  <div className="awards-card-content">
-                    <h4 className="awards-title">{award.name}</h4>
-                    <span className="awards-subtitle-text">{award.subtitle}</span>
-                    <p className="awards-description">{award.description}</p>
                   </div>
                   <div className="awards-card-accent"></div>
                 </div>
@@ -89,7 +79,7 @@ const AwardsSection = () => {
               <p className="awards-stat-label">Industry Awards</p>
             </div>
             <div className="awards-stat-item">
-              <h4 className="awards-stat-number">2024</h4>
+              <h4 className="awards-stat-number">2025</h4>
               <p className="awards-stat-label">Latest Recognition</p>
             </div>
             <div className="awards-stat-item">
