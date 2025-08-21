@@ -1,459 +1,399 @@
-/* ===== INVESTMENT CALCULATOR SECTION STYLES ===== */
-.investment-calculator .calculator-section {
-  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%) !important;
-  padding: 4rem 0 !important;
-  position: relative !important;
-  overflow: hidden !important;
-  min-height: 100vh !important;
-  display: flex !important;
-  align-items: center !important;
-}
+/* ═══════════════════════════════════════════════════════════════
+   INVESTMENT CALCULATOR - EXACT SYNC WITH PARTNERS SECTION
+   Using identical fonts, colors, and styling patterns
+   ═══════════════════════════════════════════════════════════════ */
 
-.investment-calculator .calculator-section::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  background: 
-    radial-gradient(circle at 25% 25%, rgba(252, 163, 17, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(252, 163, 17, 0.04) 0%, transparent 50%) !important;
-  pointer-events: none !important;
-}
-
-.investment-calculator .calculator-container {
-  max-width: 1400px !important;
-  margin: 0 auto !important;
-  padding: 0 2rem !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-/* ===== SECTION HEADER ===== */
-.investment-calculator .calculator-header {
-  text-align: center !important;
-  margin-bottom: 3rem !important;
-}
-
-.investment-calculator .calculator-main-title {
-  font-family: 'Italiana', serif !important;
-  font-size: clamp(2.5rem, 5vw, 4rem) !important;
-  color: #ffffff !important;
-  font-weight: 400 !important;
-  margin-bottom: 0.5rem !important;
-  line-height: 1.2 !important;
-  letter-spacing: 1px !important;
-}
-
-.investment-calculator .calculator-subtitle {
-  font-family: 'Roboto', sans-serif !important;
-  font-size: clamp(1rem, 2vw, 1.3rem) !important;
-  color: #FCA311 !important;
-  font-weight: 300 !important;
-  margin-bottom: 0 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 2px !important;
-}
-
-/* ===== MAIN CONTENT LAYOUT ===== */
-.investment-calculator .calculator-content {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 3rem !important;
-  align-items: stretch !important;
-}
-
-/* ===== INPUT SECTION ===== */
-.investment-calculator .calculator-input-section {
-  position: relative !important;
-}
-
-.investment-calculator .input-card {
-  background: rgba(45, 45, 45, 0.6) !important;
-  backdrop-filter: blur(15px) !important;
-  border: 1px solid rgba(252, 163, 17, 0.1) !important;
-  border-radius: 16px !important;
-  padding: 2rem !important;
-  position: relative !important;
-  overflow: hidden !important;
-  height: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
-}
-
-.investment-calculator .input-card::before {
-  content: '' !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 4px !important;
-  background: linear-gradient(90deg, transparent, #FCA311, transparent) !important;
-}
-
-.investment-calculator .input-header {
-  display: flex !important;
-  align-items: center !important;
-  gap: 1rem !important;
-  margin-bottom: 1.5rem !important;
-}
-
-.investment-calculator .input-icon {
-  width: 48px !important;
-  height: 48px !important;
-  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%) !important;
-  border-radius: 12px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 1.2rem !important;
-  color: #ffffff !important;
-  box-shadow: 0 4px 15px rgba(252, 163, 17, 0.3) !important;
-}
-
-.investment-calculator .input-title {
-  font-family: 'Italiana', serif !important;
-  font-size: 1.8rem !important;
-  color: #ffffff !important;
-  font-weight: 400 !important;
-  margin: 0 !important;
-  letter-spacing: 0.5px !important;
-}
-
-/* ===== CURRENCY INFO ===== */
-.investment-calculator .currency-info {
-  margin-bottom: 1.5rem !important;
-}
-
-.investment-calculator .currency-badge {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  background: rgba(252, 163, 17, 0.1) !important;
-  border: 1px solid rgba(252, 163, 17, 0.2) !important;
-  border-radius: 20px !important;
-  padding: 0.5rem 1rem !important;
-  font-family: 'Roboto', sans-serif !important;
-  font-size: 0.8rem !important;
-  color: #b8b8b8 !important;
-  transition: all 0.3s ease !important;
-}
-
-.investment-calculator .currency-badge:hover {
-  background: rgba(252, 163, 17, 0.15) !important;
-  transform: translateY(-1px) !important;
-}
-
-.investment-calculator .currency-badge i {
-  color: #FCA311 !important;
-  font-size: 1rem !important;
-}
-
-.investment-calculator .currency-badge strong {
-  color: #FCA311 !important;
-}
-
-/* ===== AMOUNT INPUT ===== */
-.investment-calculator .amount-input-group {
-  position: relative !important;
-  margin-bottom: 1.5rem !important;
-}
-
-.investment-calculator .currency-symbol {
-  position: absolute !important;
-  left: 1.5rem !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  font-family: 'Roboto', sans-serif !important;
-  font-size: 1.1rem !important;
-  font-weight: 700 !important;
-  color: #FCA311 !important;
-  z-index: 2 !important;
-}
-
-.investment-calculator .amount-input {
-  width: 100% !important;
-  background: rgba(30, 30, 30, 0.8) !important;
-  border: 2px solid rgba(252, 163, 17, 0.2) !important;
-  border-radius: 12px !important;
-  padding: 1rem 1.5rem 1rem 4rem !important;
-  font-family: 'Roboto', sans-serif !important;
-  font-size: 1.2rem !important;
-  font-weight: 600 !important;
-  color: #ffffff !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-}
-
-.investment-calculator .amount-input:focus {
-  outline: none !important;
-  border-color: #FCA311 !important;
-  box-shadow: 0 0 0 4px rgba(252, 163, 17, 0.1), 0 6px 20px rgba(0, 0, 0, 0.3) !important;
-  background: rgba(30, 30, 30, 0.9) !important;
-  transform: translateY(-1px) !important;
-}
-
-.investment-calculator .amount-input::placeholder {
-  color: #666666 !important;
-}
-
-/* ===== QUICK AMOUNTS ===== */
-.investment-calculator .quick-amounts {
-  margin-bottom: 2rem !important;
-}
-
-.investment-calculator .quick-label {
-  font-family: 'Roboto', sans-serif !important;
-  font-size: 0.9rem !important;
-  color: #b8b8b8 !important;
-  margin-bottom: 1rem !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
-  text-align: center !important;
-}
-
-.investment-calculator .quick-buttons {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: 0.75rem !important;
-}
-
-.investment-calculator .quick-btn {
-  background: rgba(45, 45, 45, 0.8) !important;
-  border: 1px solid rgba(252, 163, 17, 0.2) !important;
-  border-radius: 8px !important;
-  padding: 0.75rem 1.25rem !important;
-  font-family: 'Roboto', sans-serif !important;
-  font-size: 0.9rem !important;
-  font-weight: 600 !important;
-  color: #b8b8b8 !important;
-  cursor: pointer !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  white-space: nowrap !important;
-  text-align: center !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
-}
-
-.investment-calculator .quick-btn:hover {
-  border-color: #FCA311 !important;
-  color: #ffffff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 15px rgba(252, 163, 17, 0.2) !important;
-}
-
-.investment-calculator .quick-btn.active {
-  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%) !important;
-  border-color: #FCA311 !important;
-  color: #000000 !important;
-  font-weight: 700 !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(252, 163, 17, 0.4) !important;
-}
-
-/* ===== INVESTMENT BENEFITS ===== */
-.investment-benefits {
-  border-top: 1px solid rgba(252, 163, 17, 0.1);
-  padding-top: 1.25rem;
-  margin-top: auto;
-  flex-shrink: 0;
-}
-
-.benefits-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: 'Italiana', serif;
-  font-size: 1.2rem;
-  color: #ffffff;
-  font-weight: 400;
-  margin-bottom: 1rem;
-  letter-spacing: 0.5px;
-}
-
-.benefits-icon {
-  width: 30px;
-  height: 30px;
-  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  color: #000000;
-}
-
-.benefits-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-}
-
-.benefit-card {
-  background: rgba(30, 30, 30, 0.8);
-  border: 1px solid rgba(252, 163, 17, 0.15);
-  border-radius: 10px;
-  padding: 0.75rem;
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.4rem;
-}
-
-.benefit-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(252, 163, 17, 0.4);
-  box-shadow: 0 6px 16px rgba(252, 163, 17, 0.1);
-}
-
-.benefit-card-icon {
-  width: 24px;
-  height: 24px;
-  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  color: #ffffff;
-  flex-shrink: 0;
-}
-
-.benefit-card-text {
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.7rem;
-  color: #ffffff;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-.benefit-card-glow {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #FCA311, transparent);
-  transform: scaleX(0);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.benefit-card:hover .benefit-card-glow {
-  transform: scaleX(1);
-}
-
-/* ===== RESULTS SECTION ===== */
-.calculator-results-section {
-  position: relative;
-}
-
-.results-card {
+/* ─────────────────────────────────────────────────────────────── 
+   SECTION BASE - MATCHING PARTNERS SECTION EXACTLY
+   ─────────────────────────────────────────────────────────────── */
+.calculator-section {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  padding: 4rem 0;
+  display: inline-block;
   background: rgba(45, 45, 45, 0.6);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(252, 163, 17, 0.1);
-  border-radius: 16px;
-  padding: 1.5rem;
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(252, 163, 17, 0.3);
+  color: #FCA311;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
-.results-card::before {
+.currency-badge:hover {
+  border-color: rgba(252, 163, 17, 0.5);
+  transform: translateY(-2px);
+}
+
+.currency-badge i {
+  color: #FCA311;
+}
+
+/* ─────────────────────────────────────────────────────────────── 
+   INPUT SECTION - PARTNERS SECTION CARD STYLING
+   ─────────────────────────────────────────────────────────────── */
+.input-section {
+  background: rgba(45, 45, 45, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(252, 163, 17, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-section::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: 4px;
+  width: 100%;
+  height: 2px;
   background: linear-gradient(90deg, transparent, #FCA311, transparent);
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.results-header {
+.input-section:hover::before {
+  transform: scaleX(1);
+}
+
+.input-section:hover {
+  transform: translateY(-5px);
+  border-color: rgba(252, 163, 17, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.input-title {
+  font-family: 'Italiana', serif;
+  font-size: 1.4rem;
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+/* ─────────────────────────────────────────────────────────────── 
+   INPUT FIELD - PARTNERS SECTION CONSISTENT STYLING
+   ─────────────────────────────────────────────────────────────── */
+.input-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #FCA311;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  z-index: 3;
+}
+
+.calculator-input {
+  width: 100%;
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(252, 163, 17, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.calculator-input:focus {
+  outline: none;
+  border-color: #FCA311;
+  box-shadow: 0 0 0 3px rgba(252, 163, 17, 0.1);
+  background: rgba(35, 35, 35, 0.9);
+}
+
+.calculator-input::placeholder {
+  color: #b8b8b8;
+  font-weight: 400;
+}
+
+/* ─────────────────────────────────────────────────────────────── 
+   QUICK AMOUNT BUTTONS - PARTNERS SECTION STYLING
+   ─────────────────────────────────────────────────────────────── */
+.quick-amounts {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  color: #b8b8b8;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.quick-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.quick-btn {
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(252, 163, 17, 0.2);
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.quick-btn:hover {
+  background: rgba(35, 35, 35, 0.9);
+  border-color: rgba(252, 163, 17, 0.4);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.quick-btn.active {
+  background: linear-gradient(45deg, rgba(252, 163, 17, 0.1) 0%, rgba(252, 163, 17, 0.05) 100%);
+  border: 2px solid rgba(252, 163, 17, 0.4);
+  color: #FCA311;
+  font-weight: 700;
+}
+
+/* ─────────────────────────────────────────────────────────────── 
+   BENEFITS SECTION - PARTNERS SECTION STYLING
+   ─────────────────────────────────────────────────────────────── */
+.benefits-section {
+  border-top: 1px solid rgba(252, 163, 17, 0.1);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.benefits-title {
+  font-family: 'Italiana', serif;
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.text-accent {
+  color: #FCA311;
+}
+
+.benefits-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.benefit-card {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.25rem;
+  gap: 1rem;
+  background: rgba(26, 26, 26, 0.6);
+  border: 1px solid rgba(252, 163, 17, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease;
 }
 
-.results-icon {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%);
-  border-radius: 10px;
+.benefit-card:hover {
+  background: rgba(35, 35, 35, 0.8);
+  border-color: rgba(252, 163, 17, 0.3);
+  transform: translateX(5px);
+}
+
+.benefit-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, rgba(252, 163, 17, 0.1) 0%, rgba(252, 163, 17, 0.05) 100%);
+  border: 2px solid rgba(252, 163, 17, 0.2);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.2rem;
+  color: #FCA311;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover .benefit-icon {
+  background: linear-gradient(45deg, #FCA311 0%, #E8940F 100%);
+  border-color: #FCA311;
+  color: #1a1a1a;
+  transform: scale(1.05);
+}
+
+.benefit-content {
+  flex: 1;
+}
+
+.benefit-title {
+  font-family: 'Italiana', serif;
   font-size: 1rem;
   color: #ffffff;
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.benefit-desc {
+  font-family: 'Roboto', sans-serif;
+  color: #b8b8b8;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────── 
+   RESULTS SECTION - PARTNERS SECTION CARD STYLING
+   ─────────────────────────────────────────────────────────────── */
+.calculator-results {
+  background: rgba(45, 45, 45, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(252, 163, 17, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calculator-results::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FCA311, transparent);
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calculator-results:hover::before {
+  transform: scaleX(1);
+}
+
+.calculator-results:hover {
+  transform: translateY(-5px);
+  border-color: rgba(252, 163, 17, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.results-header {
+  margin-bottom: 1.5rem;
 }
 
 .results-title {
   font-family: 'Italiana', serif;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #ffffff;
   font-weight: 400;
-  margin: 0;
-  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
 }
 
-/* ===== METRICS GRID ===== */
+/* ─────────────────────────────────────────────────────────────── 
+   METRICS GRID - PARTNERS SECTION CONSISTENT CARDS
+   ─────────────────────────────────────────────────────────────── */
 .metrics-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1rem;
-  margin-bottom: 1.25rem;
-  flex-grow: 1;
+  margin-bottom: 1.5rem;
 }
 
 .metric-card {
-  background: rgba(30, 30, 30, 0.6);
+  background: rgba(35, 35, 35, 0.6);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(252, 163, 17, 0.1);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
 
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FCA311, transparent);
+  transform: scaleX(0);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.metric-card:hover::before {
+  transform: scaleX(1);
+}
+
 .metric-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
   border-color: rgba(252, 163, 17, 0.3);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 .metric-card.featured {
+  background: rgba(252, 163, 17, 0.08);
   border-color: rgba(252, 163, 17, 0.3);
-  background: rgba(252, 163, 17, 0.05);
 }
 
-.metric-card {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+.metric-card.featured::before {
+  transform: scaleX(1);
 }
 
-.metric-icon {
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%);
-  border-radius: 8px;
+.card-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, rgba(252, 163, 17, 0.1) 0%, rgba(252, 163, 17, 0.05) 100%);
+  border: 2px solid rgba(252, 163, 17, 0.2);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  color: #ffffff;
+  font-size: 1.4rem;
+  color: #FCA311;
   flex-shrink: 0;
+  transition: all 0.3s ease;
 }
 
-.metric-content {
+.metric-card:hover .card-icon {
+  background: linear-gradient(45deg, #FCA311 0%, #E8940F 100%);
+  border-color: #FCA311;
+  color: #1a1a1a;
+  transform: scale(1.05);
+}
+
+.card-content {
   flex: 1;
 }
 
@@ -461,269 +401,803 @@
   font-family: 'Roboto', sans-serif;
   font-size: 0.8rem;
   color: #b8b8b8;
-  font-weight: 500;
-  margin: 0 0 0.2rem 0;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 .metric-value {
   font-family: 'Italiana', serif;
   font-size: 1.4rem;
-  color: #ffffff;
   font-weight: 400;
-  margin: 0 0 0.2rem 0;
-  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
 }
 
 .metric-note {
   font-family: 'Roboto', sans-serif;
-  font-size: 0.7rem;
-  color: #888888;
+  font-size: 0.8rem;
+  color: #b8b8b8;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .metric-profit {
   font-family: 'Roboto', sans-serif;
-  font-size: 0.75rem;
-  color: #4ade80;
+  font-size: 0.85rem;
   font-weight: 600;
 }
 
-.metric-accent {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #FCA311, transparent);
-  transform: scaleX(0);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+.text-success {
+  color: #28a745;
 }
 
-.metric-card:hover .metric-accent {
-  transform: scaleX(1);
-}
-
-/* ===== DISCLAIMER ===== */
-.disclaimer-note {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  background: rgba(252, 163, 17, 0.05);
-  border: 1px solid rgba(252, 163, 17, 0.15);
-  border-radius: 10px;
+/* ─────────────────────────────────────────────────────────────── 
+   DISCLAIMER - PARTNERS SECTION CONSISTENT STYLING
+   ─────────────────────────────────────────────────────────────── */
+.disclaimer {
+  background: rgba(26, 26, 26, 0.6);
+  border: 1px solid rgba(252, 163, 17, 0.1);
+  border-radius: 8px;
   padding: 1rem;
-  margin-top: auto;
-  flex-shrink: 0;
-}
-
-.disclaimer-icon {
-  width: 16px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-.disclaimer-icon i {
-  color: #FCA311;
-  font-size: 0.9rem;
 }
 
 .disclaimer-content {
   font-family: 'Roboto', sans-serif;
-  font-size: 0.75rem;
-  line-height: 1.4;
-}
-
-.disclaimer-content strong {
-  color: #ffffff;
-  margin-right: 0.5rem;
-}
-
-.disclaimer-content span {
+  font-size: 0.85rem;
   color: #b8b8b8;
+  line-height: 1.5;
 }
 
-/* ===== RESPONSIVE DESIGN - ENHANCED MOBILE FIRST ===== */
+.disclaimer strong {
+  color: #FCA311;
+  font-weight: 600;
+}
 
-/* Mobile screens (320px - 768px) - Primary focus */
+/* ─────────────────────────────────────────────────────────────── 
+   RESPONSIVE DESIGN - PARTNERS SECTION BREAKPOINTS
+   ─────────────────────────────────────────────────────────────── */
+
+/* Large Tablets */
+@media (max-width: 1024px) {
+  .calculator-section {
+    padding: 4rem 0;
+  }
+  
+  .calculator-container {
+    padding: 0 1.5rem;
+  }
+  
+  .metrics-grid {
+    gap: 0.75rem;
+  }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
-  .investment-calculator .calculator-section {
-    padding: 3rem 0 !important;
-    min-height: auto !important;
-    align-items: flex-start !important;
+  .calculator-section {
+    padding: 3rem 0;
   }
   
-  .investment-calculator .calculator-container {
-    padding: 0 1rem !important;
+  .input-section,
+  .calculator-results {
+    padding: 1.25rem;
   }
   
-  .investment-calculator .calculator-header {
-    margin-bottom: 2.5rem !important;
+  .quick-buttons-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
   }
   
-  .investment-calculator .calculator-main-title {
-    font-size: clamp(2rem, 8vw, 3rem) !important;
-    margin-bottom: 1rem !important;
+  .metrics-grid {
+    gap: 0.5rem;
   }
   
-  .investment-calculator .calculator-subtitle {
-    font-size: clamp(0.9rem, 3vw, 1.1rem) !important;
+  .metric-card {
+    padding: 1rem;
   }
   
-  /* Single column layout for mobile */
-  .investment-calculator .calculator-content {
-    grid-template-columns: 1fr !important;
-    gap: 2rem !important;
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
   }
   
-  .investment-calculator .input-card,
-  .investment-calculator .results-card {
-    padding: 1.5rem !important;
-  }
-  
-  /* Mobile input improvements */
-  .investment-calculator .input-header,
-  .investment-calculator .results-header {
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: 1rem !important;
-  }
-  
-  .investment-calculator .input-title,
-  .investment-calculator .results-title {
-    font-size: 1.4rem !important;
-  }
-  
-  .investment-calculator .amount-input {
-    font-size: 1.1rem !important;
-    padding: 0.9rem 1.2rem 0.9rem 3.5rem !important;
-  }
-  
-  .investment-calculator .currency-symbol {
-    left: 1.2rem !important;
-    font-size: 1rem !important;
-  }
-  
-  /* Enhanced mobile quick buttons */
-  .investment-calculator .quick-buttons {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.75rem !important;
-  }
-  
-  .investment-calculator .quick-btn {
-    padding: 1rem !important;
-    font-size: 0.85rem !important;
-    border-radius: 10px !important;
-  }
-  
-  /* Mobile benefits section */
-  .investment-calculator .benefits-title {
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: 0.75rem !important;
-    font-size: 1.1rem !important;
-  }
-  
-  .investment-calculator .benefits-grid {
-    grid-template-columns: 1fr !important;
-    gap: 0.75rem !important;
-  }
-  
-  /* Mobile metrics improvements */
-  .investment-calculator .metric-card {
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: 1rem !important;
-    padding: 1.5rem !important;
-  }
-  
-  .investment-calculator .metric-value {
-    font-size: 1.6rem !important;
-  }
-  
-  /* Mobile disclaimer */
-  .investment-calculator .disclaimer-note {
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: 0.75rem !important;
-    padding: 1.25rem !important;
+  .metric-value {
+    font-size: 1.2rem;
   }
 }
 
-/* Small mobile screens (320px - 480px) */
+/* Large Phones */
+@media (max-width: 640px) {
+  .calculator-container {
+    padding: 0 1rem;
+  }
+  
+  .quick-buttons-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .input-section,
+  .calculator-results {
+    padding: 1rem;
+  }
+  
+  .metric-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 0.875rem;
+  }
+  
+  .card-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+  
+  .metric-value {
+    font-size: 1.1rem;
+  }
+}
+
+/* Standard Phones */
 @media (max-width: 480px) {
-  .investment-calculator .calculator-section {
-    padding: 2rem 0 !important;
+  .calculator-section {
+    padding: 2.5rem 0;
   }
   
-  .investment-calculator .calculator-container {
-    padding: 0 0.75rem !important;
+  .input-section,
+  .calculator-results {
+    padding: 0.875rem;
   }
   
-  .investment-calculator .input-card,
-  .investment-calculator .results-card {
-    padding: 1.25rem !important;
-    border-radius: 12px !important;
+  .metric-card {
+    padding: 0.75rem;
   }
   
-  .investment-calculator .calculator-header {
-    margin-bottom: 2rem !important;
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
   
-  .investment-calculator .amount-input {
-    padding: 0.8rem 1rem 0.8rem 3rem !important;
-    font-size: 1rem !important;
+  .metric-value {
+    font-size: 1rem;
   }
   
-  .investment-calculator .currency-symbol {
-    left: 1rem !important;
-    font-size: 0.9rem !important;
+  .benefit-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
   
-  .investment-calculator .quick-btn {
-    padding: 0.875rem !important;
-    font-size: 0.8rem !important;
-  }
-  
-  .investment-calculator .metric-card {
-    padding: 1.25rem !important;
-  }
-  
-  .investment-calculator .metric-value {
-    font-size: 1.4rem !important;
-  }
-  
-  .investment-calculator .benefit-card {
-    padding: 1rem !important;
-  }
-  
-  .investment-calculator .benefit-card-text {
-    font-size: 0.8rem !important;
+  .disclaimer {
+    padding: 0.75rem;
   }
 }
 
-/* Very small screens (320px and below) */
-@media (max-width: 320px) {
-  .investment-calculator .calculator-container {
-    padding: 0 0.5rem !important;
-  }
-  
-  .investment-calculator .input-card,
-  .investment-calculator .results-card {
-    padding: 1rem !important;
-  }
-  
-  .investment-calculator .amount-input {
-    padding: 0.75rem 0.875rem 0.75rem 2.75rem !important;
-    font-size: 0.95rem !important;
-  }
-  
-  .investment-calculator .quick-btn {
-    padding: 0.75rem !important;
-    font-size: 0.75rem !important;
-  }
+/* Calculator header aligned with PartnersSection */
+.calculator-header { text-align:center; margin:0 auto 3rem; }
+.calculator-main-title { position:relative; }
+.calculator-subtitle { margin-bottom:1.25rem; }
+.calculator-accent-badge { display:inline-flex; align-items:center; gap:.5rem; background:rgba(45,45,45,0.6); border:1px solid rgba(252,163,17,0.25); color:#FCA311; padding:.6rem 1.1rem; font-family:'Roboto',sans-serif; font-size:.7rem; text-transform:uppercase; letter-spacing:1px; border-radius:30px; backdrop-filter:blur(8px); font-weight:600; }
+.calculator-accent-badge i { color:#FCA311; }
+
+/* Force badge on its own centered line below subtitle */
+.calculator-header .calculator-accent-badge { display:block; margin:0.75rem auto 0; text-align:center; justify-content:center; }
+
+/* Refined badge styling: slimmer border appearance & compact padding */
+.calculator-header .calculator-accent-badge {
+  display:inline-flex; /* inline so width hugs content */
+  margin:0.9rem auto 0; /* keep centered */
+  padding:0.45rem 0.85rem; /* smaller */
+  border:1px solid rgba(252,163,17,0.18); /* lighter border */
+  background:rgba(45,45,45,0.55);
+  font-size:0.58rem;
+  letter-spacing:0.8px;
+  line-height:1;
 }
+.calculator-header .calculator-accent-badge::before { /* subtle inner hairline to fake thinner border */
+  content:""; position:absolute; inset:0; border:1px solid rgba(255,255,255,0.05); border-radius:inherit; pointer-events:none; mix-blend-mode:overlay; }
+
+/* Equal columns & heights */
+.ic-section { background:linear-gradient(135deg,#2d2d2d,#1a1a1a); padding:4rem 0; position:relative; }
+.ic-section::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 20% 50%,rgba(252,163,17,.05),transparent 55%),radial-gradient(circle at 80% 40%,rgba(252,163,17,.04),transparent 60%); pointer-events:none; }
+@media (min-width:900px){ .ic-grid { display:flex !important; gap:1.75rem; } }
+.ic-grid { align-items:stretch; }
+.ic-grid > .ic-card { height:100%; display:flex; flex-direction:column; }
+.ic-metrics, .ic-benefits { flex-grow:1; }
+.ic-disclaimer { margin-top:auto; }
+
+/* Background decorations */
+.investment-calc-section::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(252, 163, 17, 0.06) 0%, transparent 60%),
+    radial-gradient(circle at 75% 75%, rgba(252, 163, 17, 0.04) 0%, transparent 60%) !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+/* SAFE SCOPED RESET (non-destructive) ---------------------------------- */
+/* Avoid resetting pseudo-elements so Font Awesome icons keep their content */
+.investment-calc-section { 
+  font-family: 'Roboto', sans-serif; 
+  position: relative; 
+}
+.investment-calc-section * { box-sizing: border-box; }
+/* Allow inline semantics */
+.investment-calc-section h1,
+.investment-calc-section h2,
+.investment-calc-section h3,
+.investment-calc-section h4,
+.investment-calc-section h5,
+.investment-calc-section h6 { margin: 0; font-weight: 400; line-height: 1.15; }
+.investment-calc-section p { margin: 0; }
+.investment-calc-section button { cursor: pointer; }
+.investment-calc-section i { font-style: normal; }
+
+/* Container */
+.investment-calc-container { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 1.5rem; 
+  width: 100%; 
+  position: relative; 
+  z-index: 2; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+/* Header Section - Compact & Elegant */
+.investment-calc-header {
+  text-align: center !important;
+  margin-bottom: 1.5rem !important;
+  position: relative !important;
+  z-index: 15 !important;
+}
+
+.investment-calc-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  background: rgba(252, 163, 17, 0.1) !important;
+  border: 1px solid rgba(252, 163, 17, 0.3) !important;
+  border-radius: 50px !important;
+  padding: 0.5rem 1rem !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.8rem !important;
+  color: #FCA311 !important;
+  font-weight: 500 !important;
+  margin-bottom: 0.75rem !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.investment-calc-title {
+  font-family: 'Italiana', serif !important;
+  font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
+  background: linear-gradient(45deg, #F5F5F5 15%, #FCA311 65%) no-repeat center/100% 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+  margin-bottom: 0.5rem !important;
+  display: inline-block !important;
+}
+
+.investment-calc-subtitle {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.95rem !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 300 !important;
+  line-height: 1.3 !important;
+  margin: 0 !important;
+}
+
+/* Main Calculator Layout - Modern Grid */
+.investment-calc-main {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1.5rem !important;
+  align-items: stretch !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+}
+
+/* Removed destructive override block that was breaking layout & icons */
+
+/* ===== HEADER SECTION ===== */
+.investment-calc-header {
+  text-align: center !important;
+  margin-bottom: 3rem !important;
+}
+
+.investment-calc-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  background: rgba(252, 163, 17, 0.1) !important;
+  border: 1px solid rgba(252, 163, 17, 0.3) !important;
+  border-radius: 50px !important;
+  padding: 0.75rem 1.5rem !important;
+  font-size: 0.9rem !important;
+  color: #FCA311 !important;
+  font-weight: 500 !important;
+  margin-bottom: 1rem !important;
+}
+
+.investment-calc-title {
+  font-family: 'Italiana', serif !important;
+  font-size: 3rem !important;
+  font-weight: 400 !important;
+  background: linear-gradient(45deg, #ffffff 20%, #FCA311 70%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  margin-bottom: 1rem !important;
+  letter-spacing: -0.5px !important;
+}
+
+.investment-calc-subtitle {
+  font-size: 1.1rem !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 300 !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+}
+
+/* ===== MAIN CALCULATOR LAYOUT ===== */
+.investment-calc-main {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 2rem !important;
+  align-items: start !important;
+}
+
+/* ===== CARDS BASE STYLING ===== */
+.investment-calc-card {
+  background: rgba(25, 25, 25, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px !important;
+  padding: 2rem !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.investment-calc-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, rgba(252, 163, 17, 0.6), transparent) !important;
+}
+
+.investment-calc-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, transparent, rgba(252, 163, 17, 0.6), transparent) !important;
+}
+
+.investment-calc-card:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(252, 163, 17, 0.4) !important;
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(252, 163, 17, 0.1) !important;
+}
+
+/* Input Section - Modern & Clean */
+.investment-calc-input-section {
+  margin-bottom: 1.25rem !important;
+}
+
+.investment-calc-input-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 1rem !important;
+}
+
+.investment-calc-input-title {
+  font-family: 'Italiana', serif !important;
+  font-size: 1.2rem !important;
+  background: linear-gradient(45deg, #F5F5F5 15%, #FCA311 65%) no-repeat center/100% 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  font-weight: 800 !important;
+  margin: 0 !important;
+}
+
+.investment-calc-currency-badge {
+  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%) !important;
+  color: #000000 !important;
+  padding: 0.4rem 0.8rem !important;
+  border-radius: 8px !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.investment-calc-input-wrapper {
+  position: relative !important;
+  margin-bottom: 1rem !important;
+}
+
+.investment-calc-input-symbol {
+  position: absolute !important;
+  left: 1.25rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 1rem !important;
+  color: #FCA311 !important;
+  font-weight: 600 !important;
+  z-index: 2 !important;
+}
+
+.investment-calc-main-input {
+  width: 100% !important;
+  background: rgba(35, 35, 35, 0.8) !important;
+  border: 2px solid rgba(252, 163, 17, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 1rem 1.25rem 1rem 3.5rem !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 1.1rem !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  outline: none !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.investment-calc-main-input:focus {
+  border-color: #FCA311 !important;
+  background: rgba(40, 40, 40, 0.9) !important;
+  box-shadow: 0 0 0 4px rgba(252, 163, 17, 0.1) !important;
+}
+
+.investment-calc-main-input::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+  font-weight: 400 !important;
+}
+
+/* Quick Amount Buttons - Sleek Design */
+.investment-calc-quick-section {
+  margin-bottom: 1.25rem !important;
+}
+
+.investment-calc-quick-label {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.8rem !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-weight: 400 !important;
+  margin-bottom: 0.75rem !important;
+  display: block !important;
+}
+
+.investment-calc-quick-buttons {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 0.75rem !important;
+}
+
+.investment-calc-quick-btn {
+  background: rgba(25, 25, 25, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 0.75rem !important;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.85rem !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-align: center !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+.investment-calc-quick-btn:hover {
+  background: rgba(35, 35, 35, 0.9) !important;
+  border-color: rgba(252, 163, 17, 0.3) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+}
+
+.investment-calc-quick-btn-active {
+  background: rgba(252, 163, 17, 0.15) !important;
+  border-color: #FCA311 !important;
+  color: #FCA311 !important;
+  font-weight: 600 !important;
+}
+
+/* Benefits Section - Compact & Beautiful */
+.investment-calc-benefits-section {
+  padding-top: 1rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  flex: 1 !important;
+}
+
+.investment-calc-benefits-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-family: 'Italiana', serif !important;
+  font-size: 1rem !important;
+  color: #ffffff !important;
+  font-weight: 400 !important;
+  margin-bottom: 0.75rem !important;
+  letter-spacing: 0.3px !important;
+}
+
+.investment-calc-benefits-title i {
+  color: #FCA311 !important;
+  font-size: 0.9rem !important;
+}
+
+.investment-calc-benefits-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+}
+
+.investment-calc-benefit-card {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  background: rgba(20, 20, 20, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px !important;
+  padding: 0.75rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.investment-calc-benefit-card:hover {
+  background: rgba(30, 30, 30, 0.8) !important;
+  border-color: rgba(252, 163, 17, 0.2) !important;
+  transform: translateX(2px) !important;
+}
+
+.investment-calc-benefit-icon {
+  width: 28px !important;
+  height: 28px !important;
+  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%) !important;
+  border-radius: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.75rem !important;
+  color: #000000 !important;
+  flex-shrink: 0 !important;
+}
+
+.investment-calc-benefit-content {
+  flex: 1 !important;
+}
+
+.investment-calc-benefit-title {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.85rem !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.1rem !important;
+}
+
+.investment-calc-benefit-desc {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.75rem !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-weight: 400 !important;
+  line-height: 1.3 !important;
+  margin: 0 !important;
+}
+
+/* Results Panel - Premium Design */
+.investment-calc-results-header {
+  margin-bottom: 1rem !important;
+  text-align: center !important;
+}
+
+.investment-calc-results-title {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  font-family: 'Italiana', serif !important;
+  font-size: 1.2rem !important;
+  background: linear-gradient(45deg, #F5F5F5 15%, #FCA311 65%) no-repeat center/100% 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  font-weight: 800 !important;
+  margin-bottom: 0.4rem !important;
+  letter-spacing: 0.3px !important;
+}
+
+.investment-calc-results-title i {
+  color: #FCA311 !important;
+  font-size: 1rem !important;
+  -webkit-text-fill-color: #FCA311 !important;
+}
+
+.investment-calc-results-subtitle {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.8rem !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+}
+
+/* Metrics Grid - Beautiful Cards */
+.investment-calc-metrics-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+  margin-bottom: 1rem !important;
+  flex: 1 !important;
+}
+
+.investment-calc-metric-card {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  background: linear-gradient(135deg, rgba(35, 35, 35, 0.8) 0%, rgba(25, 25, 25, 0.9) 100%) !important;
+  border: 1px solid rgba(252, 163, 17, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 1rem !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.investment-calc-metric-card::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 3px !important;
+  background: linear-gradient(180deg, #FCA311 0%, #e8940f 100%) !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.investment-calc-metric-card:hover {
+  background: linear-gradient(135deg, rgba(40, 40, 40, 0.9) 0%, rgba(30, 30, 30, 0.95) 100%) !important;
+  border-color: rgba(252, 163, 17, 0.4) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.investment-calc-metric-card:hover::before {
+  opacity: 1 !important;
+}
+
+.investment-calc-metric-featured {
+  background: linear-gradient(135deg, rgba(252, 163, 17, 0.08) 0%, rgba(252, 163, 17, 0.03) 100%) !important;
+  border-color: rgba(252, 163, 17, 0.3) !important;
+}
+
+.investment-calc-metric-featured::before {
+  opacity: 1 !important;
+}
+
+.investment-calc-metric-icon {
+  width: 36px !important;
+  height: 36px !important;
+  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%) !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.9rem !important;
+  color: #000000 !important;
+  flex-shrink: 0 !important;
+}
+
+.investment-calc-metric-content {
+  flex: 1 !important;
+}
+
+.investment-calc-metric-label {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.75rem !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 500 !important;
+  margin-bottom: 0.3rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.investment-calc-metric-value {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 1rem !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.2rem !important;
+  line-height: 1.2 !important;
+}
+
+.investment-calc-metric-note {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.7rem !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-weight: 400 !important;
+}
+
+.investment-calc-metric-profit {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.8rem !important;
+  color: #4ade80 !important;
+  font-weight: 600 !important;
+}
+
+/* Disclaimer - Elegant & Compact */
+.investment-calc-disclaimer {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 0.5rem !important;
+  background: rgba(20, 20, 20, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px !important;
+  padding: 0.75rem !important;
+  margin-top: auto !important;
+}
+
+.investment-calc-disclaimer-icon {
+  width: 16px !important;
+  height: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #FCA311 !important;
+  flex-shrink: 0 !important;
+  margin-top: 0.1rem !important;
+}
+
+.investment-calc-disclaimer-content {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.7rem !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
+}
+
+.investment-calc-disclaimer-content strong {
+  color: #FCA311 !important;
+  font-weight: 600 !important;
+}
+
+/* Font weight adjustments for key headings */
+.ic-field-label { font-weight: 700 !important; }
+.ic-results-title { font-weight: 600 !important; }
+.ic-results-title i { font-weight: 600 !important; }

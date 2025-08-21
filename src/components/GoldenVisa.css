@@ -1,343 +1,317 @@
+/* ===========================================
+   GOLDEN VISA COMPONENT - CONFLICT-FREE CSS
+   Using unique prefixes: 'goldenvisa-', 'investor-', 'benefits-', 'benefit-'
+   All styles isolated with !important to override global conflicts
+   =========================================== */
+
+/* Component base (lighter isolation without destructive resets) */
+.goldenvisa-section { box-sizing:border-box; }
+.goldenvisa-section * { box-sizing:inherit; }
+
 /* ===== GOLDEN VISA SECTION STYLES ===== */
 .goldenvisa-section {
   background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
 }
 
 .goldenvisa-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
   background: 
     radial-gradient(circle at 30% 40%, rgba(252, 163, 17, 0.06) 0%, transparent 50%),
-    radial-gradient(circle at 70% 60%, rgba(252, 163, 17, 0.04) 0%, transparent 50%);
-  pointer-events: none;
+    radial-gradient(circle at 70% 60%, rgba(252, 163, 17, 0.04) 0%, transparent 50%) !important;
+  pointer-events: none !important;
 }
 
 .goldenvisa-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  position: relative;
-  z-index: 2;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+  position: relative !important;
+  z-index: 2 !important;
 }
 
 /* ===== SECTION HEADER ===== */
 .goldenvisa-header {
-  text-align: center;
-  margin-bottom: 2.5rem;
+  text-align: center !important;
+  margin-bottom: 2.5rem !important;
 }
 
 .goldenvisa-main-title {
-  font-family: 'Italiana', serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  color: #ffffff;
-  font-weight: 400;
-  margin-bottom: 0.5rem;
-  line-height: 1.2;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  font-family: 'Italiana', serif !important;
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  color: #ffffff !important;
+  font-weight: 400 !important;
+  margin-bottom: 0.5rem !important;
+  line-height: 1.2 !important;
+  letter-spacing: 1px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1rem !important;
 }
 
 .goldenvisa-logo {
-  height: 1.2em;
-  width: auto;
-  object-fit: contain;
+  height: 1.2em !important;
+  width: auto !important;
+  object-fit: contain !important;
 }
 
 .goldenvisa-subtitle {
-  font-family: 'Roboto', sans-serif;
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  color: #FCA311;
-  font-weight: 300;
-  margin-bottom: 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: clamp(1rem, 2vw, 1.3rem) !important;
+  color: #FCA311 !important;
+  font-weight: 300 !important;
+  margin-bottom: 0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
 }
 
 /* ===== MAIN CONTENT LAYOUT ===== */
-.goldenvisa-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: stretch;
-}
+.goldenvisa-content { display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); align-items:stretch; }
+@media (min-width:900px){ .goldenvisa-content { grid-template-columns:1fr 1fr; } }
 
 /* ===== INVESTOR SECTION ===== */
 .goldenvisa-investor-section {
-  position: relative;
+  position: relative !important;
 }
 
-.investor-card {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 1.5rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
+/* Unified card style (align with calculator/partners aesthetics) */
+.investor-card, .benefits-card {
+  background:rgba(38,38,38,.6); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:1.75rem 1.6rem 1.9rem; position:relative; display:flex; flex-direction:column; overflow:hidden; box-shadow:0 10px 30px -12px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.05); transition:transform .5s cubic-bezier(.25,.8,.25,1), border-color .4s, background .4s; height:100%; }
+.investor-card::before, .benefits-card::before { content:""; position:absolute; inset:0; background:linear-gradient(120deg,rgba(252,163,17,.09),transparent 42%); opacity:0; pointer-events:none; transition:opacity .6s; }
+.investor-card:hover, .benefits-card:hover { transform:translateY(-6px); border-color:rgba(252,163,17,.35); }
+.investor-card:hover::before, .benefits-card:hover::before { opacity:1; }
 
 .investor-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, #FCA311, transparent);
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, transparent, #FCA311, transparent) !important;
 }
 
 .investor-header {
-  text-align: center;
-  margin-bottom: 1.25rem;
+  text-align: center !important;
+  margin-bottom: 1.25rem !important;
 }
 
 .investor-icon {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: #ffffff;
-  margin: 0 auto 0.75rem auto;
-  box-shadow: 0 6px 15px rgba(252, 163, 17, 0.3);
+  width: 50px !important;
+  height: 50px !important;
+  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%) !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.2rem !important;
+  color: #ffffff !important;
+  margin: 0 auto 0.75rem auto !important;
+  box-shadow: 0 6px 15px rgba(252, 163, 17, 0.3) !important;
 }
 
 .investor-title {
-  font-family: 'Italiana', serif;
-  font-size: 1.6rem;
-  color: #ffffff;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.5px;
+  font-family: 'Italiana', serif !important;
+  font-size: 1.6rem !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+  letter-spacing: 0.5px !important;
 }
 
 .investor-description {
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.95rem;
-  color: #b8b8b8;
-  line-height: 1.3;
-  margin-bottom: 0;
-  font-weight: 500;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.95rem !important;
+  color: #b8b8b8 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 0 !important;
+  font-weight: 500 !important;
 }
 
-/* ===== INVESTOR FEATURES ===== */
+/* ===== INVESTOR FEATURES - Override global conflicts ===== */
 .investor-features {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  flex: 1;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+  flex: 1 !important;
 }
 
-.feature-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  transition: all 0.3s ease;
+/* Investor stats strip */
+.investor-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(90px,1fr)); gap:.6rem; margin-top:1.1rem; }
+.investor-stat { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:.65rem .55rem .7rem; text-align:center; transition:background .35s,border-color .35s, transform .45s; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.investor-stat-value { font-family:'Italiana',serif; font-size:1.15rem; color:#FCA311; line-height:1; margin-bottom:.25rem; letter-spacing:.5px; }
+.investor-stat-label { font-family:'Roboto',sans-serif; font-size:.55rem; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.55); font-weight:600; }
+.investor-stat:hover { background:rgba(252,163,17,.12); border-color:rgba(252,163,17,.4); transform:translateY(-4px); }
+
+/* CTA */
+.investor-cta-wrap { margin-top:1.25rem; text-align:center; }
+.goldenvisa-cta-btn { background:linear-gradient(135deg,#FCA311,#d88c10); color:#151515; border:1px solid #FCA311; font-family:'Roboto',sans-serif; font-weight:600; letter-spacing:.8px; text-transform:uppercase; font-size:.62rem; padding:.8rem 1.4rem; border-radius:30px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; box-shadow:0 6px 16px -6px rgba(252,163,17,.55),0 0 0 1px rgba(255,255,255,.06); transition:box-shadow .45s, transform .45s, background .45s; }
+.goldenvisa-cta-btn:hover { box-shadow:0 10px 26px -8px rgba(252,163,17,.6),0 0 0 1px rgba(255,255,255,.1); transform:translateY(-3px); }
+.goldenvisa-cta-btn:active { transform:translateY(0); }
+@media (max-width:600px){ .investor-stats { grid-template-columns:repeat(2,1fr); } }
+
+.goldenvisa-section .feature-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  padding: 0.75rem !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
 }
 
-.feature-item:hover {
-  background: rgba(252, 163, 17, 0.05);
-  border-color: rgba(252, 163, 17, 0.15);
-  transform: translateX(3px);
+.goldenvisa-section .feature-item:hover {
+  background: rgba(252, 163, 17, 0.05) !important;
+  border-color: rgba(252, 163, 17, 0.15) !important;
+  transform: translateX(3px) !important;
 }
 
-.feature-icon {
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  color: #ffffff;
-  flex-shrink: 0;
+.goldenvisa-section .feature-icon {
+  width: 32px !important;
+  height: 32px !important;
+  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%) !important;
+  border-radius: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.8rem !important;
+  color: #ffffff !important;
+  flex-shrink: 0 !important;
 }
 
-.feature-text {
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.9rem;
-  color: #e0e0e0;
-  font-weight: 500;
-  line-height: 1.3;
+.goldenvisa-section .feature-text {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.9rem !important;
+  color: #e0e0e0 !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
 }
 
 /* ===== BENEFITS SECTION ===== */
 .goldenvisa-benefits-section {
-  position: relative;
+  position: relative !important;
 }
 
-.benefits-card {
-  background: rgba(45, 45, 45, 0.6);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(252, 163, 17, 0.1);
-  border-radius: 16px;
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
+/* benefits-card merged into unified card block above */
 
 .benefits-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, #FCA311, transparent);
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, transparent, #FCA311, transparent) !important;
 }
 
 .benefits-header {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  text-align: center !important;
+  margin-bottom: 1.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .benefits-icon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: #ffffff;
-  margin: 0 auto 1rem auto;
-  box-shadow: 0 8px 20px rgba(252, 163, 17, 0.3);
+  width: 60px !important;
+  height: 60px !important;
+  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%) !important;
+  border-radius: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.5rem !important;
+  color: #ffffff !important;
+  margin: 0 auto 1rem auto !important;
+  box-shadow: 0 8px 20px rgba(252, 163, 17, 0.3) !important;
 }
 
 .benefits-title {
-  font-family: 'Italiana', serif;
-  font-size: 1.8rem;
-  color: #ffffff;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.5px;
+  font-family: 'Italiana', serif !important;
+  font-size: 1.8rem !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.75rem !important;
+  letter-spacing: 0.5px !important;
   text-align: center !important;
-  display: block;
-  width: 100%;
+  display: block !important;
+  width: 100% !important;
 }
 
 .benefits-description {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1rem;
-  color: #b8b8b8;
-  line-height: 1.4;
-  margin-bottom: 0;
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 1rem !important;
+  color: #b8b8b8 !important;
+  line-height: 1.4 !important;
+  margin-bottom: 0 !important;
   text-align: center !important;
-  display: block;
-  width: 100%;
-  font-weight: 500;
+  display: block !important;
+  width: 100% !important;
+  font-weight: 500 !important;
 }
 
-/* ===== BENEFITS GRID ===== */
-.benefits-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: auto;
+/* Benefits grid - Force 2 columns always except mobile */
+.benefits-grid { display:grid !important; grid-template-columns:1fr 1fr !important; gap:1rem; margin-top:auto; }
+@media (max-width:480px){ .benefits-grid { grid-template-columns:1fr !important; } }
+
+.goldenvisa-section .benefit-card { background:rgba(20,20,20,.65); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:1.05rem .95rem 1.1rem; position:relative; display:flex; flex-direction:column; align-items:center; text-align:center; gap:.6rem; transition:background .4s, border-color .4s, transform .5s; }
+.goldenvisa-section .benefit-card:hover { background:rgba(26,26,26,.75); border-color:rgba(252,163,17,.3); transform:translateY(-4px); }
+
+.goldenvisa-section .benefit-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(252, 163, 17, 0.4) !important;
+  box-shadow: 0 8px 20px rgba(252, 163, 17, 0.15) !important;
 }
 
-.benefit-card {
-  background: rgba(30, 30, 30, 0.8);
-  border: 1px solid rgba(252, 163, 17, 0.15);
-  border-radius: 12px;
-  padding: 1.25rem;
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.75rem;
+.goldenvisa-section .benefit-icon { width:42px; height:42px; background:linear-gradient(135deg,#FCA311,#e8940f); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:.95rem; color:#151515; box-shadow:0 4px 12px -6px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.05); }
+
+.goldenvisa-section .benefit-content {
+  flex: 1 !important;
 }
 
-.benefit-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(252, 163, 17, 0.4);
-  box-shadow: 0 8px 20px rgba(252, 163, 17, 0.15);
+.goldenvisa-section .benefit-title {
+  font-family: 'Italiana', serif !important;
+  font-size: 1.1rem !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.25rem !important;
+  letter-spacing: 0.5px !important;
 }
 
-.benefit-icon {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #FCA311 0%, #e8940f 100%);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  color: #ffffff;
-  flex-shrink: 0;
+.goldenvisa-section .benefit-text {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.85rem !important;
+  color: #b8b8b8 !important;
+  line-height: 1.3 !important;
+  margin: 0 !important;
+  font-weight: 500 !important;
 }
 
-.benefit-content {
-  flex: 1;
+.goldenvisa-section .benefit-glow {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, transparent, #FCA311, transparent) !important;
+  transform: scaleX(0) !important;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.benefit-title {
-  font-family: 'Italiana', serif;
-  font-size: 1.1rem;
-  color: #ffffff;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-  letter-spacing: 0.5px;
-}
-
-.benefit-text {
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.85rem;
-  color: #b8b8b8;
-  line-height: 1.3;
-  margin: 0;
-  font-weight: 500;
-}
-
-.benefit-glow {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #FCA311, transparent);
-  transform: scaleX(0);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.benefit-card:hover .benefit-glow {
-  transform: scaleX(1);
+.goldenvisa-section .benefit-card:hover .benefit-glow {
+  transform: scaleX(1) !important;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -422,11 +396,6 @@
   .investor-title,
   .benefits-title {
     font-size: 1.6rem;
-  }
-  
-  .benefits-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
   }
 }
 
@@ -516,3 +485,5 @@
     height: 1em;
   }
 }
+
+/* Removed destructive global reset block to preserve shared component styles */

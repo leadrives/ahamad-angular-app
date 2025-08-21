@@ -19,8 +19,8 @@ import Footer from './components/Footer';
 // import ReactBitsDemo from './components/ReactBitsDemo';
 
 function App() {
-  const [showIntro, setShowIntro] = useState(true);
-  const [showMainSite, setShowMainSite] = useState(false);
+  const [showIntro, setShowIntro] = useState(false); // TEMPORARILY DISABLED FOR TESTING
+  const [showMainSite, setShowMainSite] = useState(true); // TEMPORARILY ENABLED FOR TESTING
 
   const handleIntroComplete = () => {
     setShowIntro(false);

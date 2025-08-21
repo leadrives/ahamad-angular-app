@@ -317,6 +317,7 @@ button,
 .btn-outline-light,
 .btn-outline-primary,
 .btn-outline-secondary,
+/*
 .btn-lg,
 .btn-sm,
 .buy-btn,
@@ -328,6 +329,7 @@ input[type="submit"],
 input[type="button"] {
   border-radius: 0 !important;
 }
+*/
 
 /* Remove rounded edges from form inputs and dropdowns */
 .form-control,
@@ -2245,6 +2247,7 @@ img {
 /* ─────────────────────────────────────────────
    SIMPLIFIED CALCULATOR STYLES (Compact)
    ───────────────────────────────────────────── */
+/*
 .calculator-section {
   position: relative;
   background: linear-gradient(135deg, var(--bg-dark) 0%, #0F0F0F 100%);
@@ -2310,7 +2313,9 @@ img {
 .currency-badge i {
   color: var(--accent-red);
 }
+*/
 
+/*
 /* Input Section - Compact */
 .input-section {
   background: linear-gradient(135deg, rgba(25, 25, 25, 0.9) 0%, rgba(15, 15, 15, 0.9) 100%);
@@ -2482,7 +2487,9 @@ img {
 .benefit-text {
   font-size: .95rem;
 }
+*/
 
+/*
 /* Results Section - Compact */
 .results-section {
   background: linear-gradient(135deg, rgba(25, 25, 25, 0.9) 0%, rgba(15, 15, 15, 0.9) 100%);
@@ -2631,12 +2638,14 @@ img {
   margin-top: 1rem;
 }
 
+/*
 .disclaimer-note i {
   color: #ffc107;
   font-size: 0.9rem;
 }
 
 /* Responsive Design - More Compact */
+/*
 @media (max-width: 1200px) {
   .calculator-container {
     max-width: 100%;
@@ -2672,7 +2681,9 @@ img {
     gap: 0.4rem;
   }
 }
+*/
 
+/*
 @media (max-width: 768px) {
   .calculator-container {
     padding: 0.8rem;
@@ -2718,6 +2729,8 @@ img {
     font-size: 0.8rem;
   }
 }
+*/
+
 .form-hint .fa-hand-pointer {
   color: var(--accent-red);
   margin-right: 0.5rem;
@@ -2790,18 +2803,22 @@ img {
   box-shadow: 0 6px 25px rgba(221, 30, 75, 0.6);
 }
 
+/*
 .calculator-section small {
   color: var(--text-desc);
   font-size: 0.85rem;
   font-weight: 500;
   transition: color 0.3s ease;
 }
+*/
 
 .form-range:hover + .d-flex small {
   color: #CCC;
 }
 
+/*
 /* ENHANCED RESULT CARDS GRID */
+/*
 .calculator-results .calc-card {
   background: linear-gradient(135deg, #1A1A1A 0%, #0F0F0F 100%);
   border-radius: 1rem;
@@ -2828,7 +2845,9 @@ img {
 .calculator-results .calc-card:hover::before {
   left: 100%;
 }
+*/
 
+/*
 .calculator-results .calc-card::after {
   content: '';
   position: absolute;
@@ -2881,7 +2900,9 @@ img {
 .calculator-results .calc-card:hover .calc-label {
   color: #E0E0E0;
 }
+*/
 
+/*
 .calc-card .calc-value {
   font-size: 1.8rem;
   font-weight: 700;
@@ -2910,7 +2931,9 @@ img {
     transform: translateY(0) scale(1);
   }
 }
+*/
 
+/*
 /* Enhanced section accent */
 .calculator-section .section-accent {
   width: 60px;
@@ -2922,6 +2945,7 @@ img {
 }
 
 /* Enhanced Calculator Disclaimer */
+/*
 .calculator-disclaimer {
   background: linear-gradient(135deg, rgba(25, 25, 25, 0.9) 0%, rgba(15, 15, 15, 0.9) 100%);
   backdrop-filter: blur(10px);
@@ -2950,15 +2974,17 @@ img {
   
   #investment-calculator {
     padding: 1.5rem;
-    margin-bottom: 2rem;
   }
 }
+*/
 
+/*
 @media (max-width: 767.98px) {
   .calculator-results .calc-card { 
     margin: 0 auto; 
   }
 }
+*/
 
 /* ─────────────────────────────────────────────
    CALCULATOR SEPARATOR (top & bottom)
