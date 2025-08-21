@@ -1,0 +1,76 @@
+/* Minimal CSS for successful build */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap');
+
+/* Basic reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #1a1a1a;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Basic utility classes */
+.btn {
+  border-radius: 0 !important;
+}
+
+.gold-text {
+  background: linear-gradient(45deg, #F5F5F5 15%, #FCA311 65%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.gold-accent {
+  color: #FCA311;
+}
+
+/* Navbar styles */
+.navbar {
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.nav-link {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #FCA311;
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(45deg, #E8940F 15%, #FCA311 65%);
+  border: none;
+  color: #000000;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(45deg, #ee8018 15%, #ef9b13 65%);
+}
+
+/* Remove scrollbars */
+html, body {
+  overflow-x: hidden;
+}

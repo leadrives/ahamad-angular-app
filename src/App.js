@@ -6,6 +6,7 @@ import IntroScreen from './components/IntroScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
+import AwardsSection from './components/AwardsSection';
 import ServicesSection from './components/ServicesSection';
 import GoldenVisa from './components/GoldenVisa';
 import TestimonialsSection from './components/TestimonialsSection';
@@ -67,6 +68,7 @@ function App() {
           <Navbar />
           <Hero />
           <AboutSection />
+          <AwardsSection />
           <ServicesSection />
           
           <TestimonialsSection />
