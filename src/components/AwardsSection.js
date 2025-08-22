@@ -30,7 +30,7 @@ const AwardsSection = () => {
         {/* Section Header */}
         <div className="awards-header">
           <h2 className="awards-main-title">
-            Our Awards
+            Awards
           </h2>
           <h3 className="awards-subtitle">
             Recognized Excellence in Dubai Real Estate

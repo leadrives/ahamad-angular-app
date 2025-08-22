@@ -20,10 +20,16 @@ import Footer from './components/Footer';
 // import ReactBitsDemo from './components/ReactBitsDemo';
 
 function App() {
-  const [showIntro, setShowIntro] = useState(false); // TEMPORARILY DISABLED FOR TESTING
-  const [showMainSite, setShowMainSite] = useState(true); // TEMPORARILY ENABLED FOR TESTING
+  const [showIntro, setShowIntro] = useState(true); // ENABLED FOR PRODUCTION
+  const [showMainSite, setShowMainSite] = useState(false); // DISABLED INITIALLY
+
+  // Debug logging
+  useEffect(() => {
+    console.log('App - showIntro:', showIntro, 'showMainSite:', showMainSite);
+  }, [showIntro, showMainSite]);
 
   const handleIntroComplete = () => {
+    console.log('IntroScreen complete - hiding intro, showing main site');
     setShowIntro(false);
     // Small delay to ensure smooth transition
     setTimeout(() => {
@@ -31,19 +37,10 @@ function App() {
     }, 100);
   };
 
-  // Skip intro on subsequent visits (optional) - TEMPORARILY DISABLED FOR TESTING
+  // Handle intro screen logic
   useEffect(() => {
-    // TEMP: Always show intro for testing
-    // const hasVisited = sessionStorage.getItem('hasVisited');
-    // if (hasVisited) {
-    //   setShowIntro(false);
-    //   setShowMainSite(true);
-    // } else {
-    //   sessionStorage.setItem('hasVisited', 'true');
-    // }
-    
-    // Clear any existing session storage to ensure intro shows
-    sessionStorage.removeItem('hasVisited');
+    // Always show intro on page load/refresh
+    console.log('App useEffect - Always showing intro screen');
   }, []);
 
   return (

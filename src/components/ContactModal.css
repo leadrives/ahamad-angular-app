@@ -1,0 +1,243 @@
+/* ===== CONTACT MODAL STYLES ===== */
+
+/* Modal backdrop and container - Fix z-index issues */
+.modal-backdrop {
+  z-index: 10499 !important;
+}
+
+#contactModal.modal,
+#contactModal.modal.show {
+  z-index: 10500 !important;
+}
+
+#contactModal .modal-backdrop {
+  z-index: 10499 !important;
+}
+
+/* Modal container and background */
+#contactModal .modal-dialog {
+  max-width: 900px;
+  z-index: 10501 !important;
+  position: relative;
+}
+
+#contactModal .modal-content {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border: 1px solid rgba(252, 163, 17, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* Modal header */
+#contactModal .modal-header {
+  background: linear-gradient(90deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-bottom: 1px solid rgba(252, 163, 17, 0.3);
+  padding: 1.5rem 2rem;
+}
+
+#contactModal .modal-title {
+  color: #ffffff;
+  font-family: 'Italiana', serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+#contactModal .btn-close {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  font-size: 1.2rem;
+}
+
+#contactModal .btn-close:hover {
+  opacity: 1;
+}
+
+/* Modal body */
+#contactModal .modal-body {
+  padding: 0;
+}
+
+/* Form section */
+#contactModal .col-md-6:first-child {
+  background: rgba(26, 26, 26, 0.8);
+  border-right: 1px solid rgba(252, 163, 17, 0.2);
+}
+
+/* Form inputs */
+#contactModal .form-label {
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+#contactModal .form-control {
+  background: rgba(45, 45, 45, 0.8);
+  border: 1px solid rgba(252, 163, 17, 0.3);
+  border-radius: 8px;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+#contactModal .form-control:focus {
+  background: rgba(45, 45, 45, 0.9);
+  border-color: #FCA311;
+  box-shadow: 0 0 0 0.2rem rgba(252, 163, 17, 0.25);
+  color: #ffffff;
+}
+
+#contactModal .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Country dropdown */
+#contactModal .flag-dropdown {
+  background: rgba(45, 45, 45, 0.8);
+  border: 1px solid rgba(252, 163, 17, 0.3);
+  border-right: none;
+  color: #ffffff;
+  border-radius: 8px 0 0 8px;
+  padding: 0.75rem 1rem;
+  min-width: 90px;
+}
+
+#contactModal .flag-dropdown:hover,
+#contactModal .flag-dropdown:focus {
+  background: rgba(45, 45, 45, 0.9);
+  border-color: #FCA311;
+  color: #ffffff;
+}
+
+#contactModal .dropdown-menu {
+  background: rgba(45, 45, 45, 0.95);
+  border: 1px solid rgba(252, 163, 17, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+#contactModal .dropdown-item {
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+#contactModal .dropdown-item:hover {
+  background: rgba(252, 163, 17, 0.2);
+  color: #FCA311;
+}
+
+#contactModal .input-group .form-control {
+  border-radius: 0 8px 8px 0;
+  border-left: none;
+}
+
+#contactModal .input-group .form-control:focus {
+  border-left: 1px solid #FCA311;
+}
+
+/* Submit button */
+#contactModal .btn-primary {
+  background: linear-gradient(45deg, #E8940F 15%, #FCA311 65%);
+  border: none;
+  color: #000000;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#contactModal .btn-primary:hover {
+  background: linear-gradient(45deg, #d4850e 15%, #e69a10 65%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(252, 163, 17, 0.3);
+}
+
+/* Profile section */
+#contactModal .profile-section {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  position: relative;
+}
+
+#contactModal .profile-accent {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #FCA311, transparent);
+  border-radius: 2px;
+}
+
+#contactModal .agent-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid rgba(252, 163, 17, 0.5);
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+#contactModal .agent-photo:hover {
+  border-color: #FCA311;
+  transform: scale(1.05);
+}
+
+#contactModal .profile-section h5 {
+  font-family: 'Italiana', serif;
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+
+#contactModal .profile-section .text-secondary {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+#contactModal .profile-section a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#contactModal .profile-section a:hover {
+  color: #FCA311;
+  background: rgba(252, 163, 17, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #contactModal .modal-dialog {
+    margin: 1rem;
+  }
+  
+  #contactModal .modal-content {
+    border-radius: 15px;
+  }
+  
+  #contactModal .col-md-6:first-child {
+    border-right: none;
+    border-bottom: 1px solid rgba(252, 163, 17, 0.2);
+  }
+  
+  #contactModal .modal-header {
+    padding: 1rem 1.5rem;
+  }
+  
+  #contactModal .modal-title {
+    font-size: 1.5rem;
+  }
+  
+  #contactModal .agent-photo {
+    width: 100px;
+    height: 100px;
+  }
+}

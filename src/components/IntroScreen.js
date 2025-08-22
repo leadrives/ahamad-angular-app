@@ -16,11 +16,11 @@ const TextType = ({ text, speed = 100, onComplete, className }) => {
 
       return () => clearTimeout(timeout);
     } else if (currentIndex === text.length) {
-      // Typing complete, hide cursor after a brief delay
+      // Typing complete, hide cursor after a longer delay
       setTimeout(() => {
         setShowCursor(false);
         if (onComplete) onComplete();
-      }, 500);
+      }, 500); // Wait 1 second before completing
     }
   }, [currentIndex, text, speed, onComplete]);
 
@@ -47,19 +47,29 @@ const IntroScreen = ({ onComplete }) => {
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 
+  // Debug logging
+  useEffect(() => {
+    console.log('IntroScreen mounted!');
+    return () => console.log('IntroScreen unmounted!');
+  }, []);
+
+  useEffect(() => {
+    console.log('IntroScreen - isTypingComplete:', isTypingComplete, 'isVisible:', isVisible);
+  }, [isTypingComplete, isVisible]);
+
   useEffect(() => {
     if (isTypingComplete) {
-      // Wait 0.8 seconds after typing completes, then start fade out
+      // Wait 1 second after typing completes, then start fade out
       const fadeTimer = setTimeout(() => {
         setIsVisible(false);
         
         // Complete transition after fade animation
         const completeTimer = setTimeout(() => {
           onComplete();
-        }, 200); // Match CSS transition duration
+        }, 800); // Match CSS transition duration (0.8s)
         
         return () => clearTimeout(completeTimer);
-      }, 200);
+      }, 1000); // Wait 1 second before starting fade (reduced from 2000)
       
       return () => clearTimeout(fadeTimer);
     }
@@ -74,7 +84,7 @@ const IntroScreen = ({ onComplete }) => {
       <div className="intro-content">
         <TextType
           text="Mohamad Ahmad"
-          speed={150}
+          speed={200}
           onComplete={handleTypingComplete}
           className="intro-text"
         />
