@@ -17,11 +17,28 @@ import CTASection from './components/CTASection';
 import LatestNews from './components/LatestNews';
 import ContactModal from './components/ContactModal';
 import Footer from './components/Footer';
+import AdminPanel from './components/AdminPanel';
 // import ReactBitsDemo from './components/ReactBitsDemo';
 
 function App() {
   const [showIntro, setShowIntro] = useState(true); // ENABLED FOR PRODUCTION
   const [showMainSite, setShowMainSite] = useState(false); // DISABLED INITIALLY
+  const [showAdminPanel, setShowAdminPanel] = useState(false);
+
+  // Check URL parameters for admin access
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const adminParam = urlParams.get('admin');
+    const passwordParam = urlParams.get('password');
+    
+    // Simple admin access: ?admin=true&password=mohamad2025
+    if (adminParam === 'true' && passwordParam === 'mohamad2025') {
+      setShowAdminPanel(true);
+      setShowIntro(false);
+      setShowMainSite(false);
+      document.title = 'Admin Dashboard - Mohamad Ahmad Real Estate';
+    }
+  }, []);
 
   // Debug logging
   useEffect(() => {
@@ -45,6 +62,9 @@ function App() {
 
   return (
     <div className="App">
+      {/* Admin Panel Access */}
+      {showAdminPanel && <AdminPanel />}
+      
       {showIntro && <IntroScreen onComplete={handleIntroComplete} />}
       
       {/* Preload Hero component (with video) while intro is showing */}
