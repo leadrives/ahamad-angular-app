@@ -116,6 +116,31 @@
   border: 1px solid rgba(252, 163, 17, 0.3);
   border-radius: 8px;
   backdrop-filter: blur(10px);
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#contactModal .dropdown-menu-scrollable {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#contactModal .dropdown-search {
+  background: rgba(60, 60, 60, 0.9) !important;
+  border: 1px solid rgba(252, 163, 17, 0.5) !important;
+  color: #ffffff !important;
+  font-size: 0.9rem;
+  margin: 0.5rem;
+  width: calc(100% - 1rem);
+}
+
+#contactModal .dropdown-search:focus {
+  border-color: #FCA311 !important;
+  box-shadow: 0 0 0 0.2rem rgba(252, 163, 17, 0.25) !important;
+}
+
+#contactModal .dropdown-search::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 #contactModal .dropdown-item {
