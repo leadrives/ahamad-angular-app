@@ -1,4 +1,49 @@
-/* ===== PORTFOLIO GALLERY SECTION STYLES ===== */
+/* Loading and Error States */
+.portfolio-loading,
+.portfolio-error,
+.no-properties {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.portfolio-loading .loading-spinner {
+  margin-bottom: 20px;
+}
+
+.portfolio-loading p,
+.no-properties p {
+  color: #94a3b8;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.portfolio-error .alert {
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  color: #fbbf24;
+  padding: 15px 25px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.no-properties i {
+  opacity: 0.5;
+  color: #64748b;
+}
+
+.no-properties h5 {
+  color: #94a3b8;
+  margin: 20px 0 10px;
+  font-weight: 600;
+}
+
+/* Portfolio Gallery Section */
 .portfolio-gallery-section {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   min-height: 100vh;
@@ -791,4 +836,66 @@
     padding: 0.4rem 0.8rem;
     font-size: 0.7rem;
   }
+}
+
+/* Loading and Error States */
+.portfolio-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+}
+
+.portfolio-loading .loading-spinner {
+  margin-bottom: 20px;
+}
+
+.portfolio-loading p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.portfolio-error {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.portfolio-error .alert {
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  color: #fb923c;
+  border-radius: 12px;
+  padding: 20px;
+  font-weight: 500;
+}
+
+.no-properties {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+}
+
+.no-properties .text-center {
+  max-width: 400px;
+}
+
+.no-properties i {
+  opacity: 0.5;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.no-properties h5 {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  margin: 20px 0 10px;
+}
+
+.no-properties p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
 }

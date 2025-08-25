@@ -18,27 +18,53 @@ import LatestNews from './components/LatestNews';
 import ContactModal from './components/ContactModal';
 import Footer from './components/Footer';
 import AdminPanel from './components/AdminPanel';
+import AdminLogin from './components/AdminLogin';
+import SeedProperties from './components/SeedProperties';
 // import ReactBitsDemo from './components/ReactBitsDemo';
 
 function App() {
   const [showIntro, setShowIntro] = useState(true); // ENABLED FOR PRODUCTION
   const [showMainSite, setShowMainSite] = useState(false); // DISABLED INITIALLY
   const [showAdminPanel, setShowAdminPanel] = useState(false);
+  const [showAdminLogin, setShowAdminLogin] = useState(false);
+  const [showSeedProperties, setShowSeedProperties] = useState(false);
+  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
 
-  // Check URL parameters for admin access
+  // Check URL parameters for admin access and seed properties
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const adminParam = urlParams.get('admin');
-    const passwordParam = urlParams.get('password');
+    const seedParam = urlParams.get('seed');
     
-    // Simple admin access: ?admin=true&password=mohamad2025
-    if (adminParam === 'true' && passwordParam === 'mohamad2025') {
-      setShowAdminPanel(true);
+    if (adminParam === 'true') {
+      setShowAdminLogin(true);
       setShowIntro(false);
       setShowMainSite(false);
-      document.title = 'Admin Dashboard - Mohamad Ahmad Real Estate';
+      document.title = 'Admin Login - Mohamad Ahmad Real Estate';
+    } else if (seedParam === 'properties') {
+      setShowSeedProperties(true);
+      setShowIntro(false);
+      setShowMainSite(false);
+      document.title = 'Seed Properties - Mohamad Ahmad Real Estate';
     }
   }, []);
+
+  const handleAdminLogin = (success) => {
+    if (success) {
+      setIsAdminAuthenticated(true);
+      setShowAdminLogin(false);
+      setShowAdminPanel(true);
+      document.title = 'Admin Dashboard - Mohamad Ahmad Real Estate';
+    }
+  };
+
+  const handleAdminLogout = () => {
+    setIsAdminAuthenticated(false);
+    setShowAdminPanel(false);
+    setShowAdminLogin(false);
+    // Redirect to home page
+    window.location.href = '/';
+  };
 
   // Debug logging
   useEffect(() => {
@@ -62,8 +88,16 @@ function App() {
 
   return (
     <div className="App">
+      {/* Seed Properties Tool */}
+      {showSeedProperties && <SeedProperties />}
+      
+      {/* Admin Login */}
+      {showAdminLogin && !isAdminAuthenticated && (
+        <AdminLogin onLogin={handleAdminLogin} />
+      )}
+      
       {/* Admin Panel Access */}
-      {showAdminPanel && <AdminPanel />}
+      {showAdminPanel && isAdminAuthenticated && <AdminPanel onLogout={handleAdminLogout} />}
       
       {showIntro && <IntroScreen onComplete={handleIntroComplete} />}
       

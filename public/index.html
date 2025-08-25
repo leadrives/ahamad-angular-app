@@ -50,6 +50,63 @@
       crossorigin="anonymous"
     ></script>
     
+    <!-- Fix Bootstrap modal conflicts -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Prevent Bootstrap from auto-initializing modals that might cause conflicts
+        const customModals = document.querySelectorAll('.custom-modal-backdrop, .property-form-modal');
+        customModals.forEach(function(modal) {
+          modal.removeAttribute('data-bs-toggle');
+          modal.removeAttribute('data-bs-target');
+        });
+
+        // Ensure ContactModal is properly initialized
+        const contactModal = document.getElementById('contactModal');
+        if (contactModal && !contactModal.hasAttribute('data-bs-initialized')) {
+          // Mark as initialized to prevent duplicate initialization
+          contactModal.setAttribute('data-bs-initialized', 'true');
+          
+          // Initialize Bootstrap modal with proper configuration
+          try {
+            new bootstrap.Modal(contactModal, {
+              backdrop: true,
+              keyboard: true,
+              focus: true
+            });
+          } catch (error) {
+            console.warn('ContactModal initialization skipped:', error.message);
+          }
+        }
+      });
+
+      // Handle dynamic content loading (for React components)
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'childList') {
+            const contactModal = document.getElementById('contactModal');
+            if (contactModal && !contactModal.hasAttribute('data-bs-initialized')) {
+              contactModal.setAttribute('data-bs-initialized', 'true');
+              try {
+                new bootstrap.Modal(contactModal, {
+                  backdrop: true,
+                  keyboard: true,
+                  focus: true
+                });
+              } catch (error) {
+                console.warn('ContactModal dynamic initialization skipped:', error.message);
+              }
+            }
+          }
+        });
+      });
+
+      // Observe the document for changes
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    </script>
+    
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

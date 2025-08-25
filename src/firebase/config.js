@@ -2,9 +2,6 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 // Your Firebase configuration
-// IMPORTANT: Replace these with your actual Firebase project credentials
-// Go to: https://console.firebase.google.com/project/ahamadwebpagehtml/settings/general
-// In "Your apps" section, select "Web app" and copy the config values
 const firebaseConfig = {
   apiKey: "AIzaSyB49_Ojt_Uae5Cfe5JFp4h8EotnMQsTCDM",
   authDomain: "ahamadwebpagehtml.firebaseapp.com",
