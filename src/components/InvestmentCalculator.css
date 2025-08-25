@@ -456,127 +456,400 @@
   font-weight: 600;
 }
 
-/* ─────────────────────────────────────────────────────────────── 
-   RESPONSIVE DESIGN - PARTNERS SECTION BREAKPOINTS
-   ─────────────────────────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN - COMPREHENSIVE MOBILE OPTIMIZATION
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Extra Large Screens */
+@media (min-width: 1200px) {
+  .investment-calc-main {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem !important;
+  }
+}
 
 /* Large Tablets */
 @media (max-width: 1024px) {
-  .calculator-section {
-    padding: 4rem 0;
+  .ic-section {
+    padding: 4rem 0 !important;
   }
   
-  .calculator-container {
-    padding: 0 1.5rem;
+  .investment-calc-container {
+    padding: 0 1.5rem !important;
   }
   
-  .metrics-grid {
-    gap: 0.75rem;
+  .investment-calc-main {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  .investment-calc-card {
+    padding: 1.75rem !important;
+  }
+  
+  .investment-calc-title {
+    font-size: 2.5rem !important;
   }
 }
 
-/* Tablets */
+/* Standard Tablets */
 @media (max-width: 768px) {
-  .calculator-section {
-    padding: 3rem 0;
+  .ic-section {
+    padding: 3rem 0 !important;
   }
   
-  .input-section,
-  .calculator-results {
-    padding: 1.25rem;
+  .investment-calc-container {
+    padding: 0 1rem !important;
   }
   
-  .quick-buttons-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+  .investment-calc-header {
+    margin-bottom: 2rem !important;
   }
   
-  .metrics-grid {
-    gap: 0.5rem;
+  .investment-calc-title {
+    font-size: 2rem !important;
   }
   
-  .metric-card {
-    padding: 1rem;
+  .investment-calc-subtitle {
+    font-size: 1rem !important;
   }
   
-  .card-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
+  .investment-calc-main {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
   }
   
-  .metric-value {
-    font-size: 1.2rem;
+  .investment-calc-card {
+    padding: 1.5rem !important;
+  }
+  
+  .investment-calc-quick-buttons {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.75rem !important;
+  }
+  
+  .investment-calc-metrics-grid {
+    gap: 1rem !important;
+  }
+  
+  .investment-calc-metric-card {
+    padding: 1rem !important;
+  }
+  
+  .investment-calc-metric-icon {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1rem !important;
+  }
+  
+  .investment-calc-metric-value {
+    font-size: 1.1rem !important;
   }
 }
 
-/* Large Phones */
+/* Large Mobile Devices */
 @media (max-width: 640px) {
-  .calculator-container {
-    padding: 0 1rem;
+  .ic-section {
+    padding: 2.5rem 0 !important;
   }
   
-  .quick-buttons-grid {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
+  .investment-calc-container {
+    padding: 0 0.75rem !important;
   }
   
-  .input-section,
-  .calculator-results {
-    padding: 1rem;
+  .investment-calc-header {
+    margin-bottom: 1.5rem !important;
   }
   
-  .metric-card {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.75rem;
-    padding: 0.875rem;
+  .investment-calc-title {
+    font-size: 1.8rem !important;
   }
   
-  .card-icon {
-    width: 45px;
-    height: 45px;
-    font-size: 1.1rem;
+  .investment-calc-subtitle {
+    font-size: 0.9rem !important;
   }
   
-  .metric-value {
-    font-size: 1.1rem;
+  .investment-calc-card {
+    padding: 1.25rem !important;
+    border-radius: 16px !important;
+  }
+  
+  .investment-calc-input-title {
+    font-size: 1.1rem !important;
+  }
+  
+  .investment-calc-main-input {
+    padding: 0.875rem 1rem 0.875rem 3rem !important;
+    font-size: 1rem !important;
+    border-radius: 10px !important;
+  }
+  
+  .investment-calc-input-symbol {
+    left: 1rem !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .investment-calc-quick-buttons {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  
+  .investment-calc-quick-btn {
+    padding: 0.875rem !important;
+    font-size: 0.9rem !important;
+    min-height: 48px !important;
+  }
+  
+  .investment-calc-metric-card {
+    padding: 0.875rem !important;
+  }
+  
+  .investment-calc-metric-icon {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .investment-calc-benefit-card {
+    padding: 0.875rem !important;
+  }
+  
+  .investment-calc-benefit-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.8rem !important;
   }
 }
 
-/* Standard Phones */
+/* Standard Mobile Devices */
 @media (max-width: 480px) {
-  .calculator-section {
-    padding: 2.5rem 0;
+  .ic-section {
+    padding: 2rem 0 !important;
   }
   
-  .input-section,
-  .calculator-results {
-    padding: 0.875rem;
+  .investment-calc-container {
+    padding: 0 1rem !important;
   }
   
-  .metric-card {
-    padding: 0.75rem;
+  .investment-calc-header {
+    margin-bottom: 1.25rem !important;
   }
   
-  .card-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+  .investment-calc-badge {
+    padding: 0.6rem 1.2rem !important;
+    font-size: 0.8rem !important;
+    margin-bottom: 0.75rem !important;
   }
   
-  .metric-value {
-    font-size: 1rem;
+  .investment-calc-title {
+    font-size: 1.6rem !important;
   }
   
-  .benefit-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+  .investment-calc-subtitle {
+    font-size: 0.85rem !important;
   }
   
-  .disclaimer {
-    padding: 0.75rem;
+  .investment-calc-card {
+    padding: 1rem !important;
+    border-radius: 12px !important;
+  }
+  
+  .investment-calc-input-title {
+    font-size: 1rem !important;
+  }
+  
+  .investment-calc-currency-badge {
+    padding: 0.3rem 0.6rem !important;
+    font-size: 0.7rem !important;
+  }
+  
+  .investment-calc-main-input {
+    padding: 0.75rem 0.875rem 0.75rem 2.75rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 8px !important;
+  }
+  
+  .investment-calc-input-symbol {
+    left: 0.875rem !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .investment-calc-quick-btn {
+    padding: 0.75rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 6px !important;
+  }
+  
+  .investment-calc-benefits-title {
+    font-size: 0.9rem !important;
+  }
+  
+  .investment-calc-benefit-card {
+    padding: 0.75rem !important;
+    border-radius: 6px !important;
+  }
+  
+  .investment-calc-benefit-icon {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.7rem !important;
+  }
+  
+  .investment-calc-benefit-title {
+    font-size: 0.8rem !important;
+  }
+  
+  .investment-calc-benefit-desc {
+    font-size: 0.7rem !important;
+  }
+  
+  .investment-calc-results-title {
+    font-size: 1rem !important;
+  }
+  
+  .investment-calc-results-subtitle {
+    font-size: 0.75rem !important;
+  }
+  
+  .investment-calc-metric-card {
+    padding: 0.75rem !important;
+    border-radius: 8px !important;
+  }
+  
+  .investment-calc-metric-icon {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.8rem !important;
+    border-radius: 6px !important;
+  }
+  
+  .investment-calc-metric-label {
+    font-size: 0.7rem !important;
+  }
+  
+  .investment-calc-metric-value {
+    font-size: 0.9rem !important;
+  }
+  
+  .investment-calc-metric-note {
+    font-size: 0.65rem !important;
+  }
+  
+  .investment-calc-metric-profit {
+    font-size: 0.75rem !important;
+  }
+  
+  .investment-calc-disclaimer {
+    padding: 0.75rem !important;
+    border-radius: 6px !important;
+  }
+  
+  .investment-calc-disclaimer-content {
+    font-size: 0.65rem !important;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 375px) {
+  .investment-calc-container {
+    padding: 0 0.75rem !important;
+  }
+  
+  .investment-calc-title {
+    font-size: 1.4rem !important;
+  }
+  
+  .investment-calc-card {
+    padding: 0.875rem !important;
+  }
+  
+  .investment-calc-main-input {
+    padding: 0.7rem 0.75rem 0.7rem 2.5rem !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .investment-calc-input-symbol {
+    left: 0.75rem !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .investment-calc-quick-btn {
+    padding: 0.7rem !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .investment-calc-metric-value {
+    font-size: 0.85rem !important;
+  }
+  
+  .investment-calc-disclaimer-content {
+    font-size: 0.6rem !important;
+  }
+}
+
+/* Very Small Screens */
+@media (max-width: 320px) {
+  .ic-section {
+    padding: 1.5rem 0 !important;
+  }
+  
+  .investment-calc-container {
+    padding: 0 0.5rem !important;
+  }
+  
+  .investment-calc-header {
+    margin-bottom: 1rem !important;
+  }
+  
+  .investment-calc-title {
+    font-size: 1.25rem !important;
+  }
+  
+  .investment-calc-subtitle {
+    font-size: 0.8rem !important;
+  }
+  
+  .investment-calc-card {
+    padding: 0.75rem !important;
+  }
+  
+  .investment-calc-main-input {
+    padding: 0.65rem 0.7rem 0.65rem 2.25rem !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .investment-calc-input-symbol {
+    left: 0.7rem !important;
+    font-size: 0.75rem !important;
+  }
+  
+  .investment-calc-quick-btn {
+    padding: 0.65rem !important;
+    font-size: 0.75rem !important;
+  }
+  
+  .investment-calc-metric-icon {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 0.7rem !important;
+  }
+  
+  .investment-calc-metric-value {
+    font-size: 0.8rem !important;
+  }
+  
+  .investment-calc-benefit-icon {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 0.65rem !important;
+  }
+  
+  .investment-calc-benefit-title {
+    font-size: 0.75rem !important;
+  }
+  
+  .investment-calc-benefit-desc {
+    font-size: 0.65rem !important;
   }
 }
 
@@ -715,6 +988,14 @@
   align-items: stretch !important;
   flex: 1 !important;
   min-height: 0 !important;
+}
+
+/* Mobile-first responsive grid */
+@media (max-width: 768px) {
+  .investment-calc-main {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
 }
 
 /* Removed destructive override block that was breaking layout & icons */
@@ -922,6 +1203,10 @@
   transition: all 0.3s ease !important;
   text-align: center !important;
   backdrop-filter: blur(5px) !important;
+  min-height: 48px !important; /* Touch-friendly minimum height */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .investment-calc-quick-btn:hover {

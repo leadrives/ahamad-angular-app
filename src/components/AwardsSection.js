@@ -20,6 +20,18 @@ const AwardsSection = () => {
       subtitle: "Excellence Award", 
       image: "/assets/Awards/emar.png",
       description: "Distinguished partnership"
+    },
+    { 
+      name: "EMAAR Achievement", 
+      subtitle: "Excellence Award", 
+      image: "/assets/Awards/emaarq2.png",
+      description: "Distinguished partnership"
+    },
+    { 
+      name: "EMAAR Achievement", 
+      subtitle: "Excellence Award", 
+      image: "/assets/Awards/emaarh2.png",
+      description: "Distinguished partnership"
     }
   ];
 

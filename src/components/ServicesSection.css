@@ -65,14 +65,15 @@
 
 /* ===== SERVICES GRID ===== */
 .services-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 2rem !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
   margin-bottom: 4rem;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  padding: 0 1rem;
 }
 
 .service-card {
@@ -85,9 +86,9 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   overflow: hidden;
-  width: 100% !important;
-  max-width: 400px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   display: block;
   flex: none;
 }
@@ -273,6 +274,13 @@
 
 /* ===== RESPONSIVE DESIGN ===== */
 
+/* Extra Large Screens */
+@media (min-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* Large Tablets */
 @media (max-width: 1024px) {
   .services-section {
@@ -284,21 +292,24 @@
   }
   
   .services-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
-    max-width: 800px;
+    padding: 0 0.5rem;
   }
   
   .service-card {
     padding: 1.5rem;
-    max-width: none;
   }
 }
 
-/* Tablets */
+/* Standard Tablets */
 @media (max-width: 768px) {
   .services-section {
     padding: 3rem 0;
+  }
+  
+  .services-container {
+    padding: 0 1rem;
   }
   
   .services-header {
@@ -309,13 +320,12 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-bottom: 3rem;
-    max-width: 500px;
+    padding: 0;
   }
   
   .service-card {
-    padding: 1.5rem;
+    padding: 1.75rem;
     text-align: center;
-    max-width: none;
   }
   
   .service-content {
@@ -327,8 +337,8 @@
   }
   
   .service-hover-overlay {
-    top: 0.5rem;
-    right: 0.5rem;
+    top: 0.75rem;
+    right: 0.75rem;
   }
   
   .service-number {
@@ -336,14 +346,28 @@
   }
 }
 
-/* Large Phones */
+/* Large Mobile Devices */
 @media (max-width: 640px) {
+  .services-section {
+    padding: 2.5rem 0;
+  }
+  
   .services-container {
-    padding: 0 1rem;
+    padding: 0 0.75rem;
+  }
+  
+  .services-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .services-grid {
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
   }
   
   .service-card {
-    padding: 1.25rem;
+    padding: 1.5rem;
+    border-radius: 12px;
   }
   
   .service-icon-wrapper {
@@ -356,66 +380,120 @@
     font-size: 1.75rem;
   }
   
-  .services-btn {
-    padding: 0.75rem 1.5rem;
+  .service-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .service-description {
     font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  
+  .services-btn {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.9rem;
+    min-height: 48px;
   }
 }
 
-/* Standard Phones */
+/* Standard Mobile Devices */
 @media (max-width: 480px) {
   .services-section {
-    padding: 2.5rem 0;
+    padding: 2rem 0;
+  }
+  
+  .services-container {
+    padding: 0 1rem;
   }
   
   .services-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
   
   .services-grid {
-    margin-bottom: 2.5rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
   }
   
   .service-card {
-    padding: 1rem;
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+  
+  .service-icon-wrapper {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 1rem;
+  }
+  
+  .service-icon {
+    font-size: 1.6rem;
+  }
+  
+  .service-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .service-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
   }
   
   .service-feature {
     font-size: 0.7rem;
     padding: 0.25rem 0.6rem;
   }
+  
+  .services-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    width: 100%;
+    max-width: 250px;
+  }
 }
 
-/* Small Phones */
+/* Small Mobile Devices */
 @media (max-width: 375px) {
   .services-container {
     padding: 0 0.75rem;
   }
   
   .service-card {
-    padding: 0.875rem;
+    padding: 1rem;
   }
   
   .service-icon-wrapper {
     width: 60px;
     height: 60px;
-    margin-bottom: 1rem;
+    margin-bottom: 0.875rem;
   }
   
   .service-icon {
     font-size: 1.5rem;
   }
   
+  .service-title {
+    font-size: 1rem;
+  }
+  
+  .service-description {
+    font-size: 0.8rem;
+  }
+  
   .services-btn {
     padding: 0.7rem 1.25rem;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 }
 
 /* Very Small Screens */
 @media (max-width: 320px) {
   .services-section {
-    padding: 2rem 0;
+    padding: 1.5rem 0;
   }
   
   .services-container {
@@ -423,15 +501,38 @@
   }
   
   .services-header {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
   
   .services-grid {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
   
   .service-card {
-    padding: 0.75rem;
+    padding: 0.875rem;
+  }
+  
+  .service-icon-wrapper {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 0.75rem;
+  }
+  
+  .service-icon {
+    font-size: 1.375rem;
+  }
+  
+  .service-title {
+    font-size: 0.95rem;
+  }
+  
+  .service-description {
+    font-size: 0.75rem;
+  }
+  
+  .service-feature {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
   }
 }
 

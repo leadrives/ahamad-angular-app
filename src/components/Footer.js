@@ -71,7 +71,7 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <i className="fa-solid fa-envelope"></i>
-                <a href="mailto:info@mrahmadrealty.com">info@mrahmadrealty.com</a>
+                <a href="mailto:info@mroneproperties.com">info@mroneproperties.com</a>
               </div>
               <div className="contact-item">
                 <i className="fa-solid fa-location-dot"></i>

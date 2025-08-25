@@ -274,7 +274,11 @@ const PortfolioGallery = () => {
                             <h3 className="portfolio-property-price">{property.price}</h3>
                             <span className="portfolio-property-roi">{property.roi}</span>
                           </div>
-                          <button className="portfolio-property-contact-btn">
+                          <button 
+                            className="portfolio-property-contact-btn"
+                            data-bs-toggle="modal" 
+                            data-bs-target="#contactModal"
+                          >
                             Inquire Now
                           </button>
                         </div>
