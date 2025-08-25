@@ -12,6 +12,15 @@ const PortfolioGallery = () => {
   const trackRef = useRef(null);
   const intervalRef = useRef(null);
 
+  // Handle contact modal
+  const handleContactClick = () => {
+    const contactModal = document.getElementById('contactModal');
+    if (contactModal) {
+      const modal = new window.bootstrap.Modal(contactModal);
+      modal.show();
+    }
+  };
+
   // Fetch properties from Firebase
   useEffect(() => {
     const fetchProperties = async () => {
@@ -276,8 +285,8 @@ const PortfolioGallery = () => {
                           </div>
                           <button 
                             className="portfolio-property-contact-btn"
-                            data-bs-toggle="modal" 
-                            data-bs-target="#contactModal"
+                            onClick={handleContactClick}
+                            aria-label="Contact for property inquiry"
                           >
                             Inquire Now
                           </button>

@@ -20,7 +20,7 @@ const AboutSection = () => {
             <p className="about-subtitle">M R One Properties</p>
             
             <div className="about-description">
-              Advisor behind the <span className="gold-text fw-bold">largest single purchase in Emaar history</span>. I secure high-yield Dubai assets—launch-day allocations, blue-chip villas, and off-market opportunities—backed by data, discretion, and end-to-end service (Golden Visas included).
+              <span className="gold-text fw-bold">Mohamad Ahmad</span> is the advisor behind a <span className="gold-text fw-bold">$350,000,000 single-property purchase</span>—proof of access, discretion, and execution at the top tier. He helps investors and families secure Dubai's highest-potential assets, from launch-day off-plan allocations to trophy villas, using data-driven strategy and quiet, professional negotiation. Expect white-glove, end-to-end support—financing guidance, paperwork, and Golden Visas included—plus a network that opens doors others can't.
             </div>
 
             {/* Key Stats */}

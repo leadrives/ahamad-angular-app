@@ -157,7 +157,7 @@ As Dubai positions itself as a smart city, properties with advanced technology i
     },
     {
       id: 6,
-      image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=400&h=250&fit=crop",
+      image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=400&h=250&fit=crop",
       alt: "Sustainable Architecture Dubai",
       title: "Green Building: Dubai's Sustainable Future",
       category: "Sustainability",
