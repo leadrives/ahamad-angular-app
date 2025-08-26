@@ -199,7 +199,12 @@ const PortfolioGallery = () => {
                 </button>
               </div>
               
-              <button className="portfolio-gallery-view-all">
+              <button 
+                className="portfolio-gallery-view-all"
+                onClick={handleContactClick}
+                type="button"
+                aria-label="Contact to view all properties"
+              >
                 <span>View All Properties</span>
                 <i className="fa-solid fa-arrow-right"></i>
               </button>

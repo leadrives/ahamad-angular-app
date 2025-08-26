@@ -91,17 +91,17 @@
 .awards-scroll-track {
   display: flex;
   gap: 2rem;
-  animation: awards-scroll-rtl 60s linear infinite;
+  animation: awards-scroll-seamless 45s linear infinite;
   width: max-content;
 }
 
-/* Right-to-left scrolling animation */
-@keyframes awards-scroll-rtl {
+/* Seamless infinite scrolling animation */
+@keyframes awards-scroll-seamless {
   0% {
-    transform: translateX(50%);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-100% / 3));
   }
 }
 

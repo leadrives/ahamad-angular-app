@@ -68,9 +68,22 @@ const AwardsSection = () => {
                   <div className="awards-card-accent"></div>
                 </div>
               ))}
-              {/* Duplicate set for seamless loop */}
+              {/* Second set for seamless loop */}
               {awards.map((award, index) => (
                 <div key={`second-${index}`} className="awards-scroll-card">
+                  <div className="awards-image-container">
+                    <img 
+                      src={award.image} 
+                      alt={award.name}
+                      className="awards-image"
+                    />
+                  </div>
+                  <div className="awards-card-accent"></div>
+                </div>
+              ))}
+              {/* Third set for extra smooth scrolling */}
+              {awards.map((award, index) => (
+                <div key={`third-${index}`} className="awards-scroll-card">
                   <div className="awards-image-container">
                     <img 
                       src={award.image} 
