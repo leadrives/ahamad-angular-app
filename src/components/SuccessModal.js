@@ -46,7 +46,7 @@ const SuccessModal = ({ show, onHide, userCountry }) => {
             </div>
             <div className="contact-item">
               <i className="fa-solid fa-envelope"></i>
-              <span>mohamad@realty.com</span>
+              <span>ahmad@mr1properties.com</span>
             </div>
           </div>
           

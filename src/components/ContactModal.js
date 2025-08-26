@@ -497,7 +497,7 @@ const ContactModal = () => {
                         <i className="fa-solid fa-phone"></i>
                       </a>
                       <a 
-                        href="mailto:mohamad@realty.com" 
+                        href="mailto:ahmad@mr1properties.com" 
                         className="text-decoration-none text-light"
                         aria-label="Email Mohamad Ahmad"
                       >

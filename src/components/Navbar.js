@@ -6,6 +6,17 @@ const Navbar = () => {
   const [isOverHero, setIsOverHero] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Handle contact modal
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    const contactModal = document.getElementById('contactModal');
+    if (contactModal) {
+      const modal = new window.bootstrap.Modal(contactModal);
+      modal.show();
+    }
+    closeMenu(); // Close mobile menu if open
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
@@ -97,7 +108,7 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu">
                 <li><a className="dropdown-item" href="#services" onClick={closeMenu}>Our Services</a></li>
-                <li><a className="dropdown-item" href="#calculator" onClick={closeMenu}>Investment Calculator</a></li>
+                <li><a className="dropdown-item" href="#investment-calculator" onClick={closeMenu}>Investment Calculator</a></li>
                 <li><a className="dropdown-item" href="#testimonials" onClick={closeMenu}>Client Reviews</a></li>
               </ul>
             </li>
@@ -113,11 +124,11 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu">
                 <li><a className="dropdown-item" href="#properties" onClick={closeMenu}>Premium Listings</a></li>
-                <li><a className="dropdown-item" href="#calculator" onClick={closeMenu}>Calculate Returns</a></li>
+                <li><a className="dropdown-item" href="#investment-calculator" onClick={closeMenu}>Calculate Returns</a></li>
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#contact" onClick={closeMenu}>Contact</a>
+              <button className="nav-link btn btn-link p-0" onClick={handleContactClick} type="button">Contact</button>
             </li>
           </ul>
           

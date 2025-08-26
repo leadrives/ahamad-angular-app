@@ -30,7 +30,7 @@ const Hero = () => {
         
         <h1 className="hero-title">
           <span className="line-1">The Record</span>
-          <span className="line-2">Breaking Agent</span>
+          <span className="line-2">Breaking Realtor</span>
         </h1>
         
         <p className="hero-subtitle">
