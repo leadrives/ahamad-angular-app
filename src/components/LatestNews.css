@@ -860,3 +860,13 @@
     padding: 1rem;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE VIEW: HIDE LATEST NEWS COMPONENT
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .latestnews-section,
+  #news {
+    display: none !important;
+  }
+}
