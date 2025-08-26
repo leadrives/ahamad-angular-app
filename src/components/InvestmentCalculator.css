@@ -1486,3 +1486,13 @@
 .ic-field-label { font-weight: 700 !important; }
 .ic-results-title { font-weight: 600 !important; }
 .ic-results-title i { font-weight: 600 !important; }
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE VIEW: HIDE INVESTMENT CALCULATOR
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .ic-section,
+  #investment-calculator {
+    display: none !important;
+  }
+}
