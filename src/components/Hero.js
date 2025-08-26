@@ -8,17 +8,19 @@ import './Hero.css';
 const Hero = () => {
   return (
     <section id="home" className="hero-section">
-      {/* Video background layer */}
+      {/* Video background layer with responsive wrapper */}
       <div className="hero-bg">
-        <iframe 
-          className="hero-video"
-          src="https://www.youtube.com/embed/30tbBfADojA?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=30tbBfADojA&start=5&enablejsapi=1&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&quality=hd1080"
-          title="Dubai Real Estate"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          loading="eager"
-        ></iframe>
+        <div className="hero-video-wrapper">
+          <iframe 
+            className="hero-video"
+            src="https://www.youtube.com/embed/30tbBfADojA?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=30tbBfADojA&start=5&enablejsapi=1&modestbranding=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&quality=hd1080"
+            title="Dubai Real Estate"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            loading="eager"
+          ></iframe>
+        </div>
       </div>
 
       {/* Overlay layer */}
