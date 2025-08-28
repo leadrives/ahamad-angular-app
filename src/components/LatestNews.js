@@ -281,7 +281,7 @@ Focus on developments with comprehensive sustainability features and recognized 
           <div className="carousel-dots">
             {Array.from({ length: totalSlides }, (_, index) => (
               <span
-                key={index}
+                key={`carousel-dot-${index}`}
                 className={`dot ${index === currentSlide ? 'active' : ''}`}
                 onClick={() => goToSlide(index)}
               ></span>
@@ -334,7 +334,7 @@ Focus on developments with comprehensive sustainability features and recognized 
                     if (paragraph.trim().startsWith('**') && paragraph.trim().endsWith('**')) {
                       const headingText = paragraph.replace(/\*\*/g, '');
                       return (
-                        <h5 key={index} className="article-heading">
+                        <h5 key={`heading-${index}-${selectedArticle.id}`} className="article-heading">
                           <i className="fa-solid fa-chevron-right"></i>
                           {headingText}
                         </h5>
@@ -344,9 +344,9 @@ Focus on developments with comprehensive sustainability features and recognized 
                     if (paragraph.includes('- ')) {
                       const items = paragraph.split('- ').filter(item => item.trim());
                       return (
-                        <div key={index} className="article-list">
+                        <div key={`list-${index}-${selectedArticle.id}`} className="article-list">
                           {items.map((item, itemIndex) => (
-                            <div key={itemIndex} className="list-item">
+                            <div key={`list-item-${index}-${itemIndex}-${selectedArticle.id}`} className="list-item">
                               <i className="fa-solid fa-circle"></i>
                               <span>{item.trim()}</span>
                             </div>
@@ -355,7 +355,7 @@ Focus on developments with comprehensive sustainability features and recognized 
                       );
                     }
                     
-                    return <p key={index} className="article-paragraph">{paragraph}</p>;
+                    return <p key={`paragraph-${index}-${selectedArticle.id}`} className="article-paragraph">{paragraph}</p>;
                   })}
                 </div>
               </div>

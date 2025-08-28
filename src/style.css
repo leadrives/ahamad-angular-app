@@ -70,7 +70,8 @@ body {
   background: linear-gradient(45deg, #ee8018 15%, #ef9b13 65%);
 }
 
-/* Remove scrollbars */
+/* Remove horizontal scrollbars but preserve vertical scroll for sticky positioning */
 html, body {
-  overflow-x: hidden;
+  overflow-x: hidden; /* Keep X hidden for mobile */
+  overflow-y: visible; /* FIXED: Ensure Y is visible for sticky/scroll detection */
 }

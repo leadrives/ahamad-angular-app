@@ -14,7 +14,9 @@ html, body {
   padding: 0 !important;
   width: 100%;
   min-height: 100vh;
+  /* FIXED: Only hide horizontal overflow, preserve vertical for sticky positioning */
   overflow-x: hidden;
+  overflow-y: visible;
   position: relative;
 }
 

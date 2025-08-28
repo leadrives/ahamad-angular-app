@@ -74,9 +74,6 @@ const PartnersSection = () => {
           <h2 className="partners-main-title">
             Trusted Partners
           </h2>
-          <h3 className="partners-subtitle">
-            Collaborating with Dubai's Premier Developers
-          </h3>
         </div>
 
         {/* Partners Showcase with Scrolling Animation */}
@@ -105,22 +102,6 @@ const PartnersSection = () => {
                   <div className="partners-card-accent"></div>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Partnership Stats */}
-          <div className="partners-stats">
-            <div className="partners-stat-item">
-              <h4 className="partners-stat-number">10+</h4>
-              <p className="partners-stat-label">Premier Developers</p>
-            </div>
-            <div className="partners-stat-item">
-              <h4 className="partners-stat-number">500+</h4>
-              <p className="partners-stat-label">Exclusive Projects</p>
-            </div>
-            <div className="partners-stat-item">
-              <h4 className="partners-stat-number">15+</h4>
-              <p className="partners-stat-label">Years Partnership</p>
             </div>
           </div>
 

@@ -26,7 +26,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(60px, 12vh, 100px) clamp(2rem, 6vw, 4rem);
+  padding: clamp(40px, 8vh, 60px) clamp(2rem, 5vw, 3.5rem);
   position: relative;
 }
 
@@ -40,18 +40,64 @@
 }
 
 .about-content-wrapper {
-  max-width: 500px;
+  max-width: 580px;
   width: 100%;
+  position: relative;
+}
+
+.about-content-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(252, 163, 17, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
 }
 
 /* ===== CONTENT TYPOGRAPHY ===== */
 .about-main-title {
   font-family: 'Italiana', serif;
-  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-size: clamp(2.8rem, 4.5vw, 4rem);
   font-weight: 900;
   color: #fff;
-  line-height: 0.95;
-  margin: 0 0 0.5rem;
+  line-height: 0.9;
+  margin: 0 0 1rem;
+  position: relative;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.about-main-title .line-1,
+.about-main-title .line-2 {
+  display: block;
+  position: relative;
+}
+
+.about-main-title .line-1 {
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.about-main-title .line-2 {
+  background: linear-gradient(90deg, #FCA311 0%, #df0c1e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.about-main-title .line-2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #FCA311 0%, #df0c1e 100%);
+  border-radius: 3px;
+  box-shadow: 0 4px 15px rgba(252, 163, 17, 0.4);
 }
 
 .about-subtitle {
@@ -66,45 +112,102 @@
 
 .about-description {
   font-family: 'Roboto', sans-serif;
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
   line-height: 1.7;
-  color: #d7d7d7;
-  margin: 0 0 2.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 1.8rem 0;
+  position: relative;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  border: 1px solid rgba(252, 163, 17, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.about-description::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 4rem;
+  color: rgba(252, 163, 17, 0.3);
+  font-family: 'Italiana', serif;
+  line-height: 1;
+}
+
+.about-description .gold-text {
+  background: linear-gradient(90deg, #FCA311 0%, #df0c1e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
 }
 
 /* ===== STATS SECTION ===== */
 .about-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin: 2rem 0 2.5rem;
-  padding: 1.5rem 0;
-  border-top: 1px solid rgba(252, 163, 17, 0.2);
-  border-bottom: 1px solid rgba(252, 163, 17, 0.2);
+  gap: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.about-stats::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, rgba(252, 163, 17, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(223, 12, 30, 0.03) 0%, transparent 50%);
+  border-radius: 20px;
+  pointer-events: none;
 }
 
 .stat-item {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 15px;
+  border: 1px solid rgba(252, 163, 17, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.stat-item:hover {
+  background: rgba(252, 163, 17, 0.05);
+  border-color: rgba(252, 163, 17, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(252, 163, 17, 0.1);
 }
 
 .stat-number {
   font-family: 'Italiana', serif;
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 900;
-  color: #FCA311;
+  background: linear-gradient(90deg, #FCA311 0%, #df0c1e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   line-height: 1;
+  position: relative;
 }
 
 .stat-label {
   font-family: 'Roboto', sans-serif;
-  font-size: clamp(0.8rem, 1vw, 0.9rem);
-  font-weight: 500;
-  color: #d7d7d7;
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  margin-top: 0.25rem;
 }
 
 .about-cta {

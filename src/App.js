@@ -3,23 +3,28 @@ import './App.css';
 import './style.css';
 import './components/MobileFix.css';
 import IntroScreen from './components/IntroScreen';
+// import SmoothScroll from './SmoothScroll';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
-import AwardsSection from './components/AwardsSection';
-import ServicesSection from './components/ServicesSection';
+// import AwardsSection from './components/AwardsSection';
+// import AwardsStack from './components/AwardsStack';
+import AwardsStackNew from './components/AwardsStackNew';
+// import ServicesSection from './components/ServicesSection';
 import GoldenVisa from './components/GoldenVisa';
 import TestimonialsSection from './components/TestimonialsSection';
 import PortfolioGallery from './components/PortfolioGallery';
 import PartnersSection from './components/PartnersSection';
-import InvestmentCalculator from './components/InvestmentCalculator';
+// import InvestmentCalculator from './components/InvestmentCalculator';
 import CTASection from './components/CTASection';
-import LatestNews from './components/LatestNews';
+// import LatestNews from './components/LatestNews';
 import ContactModal from './components/ContactModal';
 import Footer from './components/Footer';
 import AdminPanel from './components/AdminPanel';
 import AdminLogin from './components/AdminLogin';
 import SeedProperties from './components/SeedProperties';
+import ShortsDemo from './components/ShortsDemo';
+// import AwardsDemo from './components/AwardsDemo';
 // import ReactBitsDemo from './components/ReactBitsDemo';
 
 function App() {
@@ -116,27 +121,35 @@ function App() {
       
       {showMainSite && (
         <>
+          {/* SmoothScroll disabled - using native scroll for Framer Motion compatibility */}
           <Navbar />
           <Hero />
           <AboutSection />
-          <AwardsSection />
-          <ServicesSection />
+          {/* <AwardsSection /> */}
+          
+          {/* Modern Awards Stack Component with glass cards and 3D tilt */}
+          <AwardsStackNew />
+          
+          {/* <ServicesSection /> */}
           
           <TestimonialsSection />
           
           <PortfolioGallery />
           <PartnersSection />
-          <InvestmentCalculator />
+          {/* <InvestmentCalculator /> */}
           <GoldenVisa />
+          
           <CTASection />
-          <LatestNews />
+          {/* <LatestNews /> */}
+          {/* <AwardsDemo /> */}
+          <ShortsDemo />
           
           {/* Contact Modal */}
           <ContactModal />
           
           {/* Footer */}
           <Footer />
-          {/* <ReactBitsDemo /> */}
+          {/* SmoothScroll disabled - using native scroll for Framer Motion compatibility */}
         </>
       )}
     </div>

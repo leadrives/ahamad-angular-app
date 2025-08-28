@@ -16,11 +16,14 @@ const AboutSection = () => {
         {/* Left Content Side */}
         <div className="about-content-side">
           <div className="about-content-wrapper">
-            <h2 className="about-main-title">Mohamad Ahmad</h2>
-            <p className="about-subtitle">M R One Properties</p>
+            <h2 className="about-main-title">
+              <span className="line-1">The Record</span>
+              <span className="line-2">Breaking Realtor</span>
+            </h2>
+            
             
             <div className="about-description">
-              <span className="gold-text fw-bold">Mohamad Ahmad</span> is the advisor behind a <span className="gold-text fw-bold">$350,000,000 single-property purchase</span>—proof of access, discretion, and execution at the top tier. He helps investors and families secure Dubai's highest-potential assets, from launch-day off-plan allocations to trophy villas, using data-driven strategy and quiet, professional negotiation. Expect white-glove, end-to-end support—financing guidance, paperwork, and Golden Visas included—plus a network that opens doors others can't.
+              <span className="gold-text fw-bold">Mohamad Ahmad</span> is the advisor behind a <span className="gold-text fw-bold">$350,000,000 single property purchase, </span>proof of access, discretion, and execution at the top tier. He helps investors and families secure Dubai's highest-potential assets, from launch-day off-plan allocations to trophy villas, using data-driven strategy and quiet, professional negotiation. Expect white-glove, end to end support financing guidance, paperwork, and Golden Visas included plus a network that opens doors others can't.
             </div>
 
             {/* Key Stats */}
@@ -43,7 +46,7 @@ const AboutSection = () => {
               </div>
             </div>
             
-            <div className="about-cta">
+            {/* <div className="about-cta">
               <button
                 className="about-btn"
                 onClick={handleContactClick}
@@ -51,7 +54,7 @@ const AboutSection = () => {
               >
                 Get In Touch
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
         

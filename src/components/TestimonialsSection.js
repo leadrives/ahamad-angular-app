@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import TextType from './TextType';
 import './TestimonialsSection.css';
 
@@ -42,6 +42,25 @@ const TestimonialsSection = () => {
     }
   ];
 
+  const handleMouseMove = useCallback((e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    
+    const rotateX = ((mouseY - centerY) / rect.height) * -10;
+    const rotateY = ((mouseX - centerX) / rect.width) * 10;
+    
+    card.style.transform = `translateY(-12px) translateZ(20px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+  }, []);
+
+  const handleMouseLeave = useCallback((e) => {
+    const card = e.currentTarget;
+    card.style.transform = 'translateZ(0) rotateX(0) rotateY(0)';
+  }, []);
+
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, index) => (
       <i
@@ -75,16 +94,18 @@ const TestimonialsSection = () => {
               className="d-inline-block"
             />
           </h3>
-          <p className="testimonials-intro">
-            Discover how strategic guidance and market expertise have transformed 
-            property dreams into profitable realities across Dubai's premium districts.
-          </p>
+          
         </div>
 
         {/* Testimonials Grid */}
         <div className="testimonials-grid">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="testimonial-card">
+            <div 
+              key={index} 
+              className="testimonial-card"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
               
               {/* Card Header */}
               <div className="testimonial-card-header">

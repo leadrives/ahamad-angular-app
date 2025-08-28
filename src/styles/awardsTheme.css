@@ -1,0 +1,21 @@
+:root {
+  --bg-start: #0b1020;
+  --bg-end:   #121826;
+  --text:     #e5e7eb;
+  --muted:    #9aa4b2;
+
+  /* Brand accent (tweak freely) */
+  --accent-1: #8b5cf6; /* violet */
+  --accent-2: #22d3ee; /* cyan */
+  --accent-amber: #ffd166; /* to match your current brand if desired */
+
+  /* Card */
+  --card-r: 24px;
+  --card-bg: rgba(16, 18, 29, 0.55);
+  --card-stroke-1: rgba(255,255,255,0.28);
+  --card-stroke-2: rgba(255,255,255,0.06);
+  --card-shadow: 0 24px 80px rgba(0,0,0,0.35);
+
+  /* Motion */
+  --easing: cubic-bezier(.2,.8,.2,1);
+}

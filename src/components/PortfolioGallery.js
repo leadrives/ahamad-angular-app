@@ -146,10 +146,7 @@ const PortfolioGallery = () => {
           <h3 className="portfolio-gallery-subtitle">
             Handpicked Selection of Dubai's Finest Properties
           </h3>
-          <p className="portfolio-gallery-intro">
-            Discover exceptional real estate opportunities across Dubai's most prestigious locations, 
-            from luxury villas to high-yield investment properties.
-          </p>
+         
         </div>
 
         {/* Loading State */}

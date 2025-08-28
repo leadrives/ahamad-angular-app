@@ -11,7 +11,8 @@
   width: 100%;
   height: 100vh; /* Desktop fallback */
   height: 100svh; /* Real mobile viewport height */
-  overflow: hidden;
+  /* FIXED: Remove overflow: hidden to allow sticky positioning */
+  /* overflow: hidden; */
   isolation: isolate; /* keep negative layers behind */
   display: block;
   margin: 0;

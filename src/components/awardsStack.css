@@ -1,0 +1,238 @@
+/* ===== MODERN GLASS AWARDS STACK STYLES ===== */
+
+/* Background polish */
+.awards-stack-section {
+  height: 100vh; /* Changed from 360vh since we don't need scroll space */
+  position: relative;
+  overflow: visible;
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(139,92,246,0.25), transparent 60%),
+              radial-gradient(1000px 500px at 110% 20%, rgba(34,211,238,0.18), transparent 60%),
+              linear-gradient(180deg, var(--bg-start), var(--bg-end));
+  color: var(--text);
+}
+
+.awards-stack-sticky {
+  position: relative; /* Changed from sticky since we don't need scroll positioning */
+  top: 0;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+  z-index: 2;
+}
+
+/* Parallax headline already present; just ensure readable on dark */
+.awards-stack-word {
+  position: absolute;
+  bottom: 8vh;
+  left: 4vw;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-size: clamp(3rem, 18vw, 22rem);
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  mix-blend-mode: normal;
+  opacity: 0.12;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Card container */
+.awards-stack-wrap {
+  position: relative;
+  width: min(1100px, 92vw);
+  height: clamp(440px, 72vh, 780px);
+  /* ensure no stacking-context that blocks z-index flips */
+  /* no perspective here */
+  cursor: pointer;
+  
+  /* Center the cards properly */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.awards-stack-wrap:hover {
+  /* Subtle indication that carousel is paused */
+  filter: brightness(1.05);
+}
+
+/* Card base */
+.award-stack-card {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--card-r);
+  background:
+    linear-gradient(var(--card-bg), var(--card-bg)) padding-box,
+    linear-gradient(180deg, var(--card-stroke-1), var(--card-stroke-2)) border-box;
+  border: 1px solid transparent;
+  box-shadow: var(--card-shadow);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  will-change: transform, opacity, box-shadow;
+  isolation: isolate; /* ensure glow stays under content */
+  
+  /* Remove CSS transitions - let Framer Motion handle all animations */
+  transform-origin: center center;
+}
+
+/* Ambient glow behind active card */
+.card-ambient {
+  position: absolute; 
+  inset: -12% -10% -14% -10%;
+  border-radius: calc(var(--card-r) * 1.25);
+  background: radial-gradient(60% 60% at 50% 45%, rgba(139,92,246,0.25), transparent 70%),
+              radial-gradient(60% 60% at 55% 60%, rgba(34,211,238,0.20), transparent 80%);
+  filter: blur(40px);
+  opacity: 0;
+  transition: opacity 320ms var(--easing);
+  z-index: -1;
+}
+.award-stack-card.is-active .card-ambient { 
+  opacity: 1; 
+}
+
+/* Animated gradient ring */
+.card-ring {
+  position: absolute; 
+  inset: -1px;
+  border-radius: var(--card-r);
+  padding: 1px;
+  background: conic-gradient(from 180deg,
+      var(--accent-1),
+      var(--accent-2),
+      var(--accent-1));
+  /* Fallback for browsers that don't support color-mix */
+  background: conic-gradient(from 180deg,
+      color-mix(in oklab, var(--accent-1) 85%, #fff 10%),
+      var(--accent-2),
+      color-mix(in oklab, var(--accent-1) 85%, #fff 10%));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; 
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 260ms var(--easing), filter 260ms var(--easing);
+  pointer-events: none;
+}
+.award-stack-card.is-active .card-ring { 
+  opacity: 0.9; 
+  filter: saturate(1.1) brightness(1.05); 
+}
+
+/* Media */
+.award-stack-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--card-r) - 4px) calc(var(--card-r) - 4px) 0 0;
+}
+.award-stack-media img {
+  width: 100%; 
+  height: 100%;
+  object-fit: contain;
+  will-change: transform, clip-path, filter;
+}
+
+/* Meta */
+.award-stack-meta {
+  position: relative;
+  padding: clamp(18px, 2.6vw, 28px);
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.55));
+  border-radius: 0 0 var(--card-r) var(--card-r);
+}
+.award-title {
+  margin: 0 0 6px; 
+  line-height: 1.2; 
+  font-weight: 700;
+  font-size: clamp(18px, 2.8vw, 28px);
+  background: linear-gradient(90deg, var(--text), var(--text));
+  /* Enhanced with color-mix for supported browsers */
+  background: linear-gradient(90deg, var(--text), color-mix(in oklab, var(--text), white 12%));
+  -webkit-background-clip: text; 
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.award-year {
+  display: inline-block;
+  margin: 0; 
+  padding: 6px 12px; 
+  border-radius: 999px;
+  font-size: clamp(12px, 1.8vw, 14px); 
+  font-weight: 600; 
+  letter-spacing: .06em;
+  color: #0b1020;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  box-shadow: 0 8px 24px rgba(139,92,246,0.35);
+}
+
+/* Progress rail (right side) */
+.awards-rail {
+  position: absolute;
+  right: -36px; 
+  top: 50%; 
+  transform: translateY(-50%);
+  display: grid; 
+  gap: 10px; 
+  z-index: 5000;
+}
+.rail-dot {
+  width: 10px; 
+  height: 10px; 
+  border-radius: 50%;
+  background: #2b3144; 
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,0.25);
+  transition: transform 200ms var(--easing), background 200ms var(--easing);
+  cursor: pointer;
+}
+.rail-dot.active, 
+.rail-dot:hover {
+  background: linear-gradient(180deg, var(--accent-1), var(--accent-2));
+  transform: scale(1.25);
+}
+
+/* Hover polish (desktop) */
+@media (hover:hover) and (pointer:fine) {
+  .award-stack-card.is-active .award-stack-media img { 
+    filter: saturate(1.08) contrast(1.04); 
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card-ring, 
+  .card-ambient, 
+  .award-stack-media img { 
+    transition: none !important; 
+  }
+  
+  .rail-dot {
+    transition: none !important;
+  }
+}
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+  .awards-stack-word {
+    font-size: clamp(2rem, 15vw, 8rem);
+    bottom: 4vh;
+    left: 2vw;
+  }
+  
+  .awards-rail {
+    right: -24px;
+    gap: 8px;
+  }
+  
+  .rail-dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .award-stack-meta {
+    padding: clamp(16px, 4vw, 24px);
+  }
+}

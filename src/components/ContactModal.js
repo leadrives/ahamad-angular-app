@@ -4,31 +4,14 @@ import { db } from '../firebase/config';
 import './ContactModal.css';
 import SuccessModal from './SuccessModal';
 
-const ContactModal = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    message: ''
-  });
-  const [selectedCountry, setSelectedCountry] = useState({ flag: '🇦🇪', code: '+971', name: 'UAE' });
-  const [filteredCountries, setFilteredCountries] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [userLocationData, setUserLocationData] = useState({
-    ip: '',
-    country: 'UAE',
-    city: '',
-    region: ''
-  });
-
-  const countries = [
-    { flag: '🇦🇫', code: '+93', name: 'Afghanistan' },
-    { flag: '🇦🇱', code: '+355', name: 'Albania' },
-    { flag: '🇩🇿', code: '+213', name: 'Algeria' },
-    { flag: '🇦🇩', code: '+376', name: 'Andorra' },
-    { flag: '🇦🇴', code: '+244', name: 'Angola' },
-    { flag: '🇦🇬', code: '+1268', name: 'Antigua and Barbuda' },
+// Static countries data moved outside component to prevent re-renders
+const countries = [
+  { flag: '🇦🇫', code: '+93', name: 'Afghanistan' },
+  { flag: '🇦🇱', code: '+355', name: 'Albania' },
+  { flag: '🇩🇿', code: '+213', name: 'Algeria' },
+  { flag: '🇦🇩', code: '+376', name: 'Andorra' },
+  { flag: '🇦🇴', code: '+244', name: 'Angola' },
+  { flag: '🇦🇬', code: '+1268', name: 'Antigua and Barbuda' },
     { flag: '🇦🇷', code: '+54', name: 'Argentina' },
     { flag: '🇦🇲', code: '+374', name: 'Armenia' },
     { flag: '🇦🇺', code: '+61', name: 'Australia' },
@@ -216,32 +199,68 @@ const ContactModal = () => {
     { flag: '🇿🇼', code: '+263', name: 'Zimbabwe' }
   ];
 
-  // Auto-detect user's country based on IP
+const ContactModal = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    message: ''
+  });
+  const [selectedCountry, setSelectedCountry] = useState({ flag: '🇦🇪', code: '+971', name: 'UAE' });
+  const [filteredCountries, setFilteredCountries] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [userLocationData, setUserLocationData] = useState({
+    ip: '',
+    country: 'UAE',
+    city: '',
+    region: ''
+  });
+
+  // Auto-detect user's country based on browser locale (fallback to UAE)
   useEffect(() => {
-    const detectUserCountry = async () => {
+    const detectUserCountry = () => {
       try {
-        const response = await fetch('https://ipapi.co/json/');
-        const data = await response.json();
+        // Use browser's locale to guess country
+        const locale = navigator.language || navigator.languages?.[0] || 'en-AE';
+        const countryCode = locale.split('-')[1]; // Extract country code
         
-        // Save user location data
+        // Map common country codes to our countries array
+        const countryMapping = {
+          'AE': { flag: '🇦🇪', code: '+971', name: 'UAE' },
+          'US': { flag: '🇺🇸', code: '+1', name: 'United States' },
+          'GB': { flag: '🇬🇧', code: '+44', name: 'United Kingdom' },
+          'IN': { flag: '🇮🇳', code: '+91', name: 'India' },
+          'PK': { flag: '🇵🇰', code: '+92', name: 'Pakistan' },
+          'SA': { flag: '🇸🇦', code: '+966', name: 'Saudi Arabia' },
+          'EG': { flag: '🇪🇬', code: '+20', name: 'Egypt' },
+          'CA': { flag: '🇨🇦', code: '+1', name: 'Canada' },
+          'AU': { flag: '🇦🇺', code: '+61', name: 'Australia' },
+          'DE': { flag: '🇩🇪', code: '+49', name: 'Germany' },
+          'FR': { flag: '🇫🇷', code: '+33', name: 'France' }
+        };
+
+        const detectedCountry = countryMapping[countryCode] || countryMapping['AE'];
+        setSelectedCountry(detectedCountry);
+        
+        // Set user location data with fallback
         setUserLocationData({
-          ip: data.ip || '',
-          country: data.country_name || 'UAE',
-          city: data.city || '',
-          region: data.region || ''
+          ip: 'N/A',
+          country: detectedCountry.name,
+          city: '',
+          region: ''
         });
         
-        const userCountry = countries.find(country => 
-          country.name.toLowerCase().includes(data.country_name?.toLowerCase() || '') ||
-          country.code === `+${data.country_calling_code}`
-        );
-        
-        if (userCountry) {
-          setSelectedCountry(userCountry);
-        }
+        console.log(`Country detected from locale: ${detectedCountry.name}`);
       } catch (error) {
-        console.log('Could not detect country, using default UAE');
-        setUserLocationData(prev => ({ ...prev, country: 'UAE' }));
+        console.log('Using default UAE country');
+        setSelectedCountry({ flag: '🇦🇪', code: '+971', name: 'UAE' });
+        setUserLocationData({
+          ip: 'N/A',
+          country: 'UAE',
+          city: '',
+          region: ''
+        });
       }
     };
 
@@ -410,7 +429,7 @@ const ContactModal = () => {
                             </li>
                             <li><hr className="dropdown-divider" /></li>
                             {filteredCountries.slice(0, 10).map((country, index) => (
-                              <li key={index}>
+                              <li key={`country-${country.code}-${index}`}>
                                 <button
                                   className="dropdown-item"
                                   type="button"
